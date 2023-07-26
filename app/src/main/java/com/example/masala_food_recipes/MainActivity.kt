@@ -21,6 +21,7 @@ class MainActivity : AppCompatActivity() {
             Log.d("MainActivity", "onCreate: $cleanedIngredients")
             Log.d("MainActivity", "onCreate: $imageUrl")
             Log.d("MainActivity", "onCreate: $ingredientCount")
+            // Search
         }
     }
 }
