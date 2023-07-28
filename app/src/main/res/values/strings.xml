@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">masala-food-recipes</string>
+    <string name="_15">15</string>
+    <string name="indian">Indian</string>
+    <string name="item">item</string>
 </resources>
