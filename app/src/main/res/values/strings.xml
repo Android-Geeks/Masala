@@ -3,4 +3,6 @@
     <string name="_15">15</string>
     <string name="indian">Indian</string>
     <string name="item">item</string>
+    <string name="recipe_name">Recipe Name</string>
+    <string name="cuisine">cuisine</string>
 </resources>
