@@ -1,31 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="sizeTextTitle">20sp</dimen>
-    <dimen name="sizeCuisines">16sp</dimen>
-    <dimen name="sizeViewAll">12sp</dimen>
-    <dimen name="sizeCuisinesName">14sp</dimen>
-    <dimen name="sizeItemNUM">12sp</dimen>
-    <dimen name="sizeItem">12sp</dimen>
-    <dimen name="sizeForYou">16sp</dimen>
-    <dimen name="sizeRecipeName"> 16sp</dimen>
-    <dimen name="sizeCookingTime">14sp</dimen>
-    <dimen name="sizeUnder20minMeal">16sp</dimen>
-    <dimen name="sizeUnder5IngredientMeal">16sp</dimen>
-    <dimen name="sizeTime">14sp</dimen>
-    <dimen name="sizeLabelText">12sp</dimen>
-    <dimen name="sizeSupportingText">16sp</dimen>
-    <dimen name="sizeSubCategory">16sp</dimen>
-    <dimen name="sizeFavorite">16sp</dimen>
-    <dimen name="sizeSettings">16sp</dimen>
-    <dimen name="sizeDetails">16sp</dimen>
-    <dimen name="sizeMasalaKarelaRecipe">16sp</dimen>
-    <dimen name="sizeIngredients">14sp</dimen>
-    <dimen name="sizeInstruction">14sp</dimen>
-    <dimen name="sizeDescription">14sp</dimen>
-    <dimen name="sizeRecipeSteps">12sp</dimen>
-    <dimen name="sizeMoreInfo">14sp</dimen>
-
-
+    <dimen name="app_name">20sp</dimen>
+    <dimen name="big">16sp</dimen>
+    <dimen name="medium">14sp</dimen>
+    <dimen name="small">12sp</dimen>
 </resources>
 
 
