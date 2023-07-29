@@ -6,7 +6,6 @@ import com.example.masala_food_recipes.data.entities.Recipe
 class Interactor(context: MainActivity) {
 
     private val recipes = DataManager(context).getAllRecipesData()
-
     fun underTwentyMin(): List<Recipe>{
         val list = mutableListOf<Recipe>()
         recipes.forEach{
