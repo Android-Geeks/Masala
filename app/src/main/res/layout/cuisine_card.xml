@@ -10,18 +10,29 @@
     app:layout_constraintTop_toTopOf="parent">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginHorizontal="8dp"
-        android:layout_marginBottom="4dp"
-        tools:background="@drawable/img">
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/cuisine_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/img"
+            android:src="@drawable/gradient"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/cuisine_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:text="Indian"
+            android:textColor="@color/white"
             android:textSize="14sp"
             android:textStyle="bold"
+            android:layout_marginStart="8dp"
             app:layout_constraintBottom_toTopOf="@id/item_number"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -29,19 +40,23 @@
             android:id="@+id/item_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="8dp"
             android:paddingEnd="8dp"
-            tools:text="15"
             android:textSize="12sp"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintEnd_toStartOf="@+id/text_item"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="15" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/text_item"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="item"
             android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/item_number" />
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="@+id/item_number"
+            app:layout_constraintStart_toEndOf="@+id/item_number"
+            tools:text="item" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>
