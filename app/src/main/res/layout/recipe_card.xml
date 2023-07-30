@@ -8,6 +8,7 @@
     app:cardCornerRadius="12dp"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -17,12 +18,12 @@
             android:id="@+id/recipe_image"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/img"
             android:src="@drawable/gradient"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:background="@drawable/img" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/appCompatTextView"
@@ -60,7 +61,7 @@
             tools:text="cuisine" />
 
         <CheckBox
-            android:id="@+id/checkBox"
+            android:id="@+id/check_box"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginTop="8dp"
