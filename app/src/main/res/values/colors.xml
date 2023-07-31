@@ -9,6 +9,8 @@
     <color name="dark_brown">#351E06</color>
     <color name="dark_gray">#747775</color>
     <color name="brown">#512C08</color>
+    <color name="darker_gray">#99252525</color>
+    <color name="light_gray">#4D49454F</color>
 
 
 </resources>
