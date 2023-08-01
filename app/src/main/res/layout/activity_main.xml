@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/off_white"
+        android:paddingHorizontal="8dp"
         app:itemActiveIndicatorStyle="@style/Indicator"
         app:itemIconTint="@color/icon_color"
         app:itemPaddingBottom="16dp"
