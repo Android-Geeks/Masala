@@ -16,26 +16,24 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="4dp"
         android:orientation="horizontal"
         android:padding="5dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginBottom="4dp"
 
         >
 
 
-
         <ImageView
             android:id="@+id/imageview"
-            tools:background="@drawable/pizza"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            />
+            tools:background="@drawable/pizza" />
 
         <View
             android:id="@+id/view"
@@ -53,10 +51,10 @@
             android:layout_height="21dp"
             android:textSize="14sp"
             android:textStyle="normal"
-            tools:background="@color/white_45"
             app:layout_constraintBottom_toTopOf="@id/textView_numberOfItems"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:background="@color/white_45"
             tools:text="item" />
 
         <TextView
