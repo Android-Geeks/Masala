@@ -9,6 +9,8 @@
     android:layout_marginBottom="4dp"
     android:elevation="6dp"
     app:cardCornerRadius="12dp"
+    style="@style/grdientCard"
+
 
     >
 
@@ -16,18 +18,35 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
-        android:padding="5dp">
+        android:padding="5dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="4dp"
+
+        >
+
+
 
         <ImageView
             android:id="@+id/imageview"
+            tools:background="@drawable/pizza"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:src="@color/gray" />
-
+            />
+        <View
+            style="@style/grdient_Card"
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
 
         <TextView
             android:id="@+id/textView_cuisines"
@@ -36,6 +55,7 @@
             android:layout_marginStart="5dp"
             android:textSize="14sp"
             android:textStyle="normal"
+            android:background="@color/white_45"
             app:layout_constraintBottom_toTopOf="@id/textView_numberOfItems"
             app:layout_constraintStart_toStartOf="parent"
             tools:text="item" />
@@ -47,6 +67,7 @@
             android:layout_gravity="bottom"
             android:textSize="14sp"
             android:textStyle="normal"
+            android:background="@color/white_45"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@id/textView_cuisines"
             tools:text="item" />
