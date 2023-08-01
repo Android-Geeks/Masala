@@ -1,4 +1,4 @@
-package com.example.masala_food_recipes.ui.base
+package com.example.masala_food_recipes.ui.recyclerview
 
 import android.view.LayoutInflater
 import android.view.View
