@@ -9,7 +9,6 @@
     android:layout_marginBottom="4dp"
     android:elevation="6dp"
     app:cardCornerRadius="12dp"
-    style="@style/grdientCard"
 
 
     >
@@ -37,39 +36,39 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             />
+
         <View
-            style="@style/grdient_Card"
             android:id="@+id/view"
+            style="@style/grdient_Card"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textView_cuisines"
             android:layout_width="119dp"
             android:layout_height="21dp"
-            android:layout_marginStart="5dp"
             android:textSize="14sp"
             android:textStyle="normal"
-            android:background="@color/white_45"
+            tools:background="@color/white_45"
             app:layout_constraintBottom_toTopOf="@id/textView_numberOfItems"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             tools:text="item" />
 
         <TextView
             android:id="@+id/textView_numberOfItems"
             android:layout_width="119dp"
             android:layout_height="21dp"
-            android:layout_gravity="bottom"
             android:textSize="14sp"
             android:textStyle="normal"
-            android:background="@color/white_45"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@id/textView_cuisines"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/view"
+            tools:background="@color/white_45"
             tools:text="item" />
 
 
