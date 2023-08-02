@@ -4,7 +4,7 @@ import com.example.masala_food_recipes.databinding.FragmentFavouriteBinding
 
 class FavouriteFragment : BaseFragment<FragmentFavouriteBinding>(FragmentFavouriteBinding :: inflate) {
     override fun onCreateView() {
-        TODO("Not yet implemented")
+        //TODO("Not yet implemented")
     }
 
 }

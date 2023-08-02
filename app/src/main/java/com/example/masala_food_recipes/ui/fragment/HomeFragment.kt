@@ -4,6 +4,6 @@ import com.example.masala_food_recipes.databinding.FragmentHomeBinding
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding :: inflate) {
     override fun onCreateView() {
-        TODO("Not yet implemented")
+        //TODO("Not yet implemented")
     }
 }
