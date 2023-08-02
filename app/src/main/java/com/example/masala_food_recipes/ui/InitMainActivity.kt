@@ -11,43 +11,45 @@ import com.example.masala_food_recipes.ui.fragment.HomeFragment
 import com.example.masala_food_recipes.ui.fragment.SearchFragment
 import com.example.masala_food_recipes.ui.fragment.SettingFragment
 
-abstract class InitClass : AppCompatActivity() {
+abstract class InitMainActivity : AppCompatActivity() {
     protected lateinit var binding : ActivityMainBinding
     protected val homeScreen = HomeFragment()
     protected val favouriteScreen = FavouriteFragment()
     protected val searchScreen = SearchFragment()
     protected val settingScreen = SettingFragment()
-    override fun onCreate(savedInstanceState: Bundle?) {
-        binding= ActivityMainBinding.inflate(layoutInflater)
+    override fun onCreate(savedInstanceState : Bundle?) {
+        binding = ActivityMainBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         init()
     }
+
     private fun init() {
         initFragment()
-        binding.bottomNavigation.setOnItemSelectedListener {item ->
-            when(item.itemId){
-                R.id.home_icon -> replaceFragment(homeScreen)
-                R.id.search_icon -> replaceFragment(searchScreen)
+        binding.bottomNavigation.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.home_icon      -> replaceFragment(homeScreen)
+                R.id.search_icon    -> replaceFragment(searchScreen)
                 R.id.favourite_icon -> replaceFragment(favouriteScreen)
-                R.id.setting_icon -> replaceFragment(settingScreen)
-                else -> false
+                R.id.setting_icon   -> replaceFragment(settingScreen)
+                else                -> false
             }
         }
     }
 
     private fun initFragment() {
-        inTransaction { add(R.id.fragment_container_view,homeScreen) }
+        inTransaction { add(R.id.fragment_container_view , homeScreen) }
     }
 
     private fun replaceFragment(fragment : Fragment) : Boolean {
-        inTransaction { replace(R.id.fragment_container_view,fragment) }
+        inTransaction { replace(R.id.fragment_container_view , fragment) }
         return true
     }
-    protected fun inTransaction(func: FragmentTransaction.() -> FragmentTransaction) {
+
+    protected fun inTransaction(func : FragmentTransaction.() -> FragmentTransaction) {
         supportFragmentManager
-            .beginTransaction()
-            .func()
-            .commit()
+                .beginTransaction()
+                .func()
+                .commit()
     }
 }
