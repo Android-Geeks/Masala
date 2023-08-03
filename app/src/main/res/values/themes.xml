@@ -13,9 +13,7 @@
         <item name="android:background">@drawable/favorite_icon</item>
     </style>
 
-    <style name="recipe_card">
-        <item name="background">@drawable/card_recipe</item>
-    </style>
+
 
     <style name="Theme.Masalafoodrecipes" parent="Base.Theme.Masalafoodrecipes" />
 </resources>
