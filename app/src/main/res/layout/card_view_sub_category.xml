@@ -71,7 +71,6 @@
                 android:id="@+id/textView_recipe"
                 android:layout_width="match_parent"
                 android:layout_height="24dp"
-                android:TextSize="16sp"
                 android:textSize="20sp"
                 android:textStyle="normal"
                 app:layout_constraintStart_toStartOf="parent"
@@ -173,7 +172,6 @@
                 android:id="@+id/textView_recipe2"
                 android:layout_width="match_parent"
                 android:layout_height="24dp"
-                android:TextSize="16sp"
                 android:textSize="20sp"
                 android:textStyle="normal"
 

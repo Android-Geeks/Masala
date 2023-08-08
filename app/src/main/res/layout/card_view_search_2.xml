@@ -76,9 +76,11 @@
                 app:layout_constraintStart_toStartOf="@id/layout_bottom" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <androidx.appcompat.widget.AppCompatButton
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/drawable_favorite"
-            style="@style/favoriteIcon"
+            app:icon="@drawable/favorite_icon"
+            app:iconTint="@color/black"
+            android:backgroundTint="@color/white"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginEnd="10dp"
@@ -87,17 +89,17 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/constraint_layout" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/heart_icon"
-            android:layout_width="14dp"
-            android:layout_height="14dp"
-            android:layout_marginStart="4dp"
-            android:layout_marginEnd="4dp"
-            android:layout_marginBottom="4dp"
-            android:background="@drawable/round_favorite_border_24"
-            app:layout_constraintBottom_toBottomOf="@id/drawable_favorite"
-            app:layout_constraintEnd_toEndOf="@id/drawable_favorite"
-            app:layout_constraintStart_toStartOf="@id/drawable_favorite" />
+<!--        <androidx.appcompat.widget.AppCompatButton-->
+<!--            android:id="@+id/heart_icon"-->
+<!--            android:layout_width="14dp"-->
+<!--            android:layout_height="14dp"-->
+<!--            android:layout_marginStart="4dp"-->
+<!--            android:layout_marginEnd="4dp"-->
+<!--            android:layout_marginBottom="4dp"-->
+<!--            android:background="@drawable/round_favorite_border_24"-->
+<!--            app:layout_constraintBottom_toBottomOf="@id/drawable_favorite"-->
+<!--            app:layout_constraintEnd_toEndOf="@id/drawable_favorite"-->
+<!--            app:layout_constraintStart_toStartOf="@id/drawable_favorite" />-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
