@@ -43,11 +43,12 @@
                 app:layout_constraintTop_toTopOf="parent"
                 tools:src="@drawable/pizza" />
 
-            <androidx.appcompat.widget.AppCompatButton
+            <CheckBox
                 android:id="@+id/drawable_favorite"
                 style="@style/favoriteIcon"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:button="@drawable/round_favorite_border_24"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="@dimen/margin_start_end"
                 app:layout_constraintEnd_toEndOf="@+id/imageview_recipe"
@@ -55,17 +56,6 @@
 
                 />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/heart_icon"
-                android:layout_width="14dp"
-                android:layout_height="14dp"
-                android:layout_marginStart="4dp"
-                android:layout_marginEnd="4dp"
-                android:layout_marginBottom="4dp"
-                android:background="@drawable/round_favorite_border_24"
-                app:layout_constraintBottom_toBottomOf="@id/drawable_favorite"
-                app:layout_constraintEnd_toEndOf="@id/drawable_favorite"
-                app:layout_constraintStart_toStartOf="@id/drawable_favorite" />
 
             <TextView
                 android:id="@+id/textView_recipe"
@@ -144,29 +134,18 @@
                 app:layout_constraintTop_toTopOf="parent"
                 tools:src="@drawable/pizza" />
 
-            <androidx.appcompat.widget.AppCompatButton
+            <CheckBox
                 android:id="@+id/drawable_favorite2"
                 style="@style/favoriteIcon"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:button="@drawable/baseline_favorite_border_24"
                 android:layout_margin="10dp"
                 android:layout_marginTop="10dp"
                 app:layout_constraintEnd_toEndOf="@+id/imageview_recipe2"
                 app:layout_constraintTop_toTopOf="parent"
 
                 />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/heart_icon2"
-                android:layout_width="14dp"
-                android:layout_height="14dp"
-                android:layout_marginStart="4dp"
-                android:layout_marginEnd="4dp"
-                android:layout_marginBottom="4dp"
-                android:background="@drawable/round_favorite_border_24"
-                app:layout_constraintBottom_toBottomOf="@id/drawable_favorite2"
-                app:layout_constraintEnd_toEndOf="@id/drawable_favorite2"
-                app:layout_constraintStart_toStartOf="@id/drawable_favorite2" />
 
             <TextView
                 android:id="@+id/textView_recipe2"
