@@ -5,10 +5,12 @@ import android.content.Context
 import android.graphics.drawable.Drawable
 import android.view.View
 import android.widget.ImageView
+import androidx.core.content.ContentProviderCompat.requireContext
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.ViewTarget
 import com.bumptech.glide.request.transition.Transition
 import com.example.masala_food_recipes.R
+import com.example.masala_food_recipes.data.DataManager
 import com.example.masala_food_recipes.data.entities.Recipe
 import com.example.masala_food_recipes.data.interactors.Cuisines
 import com.example.masala_food_recipes.databinding.CuisineCardBinding
@@ -25,10 +27,10 @@ class CuisineAdapter(items: List<Recipe>) :BaseRecyclerAdapter<Recipe,BaseRecycl
 
         @SuppressLint("SetTextI18n")
         override fun bind(item: Recipe) {
+            val key = Cuisines(listOf(item)).getCuisineCards().keys.joinToString(",")
             binding.apply {
-                cuisineName.text = Cuisines(listOf(item)).getCuisineCards().keys.joinToString(",")
-                itemNumber.text =
-                    Cuisines(listOf(item)).getCuisineCards().values.first().first.toString()
+                cuisineName.text = key
+                itemNumber.text =Cuisines(DataManager(context).getAllRecipesData()).getCuisineCards()[key]!!.first.toString()
                 textItem.text = "item"
 
 
