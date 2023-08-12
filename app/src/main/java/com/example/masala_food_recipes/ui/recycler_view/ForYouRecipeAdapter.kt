@@ -30,11 +30,7 @@ class ForYouRecipeAdapter(items: List<Recipe>) :BaseRecyclerAdapter<Recipe,BaseR
                 Glide.with(context)
                     .load(ForYouRecipe(listOf(item)).execute(10).values.first().second)
                     .centerCrop()
-                    .into(object : ViewTarget<ImageView, Drawable>(recipeImage) {
-                        override fun onResourceReady(resource: Drawable, transition: Transition<in Drawable>?) {
-                            recipeImage.background = resource // Set the background drawable
-                        }
-                    })
+                    .into(recipeImage)
 
             }
         }

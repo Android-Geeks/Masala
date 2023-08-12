@@ -190,7 +190,7 @@
         android:id="@+id/cuisine_fragment"
         android:name="com.example.masala_food_recipes.ui.fragment.CuisineFragment"
         android:background="@color/white"
-        android:visibility="visible"
+        android:visibility="invisible"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintTop_toTopOf="parent"

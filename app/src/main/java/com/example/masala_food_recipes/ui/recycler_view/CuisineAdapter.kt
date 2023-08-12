@@ -37,11 +37,7 @@ class CuisineAdapter(items: List<Recipe>) :BaseRecyclerAdapter<Recipe,BaseRecycl
                 Glide.with(context)
                     .load(Cuisines(listOf(item)).getCuisineCards().values.first().second)
                     .centerCrop()
-                    .into(object : ViewTarget<ImageView, Drawable>(cuisineImage) {
-                        override fun onResourceReady(resource: Drawable, transition: Transition<in Drawable>?) {
-                            cuisineImage.background = resource // Set the background drawable
-                        }
-                    })
+                    .into(cuisineImage)
             }
         }
     }

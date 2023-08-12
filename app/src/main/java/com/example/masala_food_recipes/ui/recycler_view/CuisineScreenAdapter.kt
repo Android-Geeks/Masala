@@ -36,11 +36,7 @@ class CuisineScreenAdapter(items: List<Recipe>) :
                     Glide.with(context)
                         .load(Cuisines(listOf(item)).getCuisineCards().values.first().second)
                         .centerCrop()
-                        .into(object : ViewTarget<ImageView, Drawable>(imageview) {
-                            override fun onResourceReady(resource: Drawable, transition: Transition<in Drawable>?) {
-                                imageview.background = resource // Set the background drawable
-                            }
-                        })
+                        .into(imageview)
                 }
             }
         }
