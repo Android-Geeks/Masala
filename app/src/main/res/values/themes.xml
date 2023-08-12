@@ -6,4 +6,10 @@
     </style>
 
     <style name="Theme.Masalafoodrecipes" parent="Base.Theme.Masalafoodrecipes" />
+    <style name="Indicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@color/orange</item>
+    </style>
+    <style name="Widget.App.CheckBox" parent="Widget.Material3.CompoundButton.CheckBox">
+        <item name="buttonTint">@color/orange</item>
+    </style>
 </resources>
