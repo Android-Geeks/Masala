@@ -14,5 +14,4 @@ class Cuisines(private val recipes: List<Recipe>) {
                 )
             }
 
-
 }
