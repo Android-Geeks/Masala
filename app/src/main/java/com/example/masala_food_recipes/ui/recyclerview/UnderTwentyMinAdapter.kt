@@ -1,4 +1,4 @@
-package com.example.masala_food_recipes.ui.recycler_view
+package com.example.masala_food_recipes.ui.recyclerview
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -8,7 +8,6 @@ import com.example.masala_food_recipes.R
 import com.example.masala_food_recipes.data.entities.Recipe
 import com.example.masala_food_recipes.data.interactors.UnderTwentyMinsRecipe
 import com.example.masala_food_recipes.databinding.UnderTwentyCardBinding
-import com.example.masala_food_recipes.ui.recyclerview.BaseRecyclerAdapter
 
 class UnderTwentyMinAdapter(items: List<Recipe>) :BaseRecyclerAdapter<Recipe,BaseRecyclerAdapter.BaseViewHolder<Recipe>>(items) {
     override val layoutId = R.layout.under_twenty_card

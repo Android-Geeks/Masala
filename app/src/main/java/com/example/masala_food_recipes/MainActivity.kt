@@ -4,12 +4,11 @@ import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.masala_food_recipes.data.DataManager
-import com.example.masala_food_recipes.data.interactors.Cuisines
 import com.example.masala_food_recipes.databinding.ActivityMainBinding
-import com.example.masala_food_recipes.ui.recycler_view.CuisineAdapter
-import com.example.masala_food_recipes.ui.recycler_view.ForYouRecipeAdapter
-import com.example.masala_food_recipes.ui.recycler_view.UnderFiveIngredientAdapter
-import com.example.masala_food_recipes.ui.recycler_view.UnderTwentyMinAdapter
+import com.example.masala_food_recipes.ui.recyclerview.CuisineAdapter
+import com.example.masala_food_recipes.ui.recyclerview.ForYouRecipeAdapter
+import com.example.masala_food_recipes.ui.recyclerview.UnderFiveIngredientAdapter
+import com.example.masala_food_recipes.ui.recyclerview.UnderTwentyMinAdapter
 
 
 class MainActivity : AppCompatActivity() {
