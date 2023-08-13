@@ -5,54 +5,54 @@
     android:layout_width="163dp"
     android:layout_height="160dp"
     android:layout_marginBottom="16dp"
-    app:cardCornerRadius="12dp"
-    >
+    app:cardCornerRadius="12dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_height="match_parent">
+
         <ImageView
-            android:id="@+id/imageview"
+            android:id="@+id/food_image"
             android:layout_width="match_parent"
             android:layout_height="160dp"
+            android:contentDescription="@string/food_image"
+            android:foreground="@drawable/gradient_card"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:src="@drawable/image"
-            android:foreground="@drawable/gradient_card"
-
-            />
+            tools:src="@drawable/image" />
 
 
         <TextView
-            android:id="@+id/textView_cuisines"
-            android:layout_width="119dp"
-            android:layout_height="21dp"
+            android:id="@+id/cuisine_textview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:ellipsize="end"
+            android:maxLines="1"
             android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="normal"
-            app:layout_constraintBottom_toTopOf="@id/textView_numberOfItems"
+            app:layout_constraintBottom_toTopOf="@id/items_count"
             app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                tools:text="item" />
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="Indian" />
 
-            <TextView
-                android:id="@+id/textView_numberOfItems"
-                android:layout_width="119dp"
-                android:layout_height="21dp"
-                android:layout_marginBottom="@dimen/small_margin"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                android:textStyle="normal"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@id/imageview"
-                tools:text="15  item" />
-
-
-
+        <TextView
+            android:id="@+id/items_count"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginBottom="@dimen/small_margin"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/food_image"
+            tools:text="15 item" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
