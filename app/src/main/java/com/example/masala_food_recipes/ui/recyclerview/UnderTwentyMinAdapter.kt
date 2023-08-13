@@ -26,7 +26,7 @@ class UnderTwentyMinAdapter(items: List<Recipe>,listener: UnderTwentyMinListener
             if (underTwentyMinList.isNotEmpty()) {
 
                 binding.apply {
-                    mealName.text = underTwentyMinList.keys.toString()
+                    mealName.text = underTwentyMinList.keys.joinToString(",")
                     mealTime.text = underTwentyMinList.values.first().first.toString()
                     Glide.with(context)
                         .load(underTwentyMinList.values.first().second)

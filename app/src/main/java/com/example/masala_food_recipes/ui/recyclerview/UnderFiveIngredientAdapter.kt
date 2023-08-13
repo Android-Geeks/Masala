@@ -32,12 +32,11 @@ class UnderFiveIngredientAdapter(items: List<Recipe>, listener:UnderFiveIngredie
 
             if (underFiveIngredientList.isNotEmpty()){
 
-                val underFiveIngredient = underFiveIngredientList.first()
                 binding.apply {
-                    mealName.text = underFiveIngredient.first
-                    mealTime.text = underFiveIngredient.second.first
+                    mealName.text = underFiveIngredientList.keys.joinToString(",")
+                    mealTime.text = underFiveIngredientList.values.first().first.toString()
                     Glide.with(context)
-                        .load(underFiveIngredient.second.second)
+                        .load(underFiveIngredientList.values.first().second)
                         .centerCrop()
                         .into(mealImage)
 
