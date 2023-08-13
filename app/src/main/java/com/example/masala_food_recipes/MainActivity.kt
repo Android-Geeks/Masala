@@ -5,11 +5,14 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
+import androidx.viewpager.widget.PagerAdapter
+import androidx.viewpager2.widget.ViewPager2
 import com.example.masala_food_recipes.databinding.ActivityMainBinding
 import com.example.masala_food_recipes.ui.fragment.FavouriteFragment
 import com.example.masala_food_recipes.ui.fragment.HomeFragment
 import com.example.masala_food_recipes.ui.fragment.SearchFragment
 import com.example.masala_food_recipes.ui.fragment.SettingFragment
+import com.example.myapplication.DetailsScreen2
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,11 +21,14 @@ class MainActivity : AppCompatActivity() {
     private val favouriteScreen = FavouriteFragment()
     private val searchScreen = SearchFragment()
     private val settingScreen = SettingFragment()
+    private lateinit var viewPager: ViewPager2
+    private val fragments = listOf(DetailsScreen1(), DetailsScreen2())
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityMainBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         init()
+        //initViewPager()
     }
 
     private fun init() {
@@ -53,5 +59,10 @@ class MainActivity : AppCompatActivity() {
             .func()
             .commit()
     }
+//    private fun initViewPager() {
+//        val adapter = PagerAdapter(this, fragments)
+//        viewPager = findViewById(R.id.viewPager)
+//        viewPager.adapter = adapter
+//    }
 
 }

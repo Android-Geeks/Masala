@@ -4,6 +4,15 @@
     <dimen name="size_big">16sp</dimen>
     <dimen name="size_small">12sp</dimen>
     <dimen name="size_medium">14sp</dimen>
+    <dimen name="text_margin">16dp</dimen>
+    <dimen name="margin_start">10dp</dimen>
+    <dimen name="margin_start_end">16dp</dimen>
+    <dimen name="margin_end">8dp</dimen>
+    <dimen name="small_padding">2dp</dimen>
+    <dimen name="margin_top">10dp</dimen>
+    <dimen name="dimen_icon">24dp</dimen>
+    <dimen name="radius">10dp</dimen>
+    <dimen name="margin_bottom_icon">16dp</dimen>
 
 
 
