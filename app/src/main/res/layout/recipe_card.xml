@@ -4,7 +4,7 @@
     android:id="@+id/recipe_card"
     android:layout_width="260dp"
     android:layout_height="225dp"
-    android:layout_marginStart="16dp"
+    android:layout_margin="16dp"
     app:cardCornerRadius="12dp"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent">
@@ -62,14 +62,14 @@
 
         <CheckBox
             android:id="@+id/check_box"
+            style="@style/Widget.App.CheckBox"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
-            android:background="@drawable/heart_icon_background"
+            android:background="@drawable/white_background"
             android:button="@drawable/heart_icon"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:useMaterialThemeColors="false" />
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>
