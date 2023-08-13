@@ -17,6 +17,9 @@
     <string name="hinted_search_text">Hinted search text</string>
     <string name="your_search">Your Search List is Empty</string>
     <string name="explore_food_2">Explore food dishes and add them to Search to show them here.</string>
+    <string name="arrow">arrow</string>
+    <string name="search">search</string>
+    <string name="list">list</string>
 
 
 </resources>

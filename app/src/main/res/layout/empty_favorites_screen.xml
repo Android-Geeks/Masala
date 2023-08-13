@@ -1,67 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/favorite"
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/padding_mid"
-        android:drawableStart="@drawable/baseline_arrow_back_24"
-        android:drawablePadding="16dp"
-        android:fontFamily="@font/poppins_semibold"
-        android:gravity="top"
-        android:text="@string/favourite"
-        android:textAppearance="@style/favorite"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+        android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/icons8_mush"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="140dp"
-        android:background="@drawable/img2"
-        android:padding="@dimen/padding_mid"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/topAppBar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/white"
+            app:navigationIcon="@drawable/baseline_arrow_back_24"
+            app:title="@string/favourite"
+            app:titleTextColor="@color/black" />
 
-        app:layout_constraintTop_toBottomOf="@+id/favorite" />
+    </com.google.android.material.appbar.AppBarLayout>
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/your_favourite"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:fontFamily="@font/roboto_bold"
-        android:gravity="center_horizontal|center_vertical"
-        android:lineSpacingExtra="4sp"
-        android:padding="@dimen/padding_small"
-        android:text="@string/your_favorites"
-        android:textAppearance="@style/your_favourite"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/icons8_mush" />
+        android:layout_height="match_parent">
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/explore_foo"
-        android:layout_width="219dp"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal|center_vertical"
-        android:lineSpacingExtra="4sp"
-        android:fontFamily="@font/roboto_bold"
-        android:text="@string/explore_food"
-        android:textAppearance="@style/explore_food"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/your_favourite" />
+        <ImageView
+            android:id="@+id/icons8_mush"
+            android:layout_width="211dp"
+            android:layout_height="211dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:padding="@dimen/padding_mid"
+            android:src="@mipmap/fav"
+            android:alpha="0.5"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/your_favourite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_bold"
+            android:gravity="center_horizontal|center_vertical"
+            android:lineSpacingExtra="4sp"
+            android:padding="@dimen/padding_small"
+            android:text="@string/your_favorites"
+            android:textAppearance="@style/your_favourite"
+            app:layout_constraintEnd_toEndOf="@+id/icons8_mush"
+            app:layout_constraintStart_toStartOf="@+id/icons8_mush"
+            app:layout_constraintTop_toBottomOf="@+id/icons8_mush" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/explore_foo"
+            android:layout_width="219dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_bold"
+            android:gravity="center_horizontal|center_vertical"
+            android:lineSpacingExtra="4sp"
+            android:text="@string/explore_food"
+            android:textAppearance="@style/explore_food"
+            app:layout_constraintEnd_toEndOf="@+id/your_favourite"
+            app:layout_constraintStart_toStartOf="@+id/your_favourite"
+            app:layout_constraintTop_toBottomOf="@+id/your_favourite" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

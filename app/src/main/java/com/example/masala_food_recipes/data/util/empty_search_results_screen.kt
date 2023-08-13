@@ -14,4 +14,5 @@ class empty_search_results_screen:Fragment() {
     ): View? {
         return inflater.inflate(R.layout.empty_search_results_screen, container, false)
     }
+
 }

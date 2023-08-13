@@ -1,67 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools">
+    android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/supporting_"
-        android:layout_width="360dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/empty_search"
-        android:drawableStart="@drawable/baseline_search_24"
-        android:drawableEnd="@drawable/list"
-        android:drawablePadding="@dimen/padding_small"
-        android:gravity="center_vertical"
-        android:textAppearance="@style/supporting_"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="@string/hinted_search_text" />
-
-    <ImageView
-        android:id="@+id/morning_tea"
-        android:layout_width="211dp"
-        android:layout_height="211dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="94dp"
-        android:layout_marginBottom="24dp"
-        android:alpha="0.5"
-        android:background="@drawable/morning_tea"
-        android:padding="@dimen/padding_mid"
-        app:layout_constraintBottom_toTopOf="@+id/your_search"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/supporting_" />
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/your_search"
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/padding_8dp"
-        android:fontFamily="@font/roboto_bold"
-        android:gravity="center_horizontal|center_vertical"
-        android:lineSpacingExtra="4sp"
-        android:text="@string/your_search"
-        android:textAppearance="@style/your_search"
-        app:layout_constraintTop_toBottomOf="@+id/morning_tea"
-        app:layout_constraintBottom_toTopOf="@+id/explore_food"
-        tools:ignore="MissingConstraints" />
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/explore_food"
-        android:layout_width="219dp"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal|center_vertical"
-        android:lineSpacingExtra="4sp"
-        android:fontFamily="@font/roboto_bold"
-        android:text="@string/explore_food_2"
-        android:textAppearance="@style/explore_food"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/your_search" />
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/topAppBar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@drawable/empty_search"
+            app:menu="@menu/search" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
 
+        <ImageView
+            android:id="@+id/morning_tea"
+            android:layout_width="211dp"
+            android:layout_height="211dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginBottom="24dp"
+            android:alpha="0.5"
+            android:padding="@dimen/padding_mid"
+            android:src="@mipmap/tea"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/your_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_bold"
+            android:gravity="center_horizontal|center_vertical"
+            android:lineSpacingExtra="4sp"
+            android:padding="@dimen/padding_8dp"
+            android:text="@string/your_search"
+            android:textAppearance="@style/your_search"
+            app:layout_constraintEnd_toEndOf="@+id/morning_tea"
+            app:layout_constraintStart_toStartOf="@+id/morning_tea"
+            app:layout_constraintTop_toBottomOf="@+id/morning_tea" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/explore_food"
+            android:layout_width="219dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_bold"
+            android:gravity="center_horizontal|center_vertical"
+            android:lineSpacingExtra="4sp"
+            android:text="@string/explore_food_2"
+            android:textAppearance="@style/explore_food"
+            app:layout_constraintEnd_toEndOf="@+id/your_search"
+            app:layout_constraintStart_toStartOf="@+id/your_search"
+            app:layout_constraintTop_toBottomOf="@+id/your_search"
+
+            />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
