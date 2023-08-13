@@ -57,6 +57,7 @@
                 android:layout_height="24dp"
                 android:textSize="20sp"
                 android:textStyle="normal"
+                android:layout_marginStart="@dimen/margin_start"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/cardView_image"
                 tools:text="kofta" />
@@ -67,6 +68,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
                 android:layout_marginBottom="4dp"
+                android:layout_marginStart="@dimen/margin_start"
                 android:background="@drawable/card_recipe"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@id/cardView_image"
@@ -78,21 +80,23 @@
                     android:layout_height="24dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginEnd="12dp"
-                    android:src="@drawable/outline_fastfood_24"
+                    android:src="@drawable/food"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="@id/layout_bottom" />
 
                 <TextView
+
                     android:id="@+id/textView_numberOfMinutes"
                     android:layout_width="60dp"
                     android:layout_height="28dp"
                     android:layout_marginStart="4dp"
                     android:gravity="center_vertical"
                     android:textSize="16sp"
-                    android:textStyle="bold"
+                    android:textStyle="normal"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@id/drawable_recipe"
-                    tools:text="15 min" />
+                    tools:text="15 min"
+                    />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 

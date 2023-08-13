@@ -4,38 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="163dp"
     android:layout_height="160dp"
-
     android:layout_marginBottom="16dp"
-    app:cardCornerRadius="12dp">
+    app:cardCornerRadius="12dp"
+    >
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
-
         >
-
-
         <ImageView
             android:id="@+id/imageview"
             android:layout_width="match_parent"
             android:layout_height="160dp"
-
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:background="@drawable/pizza" />
+            tools:src="@drawable/image"
+            android:foreground="@drawable/gradient_card"
 
-        <View
-            android:id="@+id/view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/gradient_card"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            />
+
 
         <TextView
             android:id="@+id/textView_cuisines"
@@ -59,8 +48,8 @@
                 android:textStyle="normal"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@id/view"
-                tools:text="item" />
+                app:layout_constraintStart_toStartOf="@id/imageview"
+                tools:text="15  item" />
 
 
 
