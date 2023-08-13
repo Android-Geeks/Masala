@@ -5,6 +5,18 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
+    <style name="gradient_Card">
+        <item name="android:background">@drawable/gradient_card</item>
+    </style>
+
+    <style name="favoriteIcon" parent="Widget.AppCompat.Button">
+        <item name="android:background">@drawable/favorite_icon</item>
+
+    </style>
+
+
+
+
     <style name="Theme.Masalafoodrecipes" parent="Base.Theme.Masalafoodrecipes" />
     <style name="Indicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
         <item name="android:color">@color/orange</item>
