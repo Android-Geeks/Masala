@@ -1,48 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="8dp"
-    android:layout_marginEnd="8dp"
-    android:layout_marginBottom="4dp"
-    android:elevation="6dp"
+    android:layout_width="156dp"
+    android:layout_height="200dp"
+    android:layout_marginBottom="16dp"
     app:cardCornerRadius="12dp">
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/left_layout_2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginStart="@dimen/margin_start"
-        android:layout_marginTop="@dimen/margin_top"
-        android:layout_marginEnd="@dimen/margin_end"
-        android:orientation="horizontal"
-        android:padding="5dp">
+        android:background="@color/off_white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/left_layout_2"
-            android:layout_width="160dp"
-            android:layout_height="wrap_content"
-            android:background="@color/off_white"
-            android:layout_marginStart="@dimen/margin_start"
-            android:layout_marginEnd="@dimen/margin_end"
-            android:layout_marginTop="@dimen/margin_top"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView_image"
+            android:layout_width="156dp"
+            android:layout_height="124dp"
+            app:cardCornerRadius="11dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toTopOf="@id/textView_recipe"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-
-            >
-
+            app:layout_constraintTop_toTopOf="parent">
             <ImageView
                 android:id="@+id/imageview_recipe"
-                android:layout_width="160dp"
-                android:layout_height="124dp"
-                app:layout_constraintBottom_toTopOf="@id/textView_recipe"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:src="@drawable/pizza" />
-
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintBottom_toTopOf="@id/cardView_image"
+                app:layout_constraintEnd_toEndOf="@id/cardView_image"
+                app:layout_constraintStart_toStartOf="@id/cardView_image"
+                app:layout_constraintTop_toTopOf="@id/cardView_image"
+                android:background="@drawable/image"
+                />
+        </androidx.cardview.widget.CardView>
             <CheckBox
                 android:id="@+id/drawable_favorite"
                 style="@style/favoriteIcon"
@@ -51,20 +47,19 @@
                 android:button="@drawable/round_favorite_border_24"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="@dimen/margin_start_end"
-                app:layout_constraintEnd_toEndOf="@+id/imageview_recipe"
+                app:layout_constraintEnd_toEndOf="@+id/cardView_image"
                 app:layout_constraintTop_toTopOf="parent"
 
                 />
-
-
             <TextView
                 android:id="@+id/textView_recipe"
                 android:layout_width="match_parent"
                 android:layout_height="24dp"
                 android:textSize="20sp"
                 android:textStyle="normal"
+                android:layout_marginStart="@dimen/margin_start"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/imageview_recipe"
+                app:layout_constraintTop_toBottomOf="@id/cardView_image"
                 tools:text="kofta" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -73,9 +68,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
                 android:layout_marginBottom="4dp"
+                android:layout_marginStart="@dimen/margin_start"
                 android:background="@drawable/card_recipe"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="@id/imageview_recipe"
+                app:layout_constraintStart_toStartOf="@id/cardView_image"
                 app:layout_constraintTop_toBottomOf="@id/textView_recipe">
 
                 <ImageView
@@ -84,123 +80,24 @@
                     android:layout_height="24dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginEnd="12dp"
-                    android:src="@drawable/outline_fastfood_24"
+                    android:src="@drawable/food"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="@id/layout_bottom" />
 
                 <TextView
+
                     android:id="@+id/textView_numberOfMinutes"
                     android:layout_width="60dp"
                     android:layout_height="28dp"
                     android:layout_marginStart="4dp"
                     android:gravity="center_vertical"
                     android:textSize="16sp"
-                    android:textStyle="bold"
-
+                    android:textStyle="normal"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@id/drawable_recipe"
-                    tools:text="15 min" />
-
-
+                    tools:text="15 min"
+                    />
             </androidx.constraintlayout.widget.ConstraintLayout>
-
-
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-        --------------------------------------------------
-
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/right_layout_2"
-            android:layout_width="160dp"
-            android:layout_height="wrap_content"
-            android:background="@color/off_white"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="@dimen/margin_end"
-            android:layout_marginTop="@dimen/margin_top"
-            app:layout_constraintStart_toEndOf="@id/left_layout_2"
-            app:layout_constraintTop_toTopOf="parent"
-
-
-            >
-
-            <ImageView
-                android:id="@+id/imageview_recipe2"
-                android:layout_width="156dp"
-                android:layout_height="124dp"
-                app:layout_constraintBottom_toTopOf="@id/textView_recipe2"
-                app:layout_constraintEnd_toEndOf="@id/right_layout_2"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:src="@drawable/pizza" />
-
-            <CheckBox
-                android:id="@+id/drawable_favorite2"
-                style="@style/favoriteIcon"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:button="@drawable/baseline_favorite_border_24"
-                android:layout_margin="10dp"
-                android:layout_marginTop="10dp"
-                app:layout_constraintEnd_toEndOf="@+id/imageview_recipe2"
-                app:layout_constraintTop_toTopOf="parent"
-
-                />
-
-            <TextView
-                android:id="@+id/textView_recipe2"
-                android:layout_width="match_parent"
-                android:layout_height="24dp"
-                android:textSize="20sp"
-                android:textStyle="normal"
-
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/imageview_recipe2"
-                tools:text="kofta" />
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/layout_bottom2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:layout_marginTop="2dp"
-                android:layout_marginBottom="4dp"
-                android:background="@drawable/card_recipe"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="@id/imageview_recipe2"
-                app:layout_constraintTop_toBottomOf="@id/textView_recipe2">
-
-                <ImageView
-                    android:id="@+id/drawable_recipe2"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginEnd="12dp"
-                    android:src="@drawable/outline_fastfood_24"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="@id/layout_bottom2" />
-
-                <TextView
-                    android:id="@+id/textView_numberOfMinutes2"
-                    android:layout_width="60dp"
-                    android:layout_height="28dp"
-                    android:layout_marginStart="4dp"
-                    android:gravity="center_vertical"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/drawable_recipe2"
-                    tools:text="15 min" />
-
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 </androidx.cardview.widget.CardView>
