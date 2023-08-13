@@ -33,4 +33,5 @@
         android:padding="16dp"
         tool:listitem="@layout/cuisine_screen_card"/>
 
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,7 +10,11 @@ import com.example.masala_food_recipes.data.entities.Recipe
 import com.example.masala_food_recipes.data.interactors.Cuisines
 import com.example.masala_food_recipes.databinding.CuisineScreenCardBinding
 
-interface CuisineScreenListener : BaseInteractionListener
+interface CuisineScreenListener : BaseInteractionListener{
+    fun doNothing() {
+        // Empty implementation
+    }
+}
 
 class CuisineScreenAdapter(items: List<Recipe>, listener: CuisineScreenListener) :
     BaseRecyclerAdapter<Recipe, BaseRecyclerAdapter.BaseViewHolder<Recipe>>(items, listener)  {
