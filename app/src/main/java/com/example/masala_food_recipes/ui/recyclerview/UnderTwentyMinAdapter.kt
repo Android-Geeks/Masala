@@ -9,7 +9,8 @@ import com.example.masala_food_recipes.data.entities.Recipe
 import com.example.masala_food_recipes.data.interactors.UnderTwentyMinsRecipe
 import com.example.masala_food_recipes.databinding.UnderTwentyCardBinding
 
-class UnderTwentyMinAdapter(items: List<Recipe>) :BaseRecyclerAdapter<Recipe,BaseRecyclerAdapter.BaseViewHolder<Recipe>>(items) {
+interface UnderTwentyMinListener : BaseInteractionListener
+class UnderTwentyMinAdapter(items: List<Recipe>,listener: UnderTwentyMinListener) :BaseRecyclerAdapter<Recipe,BaseRecyclerAdapter.BaseViewHolder<Recipe>>(items, listener) {
     override val layoutId = R.layout.under_twenty_card
 
     override fun createViewHolder(view: View): BaseViewHolder<Recipe> = UnderTwentyViewHolder(view)
@@ -23,13 +24,12 @@ class UnderTwentyMinAdapter(items: List<Recipe>) :BaseRecyclerAdapter<Recipe,Bas
             val underTwentyMinList = UnderTwentyMinsRecipe(listOf(item)).execute(20)
 
             if (underTwentyMinList.isNotEmpty()) {
-                val underTwentyMin = underTwentyMinList.first()
 
                 binding.apply {
-                    mealName.text = underTwentyMin.first
-                    mealTime.text = underTwentyMin.second.first.toString()
+                    mealName.text = underTwentyMinList.keys.toString()
+                    mealTime.text = underTwentyMinList.values.first().first.toString()
                     Glide.with(context)
-                        .load(underTwentyMin.second.second)
+                        .load(underTwentyMinList.values.first().second)
                         .centerCrop()
                         .into(mealImage)
                 }

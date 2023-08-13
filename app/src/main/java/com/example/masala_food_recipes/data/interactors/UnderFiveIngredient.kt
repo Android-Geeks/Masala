@@ -8,5 +8,5 @@ class UnderFiveIngredient(private val recipes: List<Recipe>) {
             .filter { it.ingredientCount.toInt() < 5 }
             .take(limit)
             .shuffled()
-            .associate { (Pair(it.translatedRecipeName, Pair(it.totalTimeInMins, it.imageUrl))) }
+            .map { (Pair(it.translatedRecipeName, Pair(it.totalTimeInMins, it.imageUrl))) }
 }
