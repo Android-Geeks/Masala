@@ -10,9 +10,13 @@ import com.example.masala_food_recipes.data.entities.Recipe
 import com.example.masala_food_recipes.data.interactors.Cuisines
 import com.example.masala_food_recipes.databinding.CuisineCardBinding
 
-interface CuisineListener : BaseInteractionListener
+interface CuisineListener :BaseInteractionListener{
+    fun doNothing() {
+        // Empty implementation
+    }
+}
 
-class CuisineAdapter(items: List<Recipe>,listener: CuisineListener) :BaseRecyclerAdapter<Recipe,BaseRecyclerAdapter.BaseViewHolder<Recipe>>(items, listener) {
+class CuisineAdapter(items: List<Recipe>, listener: CuisineListener) :BaseRecyclerAdapter<Recipe,BaseRecyclerAdapter.BaseViewHolder<Recipe>>(items, listener) {
     override val layoutId = R.layout.cuisine_card
 
     override fun createViewHolder(view: View): BaseViewHolder<Recipe> = CuisineViewHolder(view)

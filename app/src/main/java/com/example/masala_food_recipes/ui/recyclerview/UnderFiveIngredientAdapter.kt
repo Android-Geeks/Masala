@@ -10,7 +10,11 @@ import com.example.masala_food_recipes.data.entities.Recipe
 import com.example.masala_food_recipes.data.interactors.UnderFiveIngredient
 import com.example.masala_food_recipes.databinding.UnderFiveIngredientCardBinding
 
-interface UnderFiveIngredientListener : BaseInteractionListener
+interface UnderFiveIngredientListener : BaseInteractionListener{
+    fun doNothing() {
+        // Empty implementation
+    }
+}
 
 class UnderFiveIngredientAdapter(items: List<Recipe>, listener:UnderFiveIngredientListener) :
     BaseRecyclerAdapter<Recipe, BaseRecyclerAdapter.BaseViewHolder<Recipe>>(items, listener) {
