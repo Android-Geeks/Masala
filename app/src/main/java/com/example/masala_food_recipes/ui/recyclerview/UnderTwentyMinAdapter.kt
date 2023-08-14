@@ -7,16 +7,16 @@ import com.bumptech.glide.Glide
 import com.example.masala_food_recipes.R
 import com.example.masala_food_recipes.data.entities.Recipe
 import com.example.masala_food_recipes.data.interactors.UnderTwentyMinsRecipe
-import com.example.masala_food_recipes.databinding.UnderTwentyCardBinding
+import com.example.masala_food_recipes.databinding.CardViewSubCategoryBinding
 
 interface UnderTwentyMinListener : BaseInteractionListener
 class UnderTwentyMinAdapter(items: List<Recipe>,listener: UnderTwentyMinListener) :BaseRecyclerAdapter<Recipe,BaseRecyclerAdapter.BaseViewHolder<Recipe>>(items, listener) {
-    override val layoutId = R.layout.under_twenty_card
+    override val layoutId = R.layout.card_view_sub_category
 
     override fun createViewHolder(view: View): BaseViewHolder<Recipe> = UnderTwentyViewHolder(view)
 
     class UnderTwentyViewHolder(itemView: View) : BaseViewHolder<Recipe>(itemView) {
-        private val binding = UnderTwentyCardBinding.bind(itemView)
+        private val binding = CardViewSubCategoryBinding.bind(itemView)
         private val context: Context = itemView.context
 
         @SuppressLint("SetTextI18n")
@@ -26,12 +26,12 @@ class UnderTwentyMinAdapter(items: List<Recipe>,listener: UnderTwentyMinListener
             if (underTwentyMinList.isNotEmpty()) {
 
                 binding.apply {
-                    mealName.text = underTwentyMinList.keys.joinToString(",")
-                    mealTime.text = underTwentyMinList.values.first().first.toString()
+                    textViewRecipe.text = underTwentyMinList.keys.joinToString(",")
+                    minutesText.text = underTwentyMinList.values.first().first.toString()
                     Glide.with(context)
                         .load(underTwentyMinList.values.first().second)
                         .centerCrop()
-                        .into(mealImage)
+                        .into(recipeImage)
                 }
             }
         }

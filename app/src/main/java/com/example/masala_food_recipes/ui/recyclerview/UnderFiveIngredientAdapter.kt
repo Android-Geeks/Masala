@@ -8,7 +8,8 @@ import com.bumptech.glide.Glide
 import com.example.masala_food_recipes.R
 import com.example.masala_food_recipes.data.entities.Recipe
 import com.example.masala_food_recipes.data.interactors.UnderFiveIngredient
-import com.example.masala_food_recipes.databinding.UnderFiveIngredientCardBinding
+import com.example.masala_food_recipes.databinding.CardViewSubCategoryBinding
+
 
 interface UnderFiveIngredientListener : BaseInteractionListener{
     fun doNothing() {
@@ -18,12 +19,12 @@ interface UnderFiveIngredientListener : BaseInteractionListener{
 
 class UnderFiveIngredientAdapter(items: List<Recipe>, listener:UnderFiveIngredientListener) :
     BaseRecyclerAdapter<Recipe, BaseRecyclerAdapter.BaseViewHolder<Recipe>>(items, listener) {
-    override val layoutId = R.layout.under_five_ingredient_card
+    override val layoutId = R.layout.card_view_sub_category
 
     override fun createViewHolder(view: View): BaseViewHolder<Recipe> = UnderFiveViewHolder(view)
 
     class UnderFiveViewHolder(itemView: View) : BaseViewHolder<Recipe>(itemView) {
-        private val binding = UnderFiveIngredientCardBinding.bind(itemView)
+        private val binding = CardViewSubCategoryBinding.bind(itemView)
         private val context: Context = itemView.context
 
         @SuppressLint("SetTextI18n")
@@ -33,12 +34,12 @@ class UnderFiveIngredientAdapter(items: List<Recipe>, listener:UnderFiveIngredie
             if (underFiveIngredientList.isNotEmpty()){
 
                 binding.apply {
-                    mealName.text = underFiveIngredientList.keys.joinToString(",")
-                    mealTime.text = underFiveIngredientList.values.first().first.toString()
+                    textViewRecipe.text = underFiveIngredientList.keys.joinToString(",")
+                    minutesText.text = underFiveIngredientList.values.first().first.toString()
                     Glide.with(context)
                         .load(underFiveIngredientList.values.first().second)
                         .centerCrop()
-                        .into(mealImage)
+                        .into(recipeImage)
 
                 }
             }

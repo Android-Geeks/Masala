@@ -20,6 +20,6 @@
     <string name="heart_icon">Heart Icon</string>
     <string name="recipe_image">Recipe Image</string>
     <string name="dish_image">Dish Image</string>
-    <string name="cuisine_image">Cuisine Image</string>
+
 
 </resources>

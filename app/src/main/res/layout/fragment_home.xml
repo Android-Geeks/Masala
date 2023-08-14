@@ -48,7 +48,8 @@
                     android:text="@string/cuisines"
                     android:textSize="@dimen/size_big"
                     android:textColor="@color/black"
-                    android:layout_margin="8dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginBottom="8dp"
                     app:layout_constraintTop_toBottomOf="@id/app_name"
                     app:layout_constraintStart_toStartOf="@id/app_name"
                     app:layout_constraintBottom_toTopOf="@id/cuisine_recycler"/>
@@ -82,13 +83,14 @@
                     android:id="@+id/for_you"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
                     android:text="@string/for_you"
-                    android:textSize="@dimen/size_big"
-                    android:layout_margin="8dp"
                     android:textColor="@color/black"
+                    android:textSize="@dimen/size_big"
                     app:layout_constraintBottom_toTopOf="@id/recipe_recycler"
-                    app:layout_constraintStart_toStartOf="@id/cuisine_text"
-                    app:layout_constraintTop_toBottomOf="@id/cuisine_recycler"/>
+                    app:layout_constraintStart_toStartOf="@+id/cuisine_text"
+                    app:layout_constraintTop_toBottomOf="@id/cuisine_recycler" />
 
                 <TextView
                     android:id="@+id/view_all_foryou"
@@ -107,11 +109,9 @@
                     android:id="@+id/recipe_recycler"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
                     android:orientation="horizontal"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     app:layout_constraintBottom_toTopOf="@id/under_twenty_text"
-                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/cuisine_recycler"
                     app:layout_constraintTop_toBottomOf="@id/for_you"
                     tools:listitem="@layout/recipe_card" />
@@ -119,10 +119,12 @@
                     android:id="@+id/under_twenty_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintStart_toStartOf="@id/cuisine_text"
                     android:text="@string/under_20_min_meal"
                     android:textSize="@dimen/size_big"
                     android:textColor="@color/black"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    app:layout_constraintStart_toStartOf="@id/cuisine_text"
                     app:layout_constraintTop_toBottomOf="@id/recipe_recycler"
                     app:layout_constraintBottom_toTopOf="@id/under_twenty_recycler"
                     />
@@ -144,22 +146,23 @@
                     android:id="@+id/under_twenty_recycler"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
                     android:orientation="horizontal"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     app:layout_constraintBottom_toTopOf="@id/under_five_text"
-                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/cuisine_recycler"
                     app:layout_constraintTop_toBottomOf="@+id/under_twenty_text"
-                    tools:listitem="@layout/under_twenty_card" />
+                    tools:listitem="@layout/card_view_cuisines" />
+
                 <TextView
                     android:id="@+id/under_five_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintStart_toStartOf="@id/cuisine_text"
                     android:text="@string/under_5_ingredient_meal"
                     android:textSize="@dimen/size_big"
                     android:textColor="@color/black"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    app:layout_constraintStart_toStartOf="@id/cuisine_text"
                     app:layout_constraintTop_toBottomOf="@id/under_twenty_recycler"
                     app:layout_constraintBottom_toTopOf="@id/under_five_recycler"
                     />
@@ -181,13 +184,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_margin="8dp"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    tools:listitem="@layout/under_five_ingredient_card"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/under_twenty_recycler"
                     app:layout_constraintTop_toBottomOf="@+id/under_five_text"
-                    />
+                    tools:listitem="@layout/card_view_cuisines" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
