@@ -12,10 +12,11 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layout_bar"
-        android:layout_width="match_parent"
-        android:layout_height="62dp"
-        android:layout_marginStart="@dimen/margin_start_end"
-        android:layout_marginEnd="@dimen/margin_start_end"
+        android:layout_width="360dp"
+        android:layout_height="60dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="52dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@id/imageView_recipe"
@@ -58,21 +59,21 @@
 
     <ImageView
         android:id="@+id/imageView_recipe"
-        android:layout_width="match_parent"
-        android:layout_height="228dp"
-        android:padding="@dimen/small_padding"
-        android:layout_marginStart="@dimen/margin_start_end"
+        android:layout_width="328dp"
+        android:layout_height="224dp"
+        android:clipToOutline="true"
         app:layout_constraintStart_toStartOf="@id/layout_bar"
         app:layout_constraintEnd_toEndOf="@id/layout_bar"
         app:layout_constraintTop_toBottomOf="@id/layout_bar"
         android:background="@drawable/image1" />
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layout_icon"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_width="328dp"
+        android:layout_height="58dp"
         android:layout_marginStart="@dimen/margin_start_end"
         android:layout_marginEnd="@dimen/margin_start_end"
-        android:layout_marginTop="@dimen/margin_top"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/imageView_recipe"
@@ -81,11 +82,11 @@
         >
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/icon_1"
-            android:layout_width="104dp"
-            android:layout_height="60dp"
+            android:layout_width="100dp"
+            android:layout_height="58dp"
             android:background="@drawable/card_icon"
-            android:layout_marginStart="@dimen/margin_start_end"
-            android:layout_marginEnd="@dimen/margin_start"
+            android:layout_marginEnd="@dimen/margin_end"
+            app:layout_constraintEnd_toStartOf="@+id/icon_2"
             app:layout_constraintBottom_toBottomOf="@id/layout_icon"
             app:layout_constraintStart_toStartOf="@id/layout_icon"
             />
@@ -112,11 +113,11 @@
             />
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/icon_2"
-            android:layout_width="104dp"
-            android:layout_height="60dp"
+            android:layout_width="100dp"
+            android:layout_height="58dp"
             android:background="@drawable/card_icon"
-            android:layout_marginStart="@dimen/margin_start_end"
-            android:layout_marginEnd="@dimen/margin_start"
+            android:layout_marginEnd="@dimen/margin_end"
+            app:layout_constraintEnd_toStartOf="@+id/icon_3"
             app:layout_constraintBottom_toBottomOf="@id/layout_icon"
             app:layout_constraintStart_toEndOf="@id/icon_1"
             />
@@ -145,13 +146,13 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/icon_3"
-            android:layout_width="104dp"
-            android:layout_height="60dp"
+            android:layout_width="100dp"
+            android:layout_height="58dp"
             android:background="@drawable/card_icon"
-            android:layout_marginStart="@dimen/margin_start_end"
-            android:layout_marginEnd="@dimen/margin_start"
+            android:layout_marginEnd="@dimen/margin_end"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="@id/layout_icon"
-            app:layout_constraintStart_toEndOf="@id/icon_2"   />
+            app:layout_constraintStart_toEndOf="@id/icon_2"    />
         <ImageView
             android:id="@+id/exit"
             android:layout_width="@dimen/dimen_icon"
@@ -177,8 +178,8 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layout_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="328dp"
+        android:layout_height="67dp"
         android:layout_marginStart="@dimen/margin_start_end"
         android:layout_marginEnd="@dimen/margin_start_end"
         app:layout_constraintStart_toStartOf="parent"
@@ -188,11 +189,11 @@
         >
         <TextView
             android:id="@+id/text"
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:textSize="24sp"
+            android:layout_width="328dp"
+            android:layout_height="24dp"
+            android:textSize="16sp"
             android:text="Masala Karela Recipe"
-            android:layout_marginTop="@dimen/margin_top"
+            android:layout_marginBottom="8dp"
             app:layout_constraintStart_toStartOf="@id/layout_button"
             app:layout_constraintEnd_toEndOf="@id/layout_button"
             app:layout_constraintTop_toTopOf="@id/layout_button"
@@ -201,26 +202,28 @@
             android:id="@+id/button_2"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginStart="@dimen/margin_start"
-            android:layout_marginTop="@dimen/margin_top"
-            android:background="@drawable/button_1"
-            android:clickable="true"
             android:text="instructions"
             android:textAlignment="textEnd"
+            android:paddingBottom="12dp"
+            android:paddingEnd="32dp"
+            android:clickable="true"
+            android:background="@drawable/button_1"
+            android:layout_marginStart="@dimen/margin_start"
+            android:layout_marginTop="8dp"
             app:layout_constraintStart_toStartOf="@id/layout_button"
-            app:layout_constraintTop_toBottomOf="@id/text" />
+            app:layout_constraintTop_toBottomOf="@id/text"
+            />
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button_1"
-            android:layout_width="174dp"
-            android:layout_height="50dp"
+            android:layout_width="150dp"
+            android:layout_height="35dp"
             android:text="ingredients"
             android:clickable="true"
             android:background="@drawable/button"
-            android:layout_marginStart="@dimen/margin_start"
-            android:layout_marginTop="@dimen/margin_top"
+            android:layout_marginTop="8dp"
             app:layout_constraintStart_toStartOf="@id/layout_button"
             app:layout_constraintTop_toBottomOf="@id/text"
-            android:focusable="true" />
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
     <androidx.recyclerview.widget.RecyclerView
