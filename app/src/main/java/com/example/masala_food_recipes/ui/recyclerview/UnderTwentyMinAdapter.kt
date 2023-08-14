@@ -22,7 +22,7 @@ class UnderTwentyMinAdapter(items: List<Recipe>,listener: UnderTwentyMinListener
 
         @SuppressLint("SetTextI18n")
         override fun bind(item: Recipe) {
-            val underTwentyMinList = UnderTwentyMinsRecipe(listOf(item)).execute(20)
+            val underTwentyMinList = UnderTwentyMinsRecipe(listOf(item)).execute(2)
 
             if (underTwentyMinList.isNotEmpty()) {
 

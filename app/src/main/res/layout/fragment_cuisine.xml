@@ -31,7 +31,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:spanCount="2"
         android:padding="16dp"
-        tool:listitem="@layout/cuisine_screen_card"/>
+        tool:listitem="@layout/card_view_cuisines"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

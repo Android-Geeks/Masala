@@ -21,11 +21,12 @@ interface UnderFiveIngredientListener : BaseInteractionListener{
 class UnderFiveIngredientAdapter(items: List<Recipe>, listener:UnderFiveIngredientListener) :
     BaseRecyclerAdapter<Recipe, BaseRecyclerAdapter.BaseViewHolder<Recipe>>(items, listener) {
     override val layoutId = R.layout.card_view_sub_category
-    private val MAX_ITEMS = 10 // Define the maximum number of items to display
-
+//
+//    private val maxItems = 10 // Define the maximum number of items to display
+//
 //    override fun getItemCount(): Int {
-//        return if (items.size > MAX_ITEMS) {
-//            MAX_ITEMS
+//        return if (items.size > maxItems) {
+//            maxItems
 //        } else {
 //            items.size
 //        }
@@ -36,7 +37,7 @@ class UnderFiveIngredientAdapter(items: List<Recipe>, listener:UnderFiveIngredie
     class UnderFiveViewHolder(itemView: View) : BaseViewHolder<Recipe>(itemView) {
         private val binding = CardViewSubCategoryBinding.bind(itemView)
         private val context: Context = itemView.context
-        private val limit = 1
+        private val limit = 2
 
         @SuppressLint("SetTextI18n")
         override fun bind(item: Recipe) {

@@ -18,12 +18,12 @@
             android:id="@+id/recipe_image"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/gradient"
+            android:foreground="@drawable/gradient"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:background="@drawable/img" />
+            tools:src="@drawable/img" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/appCompatTextView"
