@@ -32,7 +32,7 @@
             android:layout_alignParentTop="true"
             android:padding="@dimen/padding_mid"
             android:src="@mipmap/fav"
-            android:alpha="0.5"
+            android:alpha="1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

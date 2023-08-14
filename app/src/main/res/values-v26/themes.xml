@@ -4,6 +4,6 @@
     <style name="masalaty">
         <item name="android:textSize">20sp</item>
         <item name="android:textColor">@color/orange</item>
-        <item name="android:font">@font/poppins_thin</item>
+
     </style>
 </resources>
