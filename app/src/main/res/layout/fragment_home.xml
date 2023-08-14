@@ -151,7 +151,7 @@
                     app:layout_constraintBottom_toTopOf="@id/under_five_text"
                     app:layout_constraintStart_toStartOf="@+id/cuisine_recycler"
                     app:layout_constraintTop_toBottomOf="@+id/under_twenty_text"
-                    tools:listitem="@layout/card_view_cuisines" />
+                    tools:listitem="@layout/card_view_sub_category" />
 
                 <TextView
                     android:id="@+id/under_five_text"
@@ -160,8 +160,8 @@
                     android:text="@string/under_5_ingredient_meal"
                     android:textSize="@dimen/size_big"
                     android:textColor="@color/black"
-                    android:layout_marginTop="8dp"
                     android:layout_marginBottom="8dp"
+                    android:layout_marginTop="8dp"
                     app:layout_constraintStart_toStartOf="@id/cuisine_text"
                     app:layout_constraintTop_toBottomOf="@id/under_twenty_recycler"
                     app:layout_constraintBottom_toTopOf="@id/under_five_recycler"
@@ -187,7 +187,7 @@
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     app:layout_constraintStart_toStartOf="@+id/under_twenty_recycler"
                     app:layout_constraintTop_toBottomOf="@+id/under_five_text"
-                    tools:listitem="@layout/card_view_cuisines" />
+                    tools:listitem="@layout/card_view_sub_category" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
