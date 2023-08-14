@@ -3,6 +3,7 @@ package com.example.masala_food_recipes.ui.recyclerview
 import android.annotation.SuppressLint
 import android.content.Context
 import android.view.View
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.masala_food_recipes.R
 import com.example.masala_food_recipes.data.entities.Recipe
@@ -33,6 +34,10 @@ class UnderTwentyMinAdapter(items: List<Recipe>,listener: UnderTwentyMinListener
                         .centerCrop()
                         .into(recipeImage)
                 }
+            }
+            else{
+                itemView.visibility = View.GONE
+                itemView.layoutParams = RecyclerView.LayoutParams(0, 0)
             }
         }
     }}

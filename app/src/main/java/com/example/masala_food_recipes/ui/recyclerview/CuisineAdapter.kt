@@ -3,6 +3,7 @@ package com.example.masala_food_recipes.ui.recyclerview
 import android.annotation.SuppressLint
 import android.content.Context
 import android.view.View
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.masala_food_recipes.R
 import com.example.masala_food_recipes.data.DataManager
@@ -27,17 +28,25 @@ class CuisineAdapter(items: List<Recipe>, listener: CuisineListener) :BaseRecycl
 
         @SuppressLint("SetTextI18n")
         override fun bind(item: Recipe) {
-            val key = Cuisines(listOf(item)).getCuisineCards().keys.joinToString(",")
-            binding.apply {
-                cuisineName.text = key
-                itemNumber.text =Cuisines(DataManager(context).getAllRecipesData()).getCuisineCards()[key]!!.first.toString()
-                textItem.text = "item"
+            val cuisineMap = Cuisines(listOf(item)).getCuisineCards()
+            if (cuisineMap.isNotEmpty()) {
+                val key = cuisineMap.keys.joinToString(",")
+                binding.apply {
+                    cuisineName.text = key
+                    itemNumber.text =
+                        Cuisines(DataManager(context).getAllRecipesData()).getCuisineCards()[key]!!.first.toString()
+                    textItem.text = "item"
 
 
-                Glide.with(context)
-                    .load(Cuisines(listOf(item)).getCuisineCards().values.first().second)
-                    .centerCrop()
-                    .into(cuisineImage)
+                    Glide.with(context)
+                        .load(Cuisines(listOf(item)).getCuisineCards().values.first().second)
+                        .centerCrop()
+                        .into(cuisineImage)
+                }
+            }
+            else{
+                itemView.visibility = View.GONE
+                itemView.layoutParams = RecyclerView.LayoutParams(0, 0)
             }
         }
     }
