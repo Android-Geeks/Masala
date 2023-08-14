@@ -8,8 +8,8 @@ import com.example.masala_food_recipes.ui.recyclerview.SubCategoryAdapter
 class UnderFiveIngredientFragment :
     BaseFragment<SubCategoryRecyclerBinding>(SubCategoryRecyclerBinding::inflate) {
     override fun onCreateView() {
-        val under_5_ingredient =
+        val under5Ingredient =
                 UnderFiveIngredient(DataManager(this.requireContext()).getAllRecipesData()).execute()
-        binding.subCategory.adapter = SubCategoryAdapter(under_5_ingredient , null)
+        binding.subCategory.adapter = SubCategoryAdapter(under5Ingredient , null)
     }
 }
