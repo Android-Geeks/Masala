@@ -11,11 +11,10 @@
         android:layout_height="match_parent">
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/appCompatTextView2"
+            android:id="@+id/dark_mode"
             style="@style/vectorColor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="60dp"
             android:drawableStart="@drawable/pallete"
             android:drawablePadding="16dp"
             android:padding="16dp"
@@ -31,9 +30,75 @@
             android:layout_marginEnd="16dp"
             android:scaleX="1.5"
             android:scaleY="1.5"
-            app:layout_constraintBottom_toBottomOf="@+id/appCompatTextView2"
+            app:layout_constraintBottom_toBottomOf="@+id/dark_mode"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/appCompatTextView2" />
+            app:layout_constraintTop_toTopOf="@+id/dark_mode" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/language"
+            style="@style/vectorColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/earth"
+            android:drawablePadding="16dp"
+            android:padding="16dp"
+            android:text="Language"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dark_mode" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/what_is_new"
+            style="@style/vectorColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/dialog"
+            android:drawablePadding="16dp"
+            android:padding="16dp"
+            android:text="What's new?"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/language" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/faq"
+            style="@style/vectorColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/users_group_rounded"
+            android:drawablePadding="16dp"
+            android:padding="16dp"
+            android:text="FAQ"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/what_is_new" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/terms_of_service"
+            style="@style/vectorColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/checklist_minimalistic"
+            android:drawablePadding="16dp"
+            android:padding="16dp"
+            android:text="Terms of service"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/faq" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/history_of_india"
+            style="@style/vectorColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/bill"
+            android:drawablePadding="16dp"
+            android:padding="16dp"
+            android:text="Terms of Service"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/terms_of_service" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
