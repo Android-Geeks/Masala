@@ -2,6 +2,7 @@ package com.example.masala_food_recipes
 
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
@@ -22,6 +23,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+        changeAppBar(R.layout.main_app_bar)
         init()
     }
 
@@ -52,6 +54,15 @@ class MainActivity : AppCompatActivity() {
             .beginTransaction()
             .func()
             .commit()
+    }
+
+    private fun changeAppBar(appBar : Int) {
+        val appBarContainer = binding.appBar
+        appBarContainer.removeAllViews()
+        val inflater = LayoutInflater.from(this)
+        val newAppBar = inflater.inflate(appBar , appBarContainer , false)
+        appBarContainer.addView(newAppBar)
+
     }
 
 }

@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 interface BaseInteractionListener          // an listener to be modified as needed
 
 abstract class BaseRecyclerAdapter<T, VH : BaseRecyclerAdapter.BaseViewHolder<T>>(
-    private val items: List<T>, private val listener : BaseInteractionListener
+    private val items: List<T>, private val listener : BaseInteractionListener?
 ) : RecyclerView.Adapter<VH>() {
 
     abstract val layoutId: Int                   // The ID of the layout to be worked on
