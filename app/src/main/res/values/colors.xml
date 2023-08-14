@@ -13,6 +13,7 @@
     <color name="white_45">#72FDFAFA</color>
     <color name="light_black">#0B0A0A</color>
     <color name="black_gradient">#03000000</color>
-
+    <color name="light_gray">#E0E0E0</color>
+    <color name="darker_gray">#99252525</color>
 
 </resources>
