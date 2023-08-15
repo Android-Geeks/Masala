@@ -6,22 +6,42 @@
     </style>
 
     <style name="Theme.Masalafoodrecipes" parent="Base.Theme.Masalafoodrecipes" />
+
     <style name="Indicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
         <item name="android:color">@color/orange</item>
     </style>
+
     <style name="Widget.App.CheckBox" parent="Widget.Material3.CompoundButton.CheckBox">
         <item name="buttonTint">@color/orange</item>
     </style>
+
     <style name="ThemeOverlay.App.Card" parent="">
         <item name="colorPrimary">@color/off_white</item>
     </style>
-    <style name="bottomNavigationBackground"><item name="backgroundTint">@color/off_white</item></style>
-    <style name="cardBackground"><item name="background">@color/off_white</item></style>
-    <style name="vectorColor"><item name="android:drawableTint">@color/black</item></style>
-    <style name="navigationColor"><item name="navigationIconTint">@color/black</item></style>
-    <style name="textColor"><item name="android:textColor">@color/black</item></style>
+
+    <style name="bottomNavigationBackground">
+        <item name="backgroundTint">@color/off_white</item>
+    </style>
+
+    <style name="cardBackground">
+        <item name="android:background">@color/off_white</item>
+    </style>
+
+    <style name="vectorColor">
+        <item name="android:drawableTint">@color/black</item>
+    </style>
+
+    <style name="navigationColor">
+        <item name="navigationIconTint">@color/black</item>
+    </style>
+
+    <style name="textColor">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
     <style name="timerStyle">
         <item name="drawableTint">@color/black</item>
         <item name="android:textColor">@color/black</item>
-        <item name="background">@color/light_orange</item></style>
+        <item name="backgroundTint">@color/light_orange</item>
+    </style>
 </resources>
