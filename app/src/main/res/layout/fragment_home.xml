@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.fragment.HomeFragment"
-    android:background="@color/white">
+    >
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -60,12 +60,12 @@
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/cuisine_recycler"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
+                    android:layout_marginStart="15dp"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     app:layout_constraintBottom_toTopOf="@id/for_you"
-                    app:layout_constraintStart_toStartOf="@+id/cuisine_text"
                     app:layout_constraintTop_toBottomOf="@id/cuisine_text"
                     tools:listitem="@layout/card_view_cuisines" />
 
@@ -97,12 +97,13 @@
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recipe_recycler"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    android:layout_marginStart="15dp"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintBottom_toTopOf="@id/under_twenty_text"
-                    app:layout_constraintStart_toStartOf="@+id/cuisine_recycler"
                     app:layout_constraintTop_toBottomOf="@id/for_you"
                     tools:listitem="@layout/recipe_card" />
                 <TextView
@@ -134,12 +135,13 @@
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/under_twenty_recycler"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    android:layout_marginStart="15dp"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintBottom_toTopOf="@id/under_five_text"
-                    app:layout_constraintStart_toStartOf="@+id/cuisine_recycler"
                     app:layout_constraintTop_toBottomOf="@+id/under_twenty_text"
                     tools:listitem="@layout/card_view_sub_category" />
 
@@ -171,11 +173,12 @@
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/under_five_recycler"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    app:layout_constraintStart_toStartOf="@+id/under_twenty_recycler"
+                    android:layout_marginStart="15dp"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/under_five_text"
                     tools:listitem="@layout/card_view_sub_category" />
 

@@ -1,9 +1,7 @@
 package com.example.masala_food_recipes.ui.fragment
 
-import android.content.Context
 import com.example.masala_food_recipes.data.DataManager
 import com.example.masala_food_recipes.databinding.FragmentHomeBinding
-
 import com.example.masala_food_recipes.ui.recyclerview.CuisineAdapter
 import com.example.masala_food_recipes.ui.recyclerview.CuisineListener
 import com.example.masala_food_recipes.ui.recyclerview.ForYouRecipeAdapter
