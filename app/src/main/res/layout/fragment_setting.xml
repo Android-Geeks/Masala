@@ -23,14 +23,13 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.appcompat.widget.SwitchCompat
+        <com.google.android.material.materialswitch.MaterialSwitch
             android:id="@+id/dark_switch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
-            android:background="@null"
-            android:button="@drawable/switches"
-            android:thumb="@null"
+            app:thumbTint="@color/thumb"
+            app:trackTint="@color/tracker"
             app:layout_constraintBottom_toBottomOf="@+id/dark_mode"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/dark_mode" />
