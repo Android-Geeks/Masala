@@ -24,11 +24,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         changeAppBar(R.layout.main_app_bar)
-        init()
+        init(savedInstanceState)
     }
 
-    private fun init() {
-        initFragment()
+    private fun init(savedInstanceState:Bundle?) {
+        if (savedInstanceState == null) {
+            initFragment()
+        }
         binding.bottomNavigation.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.home_icon -> replaceFragment(homeScreen)
@@ -41,13 +43,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initFragment() {
-        inTransaction { add(R.id.fragment_container_view, homeScreen) }
+        inTransaction { replace(R.id.fragment_container_view, homeScreen) }
     }
 
     private fun replaceFragment(fragment: Fragment): Boolean {
         inTransaction { replace(R.id.fragment_container_view, fragment) }
         return true
     }
+
 
     private fun inTransaction(func: FragmentTransaction.() -> FragmentTransaction) {
         supportFragmentManager

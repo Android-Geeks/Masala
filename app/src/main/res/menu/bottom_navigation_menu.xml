@@ -19,5 +19,5 @@
         android:id="@+id/setting_icon"
         android:enabled="true"
         android:icon="@drawable/settings_icon"
-        android:title="setting"/>
+        android:title="settings"/>
 </menu>
