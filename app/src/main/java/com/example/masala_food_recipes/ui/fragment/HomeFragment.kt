@@ -1,27 +1,29 @@
 package com.example.masala_food_recipes.ui.fragment
 
-import com.example.masala_food_recipes.data.DataManager
-import com.example.masala_food_recipes.databinding.FragmentHomeBinding
-import com.example.masala_food_recipes.ui.recyclerview.CuisineAdapter
-import com.example.masala_food_recipes.ui.recyclerview.CuisineListener
-import com.example.masala_food_recipes.ui.recyclerview.ForYouRecipeAdapter
-import com.example.masala_food_recipes.ui.recyclerview.ForYouRecipeListener
-import com.example.masala_food_recipes.ui.recyclerview.UnderFiveIngredientAdapter
-import com.example.masala_food_recipes.ui.recyclerview.UnderFiveIngredientListener
-import com.example.masala_food_recipes.ui.recyclerview.UnderTwentyMinAdapter
-import com.example.masala_food_recipes.ui.recyclerview.UnderTwentyMinListener
+import com.example.masala_food_recipes.ChildItem
+import com.example.masala_food_recipes.ParentItem
+import com.example.masala_food_recipes.databinding.ParentItemBinding
+import com.example.masala_food_recipes.ui.recyclerview.ParentAdapter
 
-class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding :: inflate) {
+
+
+class HomeFragment : BaseFragment<ParentItemBinding>(ParentItemBinding :: inflate) {
 
     override fun onCreateView() {
-        val recipeList = DataManager(requireContext()).getAllRecipesData()
 
-        binding.cuisineRecycler.adapter = CuisineAdapter(recipeList,object : CuisineListener {})
+        val child1 = ChildItem("Cuisine", "view all", "CuisineAdapter")
+        val child2 = ChildItem("For You", "view all", "ForYouRecipeAdapter")
+        val child3 = ChildItem("under 20 min meal", "view all", "UnderTwentyMinAdapter")
+        val child4 = ChildItem("under 5 ingredient meal", "view all", "UnderFiveIngredientAdapter")
+        val childList : List<ChildItem> = listOf(child1,child2,child3, child4)
 
 
-        binding.recipeRecycler.adapter = ForYouRecipeAdapter(recipeList,object : ForYouRecipeListener{})
+        val p = ParentItem("1", "vo")
+//        val p2 = ParentItem("2","sd")
+//        val p3 = ParentItem("3","et")
 
-        binding.underFiveRecycler.adapter = UnderFiveIngredientAdapter(recipeList,object :UnderFiveIngredientListener{})
-        binding.underTwentyRecycler.adapter = UnderTwentyMinAdapter(recipeList,object :UnderTwentyMinListener{})
+//ممكن اخلى الparent يبقى هو ال RV و الابناء يبقوا هما ال String
+
+        binding.parentRecycler.adapter = ParentAdapter(requireContext() ,listOf(p),childList)
     }
 }
