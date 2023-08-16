@@ -3,7 +3,7 @@ import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 
 
-class PagerAdapter(container: DetailsScreen, private val fragments: List<Fragment>) : FragmentStateAdapter(container) {
+class PagerAdapter(container: ContainerDetails, private val fragments: List<Fragment>) : FragmentStateAdapter(container) {
     override fun getItemCount(): Int = 2
 
     override fun createFragment(position: Int): Fragment {
