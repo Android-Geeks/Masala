@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/view_details"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_bar"
+        android:layout_width="360dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="@dimen/margin_start_end"
+        android:layout_marginEnd="@dimen/margin_start_end"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/imageView_recipe"
+        >
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/Arrow"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:background="@drawable/baseline_arrow_back_24"
+            android:padding="2dp"
+            android:layout_marginEnd="@dimen/margin_end"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/Detail"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+        <TextView
+            android:id="@+id/Detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Detail"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:padding="8dp"
+            app:layout_constraintStart_toEndOf="@id/Arrow"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/Favorite"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:background="@drawable/baseline_favorite_border_24"
+            android:padding="@dimen/small_padding"
+            android:layout_marginEnd="@dimen/margin_end"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/imageView_recipe"
+        android:layout_width="328dp"
+        android:layout_height="224dp"
+        android:background="@drawable/image"
+        android:clipToOutline="true"
+        app:layout_constraintEnd_toEndOf="@id/layout_bar"
+        app:layout_constraintStart_toStartOf="@id/layout_bar"
+        app:layout_constraintTop_toBottomOf="@id/layout_bar" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_icon"
+        android:layout_width="328dp"
+        android:layout_height="58dp"
+        android:layout_marginStart="@dimen/margin_start_end"
+        android:layout_marginEnd="@dimen/margin_start_end"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageView_recipe"
+        app:layout_constraintBottom_toTopOf="@id/layout_button"
+
+        >
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/icon_1"
+            android:layout_width="100dp"
+            android:layout_height="58dp"
+            android:background="@drawable/card_icon"
+            android:layout_marginEnd="@dimen/margin_end"
+            app:layout_constraintEnd_toStartOf="@+id/icon_2"
+            app:layout_constraintBottom_toBottomOf="@id/layout_icon"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <ImageView
+            android:id="@+id/fast_food"
+            android:layout_width="20dp"
+            android:layout_height="19dp"
+            android:layout_marginBottom="@dimen/margin_bottom_icon"
+            android:background="@drawable/group"
+            app:layout_constraintBottom_toBottomOf="@id/icon_1"
+            app:layout_constraintEnd_toEndOf="@id/icon_1"
+            app:layout_constraintStart_toStartOf="@id/icon_1"
+            app:layout_constraintTop_toTopOf="@id/icon_1" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="20 Min"
+            android:textStyle="normal"
+            android:textSize="16sp"
+            android:layout_marginBottom="2dp"
+            app:layout_constraintStart_toStartOf="@id/fast_food"
+            app:layout_constraintEnd_toEndOf="@id/fast_food"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/icon_2"
+            android:layout_width="100dp"
+            android:layout_height="58dp"
+            android:background="@drawable/card_icon"
+            android:layout_marginEnd="@dimen/margin_end"
+            app:layout_constraintEnd_toStartOf="@id/icon_3"
+            app:layout_constraintBottom_toBottomOf="@id/layout_icon"
+            app:layout_constraintStart_toEndOf="@id/icon_1"
+            />
+
+        <ImageView
+            android:id="@+id/food"
+            android:layout_width="@dimen/dimen_icon"
+            android:layout_height="@dimen/dimen_icon"
+            android:background="@drawable/dish_svgrepo_com_2"
+            android:layout_marginBottom="@dimen/margin_bottom_icon"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/icon_2"
+            app:layout_constraintStart_toStartOf="@id/icon_2"
+            app:layout_constraintTop_toTopOf="@id/icon_2" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4"
+            android:textStyle="normal"
+            android:textSize="16sp"
+            android:layout_marginBottom="2dp"
+            app:layout_constraintStart_toStartOf="@id/food"
+            app:layout_constraintEnd_toEndOf="@id/food"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/icon_3"
+            android:layout_width="100dp"
+            android:layout_height="58dp"
+            android:background="@drawable/card_icon"
+            android:layout_marginEnd="@dimen/margin_end"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/layout_icon"
+            app:layout_constraintStart_toEndOf="@id/icon_2"   />
+        <ImageView
+            android:id="@+id/exit"
+            android:layout_width="@dimen/dimen_icon"
+            android:layout_height="@dimen/dimen_icon"
+            android:background="@drawable/square_share_line2"
+            android:layout_marginBottom="@dimen/margin_bottom_icon"
+
+            app:layout_constraintStart_toStartOf="@id/icon_3"
+            app:layout_constraintEnd_toEndOf="@id/icon_3"
+            app:layout_constraintBottom_toBottomOf="@id/icon_3"
+            app:layout_constraintTop_toTopOf="@id/icon_3"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="More Info"
+            android:textStyle="normal"
+            android:textSize="16sp"
+            android:layout_marginBottom="2dp"
+            app:layout_constraintStart_toStartOf="@id/exit"
+            app:layout_constraintEnd_toEndOf="@id/exit"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_button"
+        android:layout_width="328dp"
+        android:layout_height="82dp"
+        android:layout_marginStart="@dimen/margin_start_end"
+        android:layout_marginEnd="@dimen/margin_start_end"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layout_icon"
+        >
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="328dp"
+            android:layout_height="24dp"
+            android:textSize="16sp"
+            android:text="Masala Karela Recipe"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintStart_toStartOf="@id/layout_button"
+            app:layout_constraintEnd_toEndOf="@id/layout_button"
+            app:layout_constraintTop_toTopOf="@id/layout_button"
+            />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_2"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="instructions"
+            android:textAlignment="textEnd"
+            android:paddingBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:paddingEnd="32dp"
+            android:clickable="true"
+            android:background="@drawable/button_1"
+            android:layout_marginStart="@dimen/margin_start"
+            app:layout_constraintStart_toStartOf="@id/layout_button"
+            app:layout_constraintTop_toBottomOf="@id/text"
+            />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_1"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:text="ingredients"
+            android:clickable="true"
+            android:background="@drawable/button"
+            android:layout_marginStart="@dimen/margin_start"
+            android:paddingBottom="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="@id/layout_button"
+            app:layout_constraintTop_toBottomOf="@id/text"
+            android:focusable="true" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
