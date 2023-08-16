@@ -2,20 +2,19 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="150dp"
-    android:layout_height="200dp"
-    android:layout_marginBottom="16dp"
+    android:layout_width="match_parent"
+    android:layout_height="220dp"
     app:cardCornerRadius="12dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
         style="@style/cardBackground"
+        android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/image"
             android:layout_width="match_parent"
-            android:layout_height="124dp"
+            android:layout_height="144dp"
             android:background="@drawable/image_frame"
             android:scaleType="centerCrop"
             app:layout_constraintEnd_toEndOf="parent"
@@ -42,6 +41,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:lines="1"
+            android:textSize="16sp"
             app:layout_constraintBottom_toTopOf="@+id/time"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
