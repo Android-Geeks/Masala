@@ -8,14 +8,14 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.example.masala_food_recipes.databinding.ActivityMainBinding
 import com.example.masala_food_recipes.ui.fragment.FavouriteFragment
-import com.example.masala_food_recipes.ui.fragment.HomeFragment
 import com.example.masala_food_recipes.ui.fragment.SearchFragment
 import com.example.masala_food_recipes.ui.fragment.SettingFragment
+import com.example.masala_food_recipes.ui.fragment.UnderTwentyMinFragment
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private val homeScreen = HomeFragment()
+    private val homeScreen = UnderTwentyMinFragment()
     private val favouriteScreen = FavouriteFragment()
     private val searchScreen = SearchFragment()
     private val settingScreen = SettingFragment()

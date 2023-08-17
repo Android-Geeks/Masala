@@ -25,6 +25,12 @@
         <item name="android:textColor">@color/white</item>
     </style>
 
+    <style name="recipeCard">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:drawableTint">@color/light_gray</item>
+        <item name="backgroundTint">@color/light_black</item>
+    </style>
+
     <style name="timerStyle">
         <item name="drawableTint">@color/white</item>
         <item name="android:textColor">@color/white</item>

@@ -5,31 +5,42 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
-interface BaseInteractionListener          // an listener to be modified as needed
+interface BaseInteractionListener
+{
+    fun onClick(position : Int)
+}        // an listener to be modified as needed
 
-abstract class BaseRecyclerAdapter<T, VH : BaseRecyclerAdapter.BaseViewHolder<T>>(
-    private val items: List<T>, private val listener : BaseInteractionListener?
-) : RecyclerView.Adapter<VH>() {
+abstract class BaseRecyclerAdapter<T , VH : BaseRecyclerAdapter.BaseViewHolder<T>>(
+        private val items : List<T> , private val listener : BaseInteractionListener
+) : RecyclerView.Adapter<VH>()
+{
 
-    abstract val layoutId: Int                   // The ID of the layout to be worked on
+    abstract val layoutId : Int                   // The ID of the layout to be worked on
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
-        return createViewHolder(LayoutInflater.from(parent.context).inflate(layoutId, parent, false))
+    override fun onCreateViewHolder(parent : ViewGroup , viewType : Int) : VH
+    {
+        return createViewHolder(
+                LayoutInflater.from(parent.context).inflate(layoutId , parent , false)
+        )
     }
 
-    abstract fun createViewHolder(view: View): VH
+    abstract fun createViewHolder(view : View) : VH
 
-    override fun onBindViewHolder(holder: VH, position: Int) {
+    override fun onBindViewHolder(holder : VH , position : Int)
+    {
         holder.bind(items[position])
+        holder.itemView.setOnClickListener {
+            listener.onClick(position)
+        }
 
     }
 
-    abstract class BaseViewHolder<T>(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
-        abstract fun bind(item: T)
+    abstract class BaseViewHolder<T>(itemView : View) : RecyclerView.ViewHolder(itemView)
+    {
+        abstract fun bind(item : T)
     }
 
-    override fun getItemCount(): Int = items.size
+    override fun getItemCount() : Int = items.size
 }
 
 

@@ -39,6 +39,12 @@
         <item name="android:textColor">@color/black</item>
     </style>
 
+    <style name="recipeCard">
+        <item name="android:textColor">@color/dark_brown</item>
+        <item name="android:drawableTint">@color/brown</item>
+        <item name="backgroundTint">@color/light_orange</item>
+    </style>
+
     <style name="timerStyle">
         <item name="drawableTint">@color/black</item>
         <item name="android:textColor">@color/black</item>
