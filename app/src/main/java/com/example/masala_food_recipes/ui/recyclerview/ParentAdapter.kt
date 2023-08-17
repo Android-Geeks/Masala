@@ -10,6 +10,7 @@ import com.example.masala_food_recipes.ParentItem
 import com.example.masala_food_recipes.R
 import com.example.masala_food_recipes.data.DataManager
 import com.example.masala_food_recipes.databinding.ParentItemBinding
+import java.lang.Exception
 
 class ParentAdapter(
     private val context: Context,
@@ -27,17 +28,33 @@ class ParentAdapter(
 
     override fun onBindViewHolder(holder: PViewHolder, position: Int) {
         val parentItem = parentList[position]
-        holder.binding.headerText.text = parentItem.type
-//        holder.binding.appName.visibility = View.GONE
 
-        val childItem = childList[position]
-        holder.binding.parentRecycler.adapter =
-            ChildAdapter(context, childList, recipeList)
+        holder.binding.apply {
+            headerText.text = parentItem.type
+            childRecyclerOfParent.adapter = ChildAdapter(context, childList, recipeList)
+            parentRecycler.adapter = getAdapter(parentItem.adapterType)
+        }
+
     }
+
 
     override fun getItemCount(): Int = parentList.size
 
     class PViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val binding = ParentItemBinding.bind(itemView)
+    }
+
+    private fun getAdapter(adapterType: String): RecyclerView.Adapter<*> {
+        return when (adapterType) {
+            "CuisineAdapter" -> CuisineAdapter(recipeList, object : CuisineListener {})
+
+            "ForYouRecipeAdapter" -> ForYouRecipeAdapter(recipeList, object : ForYouRecipeListener {})
+
+            "UnderTwentyMinAdapter" -> UnderTwentyMinAdapter(recipeList, object : UnderTwentyMinListener {})
+
+            "UnderFiveIngredientAdapter" -> UnderFiveIngredientAdapter(recipeList, object : UnderFiveIngredientListener {})
+
+            else -> throw Exception("No Adapter Found")
+        }
     }
 }

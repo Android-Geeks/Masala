@@ -1,10 +1,16 @@
 package com.example.masala_food_recipes.ui.fragment
 
+import android.view.View
 import com.example.masala_food_recipes.ChildItem
 import com.example.masala_food_recipes.ParentItem
+import com.example.masala_food_recipes.data.DataManager
+import com.example.masala_food_recipes.databinding.ChildItemBinding
 import com.example.masala_food_recipes.databinding.ParentItemBinding
+import com.example.masala_food_recipes.ui.recyclerview.CuisineAdapter
+import com.example.masala_food_recipes.ui.recyclerview.CuisineListener
 import com.example.masala_food_recipes.ui.recyclerview.ParentAdapter
-
+import com.example.masala_food_recipes.ui.recyclerview.UnderFiveIngredientAdapter
+import com.example.masala_food_recipes.ui.recyclerview.UnderFiveIngredientListener
 
 
 class HomeFragment : BaseFragment<ParentItemBinding>(ParentItemBinding :: inflate) {
@@ -15,15 +21,20 @@ class HomeFragment : BaseFragment<ParentItemBinding>(ParentItemBinding :: inflat
         val child2 = ChildItem("For You", "view all", "ForYouRecipeAdapter")
         val child3 = ChildItem("under 20 min meal", "view all", "UnderTwentyMinAdapter")
         val child4 = ChildItem("under 5 ingredient meal", "view all", "UnderFiveIngredientAdapter")
-        val childList : List<ChildItem> = listOf(child1,child2,child3, child4)
+        val childList : List<ChildItem> = listOf(child2,child3, child4)
 
 
-        val p = ParentItem("1", "vo")
-//        val p2 = ParentItem("2","sd")
-//        val p3 = ParentItem("3","et")
+        val parent1 = ParentItem("Cuisine", "View All", "CuisineAdapter")
+        val parentList = listOf(parent1)
 
-//ممكن اخلى الparent يبقى هو ال RV و الابناء يبقوا هما ال String
+        binding.apply {     // cause of inflating Parent Item page
+            appName.visibility = View.GONE
+            headerText.visibility =View.GONE
+            viewAllText.visibility = View.GONE
+            childRecyclerOfParent.adapter = ParentAdapter(requireContext() , parentList, childList)
+        }
 
-        binding.parentRecycler.adapter = ParentAdapter(requireContext() ,listOf(p),childList)
+
+
     }
 }

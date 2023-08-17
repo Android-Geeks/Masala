@@ -9,6 +9,7 @@ import com.example.masala_food_recipes.ChildItem
 import com.example.masala_food_recipes.R
 import com.example.masala_food_recipes.data.entities.Recipe
 import com.example.masala_food_recipes.databinding.ChildItemBinding
+import java.lang.Exception
 
 class ChildAdapter(
     private val context: Context,
@@ -28,14 +29,7 @@ class ChildAdapter(
         holder.binding.apply {
             cuisineText.text = childItem.type
             viewAllText.text = childItem.view_all
-
-            childRecycler.adapter = when(childItem.adapterType ){
-                "CuisineAdapter"->CuisineAdapter(recipeList,object : CuisineListener {})
-                "ForYouRecipeAdapter" -> ForYouRecipeAdapter(recipeList,object : ForYouRecipeListener{})
-                "UnderTwentyMinAdapter" -> UnderTwentyMinAdapter(recipeList,object :UnderTwentyMinListener{})
-                "UnderFiveIngredientAdapter" -> UnderFiveIngredientAdapter(recipeList,object :UnderFiveIngredientListener{})
-                else -> {null}
-            }
+            childRecycler.adapter = getAdapter(childItem.adapterType)
         }
     }
 
@@ -43,6 +37,20 @@ class ChildAdapter(
 
     class PViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val binding = ChildItemBinding.bind(itemView)
+    }
+
+    private fun getAdapter(adapterType: String): RecyclerView.Adapter<*> {
+        return when (adapterType) {
+            "CuisineAdapter" -> CuisineAdapter(recipeList, object : CuisineListener {})
+
+            "ForYouRecipeAdapter" -> ForYouRecipeAdapter(recipeList, object : ForYouRecipeListener {})
+
+            "UnderTwentyMinAdapter" -> UnderTwentyMinAdapter(recipeList, object : UnderTwentyMinListener {})
+
+            "UnderFiveIngredientAdapter" -> UnderFiveIngredientAdapter(recipeList, object : UnderFiveIngredientListener {})
+
+            else -> throw Exception("No Adapter Found")
+        }
     }
 
 }
