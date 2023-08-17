@@ -25,7 +25,7 @@
             android:id="@+id/recipe_image"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/img"
+            android:background="@drawable/image"
             android:contentDescription="@string/recipe_image"
             app:circularflow_radiusInDP="8dp"
             app:layout_constraintEnd_toEndOf="parent"
