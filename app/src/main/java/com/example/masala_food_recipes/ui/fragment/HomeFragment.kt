@@ -3,21 +3,14 @@ package com.example.masala_food_recipes.ui.fragment
 import android.view.View
 import com.example.masala_food_recipes.ChildItem
 import com.example.masala_food_recipes.ParentItem
-import com.example.masala_food_recipes.data.DataManager
-import com.example.masala_food_recipes.databinding.ChildItemBinding
 import com.example.masala_food_recipes.databinding.ParentItemBinding
-import com.example.masala_food_recipes.ui.recyclerview.CuisineAdapter
-import com.example.masala_food_recipes.ui.recyclerview.CuisineListener
 import com.example.masala_food_recipes.ui.recyclerview.ParentAdapter
-import com.example.masala_food_recipes.ui.recyclerview.UnderFiveIngredientAdapter
-import com.example.masala_food_recipes.ui.recyclerview.UnderFiveIngredientListener
-
 
 class HomeFragment : BaseFragment<ParentItemBinding>(ParentItemBinding :: inflate) {
 
     override fun onCreateView() {
 
-        val child1 = ChildItem("Cuisine", "view all", "CuisineAdapter")
+//        val child1 = ChildItem("Cuisine", "view all", "CuisineAdapter")
         val child2 = ChildItem("For You", "view all", "ForYouRecipeAdapter")
         val child3 = ChildItem("under 20 min meal", "view all", "UnderTwentyMinAdapter")
         val child4 = ChildItem("under 5 ingredient meal", "view all", "UnderFiveIngredientAdapter")
