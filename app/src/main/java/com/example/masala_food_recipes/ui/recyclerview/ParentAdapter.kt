@@ -10,6 +10,7 @@ import com.example.masala_food_recipes.data.entities.ParentItem
 import com.example.masala_food_recipes.R
 import com.example.masala_food_recipes.data.DataManager
 import com.example.masala_food_recipes.data.interactors.Cuisines
+import com.example.masala_food_recipes.data.interactors.ForYouRecipe
 import com.example.masala_food_recipes.data.interactors.UnderFiveIngredient
 import com.example.masala_food_recipes.data.interactors.UnderTwentyMinsRecipe
 import com.example.masala_food_recipes.databinding.ParentItemBinding
@@ -21,7 +22,6 @@ class ParentAdapter(
     private val childList: List<ChildItem>
 ) : RecyclerView.Adapter<ParentAdapter.PViewHolder>() {
 
-    private val recipeList = DataManager(context).getAllRecipesData()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PViewHolder {
         return PViewHolder(
@@ -34,7 +34,7 @@ class ParentAdapter(
 
         holder.binding.apply {
             headerText.text = parentItem.type
-            childRecyclerOfParent.adapter = ChildAdapter(context,childList, recipeList)
+            childRecyclerOfParent.adapter = ChildAdapter(context,childList)
             parentRecycler.adapter = getAdapter(parentItem.adapterType)
         }
 
@@ -49,12 +49,13 @@ class ParentAdapter(
 
     private fun getAdapter(adapterType: String): RecyclerView.Adapter<*> {
         val cuisinesList = Cuisines(DataManager(context).getAllRecipesData()).getCuisineCards()
-        val underFiveList = UnderFiveIngredient(DataManager(context).getAllRecipesData()).execute()
-        val underTwentyList = UnderTwentyMinsRecipe(DataManager(context).getAllRecipesData()).execute()
+        val forYouList = ForYouRecipe(DataManager(context).getAllRecipesData()).execute(20)
+        val underFiveList = UnderFiveIngredient(DataManager(context).getAllRecipesData()).execute(20)
+        val underTwentyList = UnderTwentyMinsRecipe(DataManager(context).getAllRecipesData()).execute(20)
         return when (adapterType) {
             "CuisineAdapter" -> CuisineAdapter(cuisinesList, object : CuisineListener {})
 
-            "ForYouRecipeAdapter" -> ForYouRecipeAdapter(recipeList, object : ForYouRecipeListener {})
+            "ForYouRecipeAdapter" -> ForYouRecipeAdapter(forYouList, object : ForYouRecipeListener {})
 
             "UnderTwentyMinAdapter" -> UnderTwentyMinAdapter(underTwentyList, object : UnderTwentyMinListener {})
 

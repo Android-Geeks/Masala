@@ -8,8 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.masala_food_recipes.data.entities.ChildItem
 import com.example.masala_food_recipes.R
 import com.example.masala_food_recipes.data.DataManager
-import com.example.masala_food_recipes.data.entities.Recipe
 import com.example.masala_food_recipes.data.interactors.Cuisines
+import com.example.masala_food_recipes.data.interactors.ForYouRecipe
 import com.example.masala_food_recipes.data.interactors.UnderFiveIngredient
 import com.example.masala_food_recipes.data.interactors.UnderTwentyMinsRecipe
 import com.example.masala_food_recipes.databinding.ChildItemBinding
@@ -17,8 +17,7 @@ import java.lang.Exception
 
 class ChildAdapter(
     private val context: Context,
-    private val childList: List<ChildItem>,
-    private val recipeList: List<Recipe>
+    private val childList: List<ChildItem>
 ) : RecyclerView.Adapter<ChildAdapter.PViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PViewHolder {
@@ -45,12 +44,13 @@ class ChildAdapter(
 
     private fun getAdapter(adapterType: String): RecyclerView.Adapter<*> {
         val cuisinesList = Cuisines(DataManager(context).getAllRecipesData()).getCuisineCards()
-        val underFiveList = UnderFiveIngredient(DataManager(context).getAllRecipesData()).execute()
-        val underTwentyList = UnderTwentyMinsRecipe(DataManager(context).getAllRecipesData()).execute()
+        val forYouList = ForYouRecipe(DataManager(context).getAllRecipesData()).execute(20)
+        val underFiveList = UnderFiveIngredient(DataManager(context).getAllRecipesData()).execute(20)
+        val underTwentyList = UnderTwentyMinsRecipe(DataManager(context).getAllRecipesData()).execute(20)
         return when (adapterType) {
             "CuisineAdapter" -> CuisineAdapter(cuisinesList, object : CuisineListener {})
 
-            "ForYouRecipeAdapter" -> ForYouRecipeAdapter(recipeList, object : ForYouRecipeListener {})
+            "ForYouRecipeAdapter" -> ForYouRecipeAdapter(forYouList, object : ForYouRecipeListener {})
 
             "UnderTwentyMinAdapter" -> UnderTwentyMinAdapter(underTwentyList, object : UnderTwentyMinListener {})
 

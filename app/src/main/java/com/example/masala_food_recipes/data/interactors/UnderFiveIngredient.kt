@@ -12,10 +12,11 @@ import com.example.masala_food_recipes.data.entities.Recipe
 }*/
 
 class UnderFiveIngredient(private val recipes : List<Recipe>) {
-    fun execute() =
+    fun execute(limit : Int) =
             recipes
                     .filter { it.ingredientCount.toInt() < 5 }
                     .shuffled()
+                    .take(limit)
                     .map { recipe ->
                         listOf(
                             recipe.translatedRecipeName ,

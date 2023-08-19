@@ -5,27 +5,25 @@ import android.content.Context
 import android.view.View
 import com.bumptech.glide.Glide
 import com.example.masala_food_recipes.R
-import com.example.masala_food_recipes.data.entities.Recipe
-import com.example.masala_food_recipes.data.interactors.ForYouRecipe
 import com.example.masala_food_recipes.databinding.RecipeCardBinding
 
 interface ForYouRecipeListener :BaseInteractionListener
-class ForYouRecipeAdapter(items: List<Recipe>, listener:ForYouRecipeListener) :BaseRecyclerAdapter<Recipe,BaseRecyclerAdapter.BaseViewHolder<Recipe>>(items, listener) {
+class ForYouRecipeAdapter(items: List<List<String>>, listener:ForYouRecipeListener) :BaseRecyclerAdapter<List<String>,BaseRecyclerAdapter.BaseViewHolder<List<String>>>(items, listener) {
     override val layoutId = R.layout.recipe_card
 
-    override fun createViewHolder(view: View): BaseViewHolder<Recipe> = RecipeViewHolder(view)
+    override fun createViewHolder(view: View): BaseViewHolder<List<String>> = RecipeViewHolder(view)
 
-    class RecipeViewHolder(itemView:View):BaseViewHolder<Recipe>(itemView){
+    class RecipeViewHolder(itemView:View):BaseViewHolder<List<String>>(itemView){
 
         private val binding = RecipeCardBinding.bind(itemView)
         private val context: Context = itemView.context
-        override fun bind(item: Recipe) {
+        override fun bind(item: List<String>) {
             binding.apply {
-                recipeName.text =ForYouRecipe(listOf(item)).execute(10).keys.joinToString(",")
-                recipeCuisine.text = ForYouRecipe(listOf(item)).execute(10).values.first().first
+                recipeName.text = item[0]
+                recipeCuisine.text = item[1]
 
                 Glide.with(context)
-                    .load(ForYouRecipe(listOf(item)).execute(10).values.first().second)
+                    .load(item[2])
                     .centerCrop()
                     .into(recipeImage)
 
