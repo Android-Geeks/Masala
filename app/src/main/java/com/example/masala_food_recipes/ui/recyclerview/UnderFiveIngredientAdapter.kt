@@ -36,15 +36,15 @@ class UnderFiveIngredientAdapter(items: List<Recipe>, listener:UnderFiveIngredie
 
         @SuppressLint("SetTextI18n")
         override fun bind(item: Recipe) {
-            val underFiveIngredientList = UnderFiveIngredient(listOf(item)).execute(10)
+            val underFiveIngredient = UnderFiveIngredient(listOf(item)).execute()
 
-            if (underFiveIngredientList.isNotEmpty()){
-                val mapValues = underFiveIngredientList.values.first()
+            if (underFiveIngredient.isNotEmpty()){
+                val under5List = underFiveIngredient[0]
                 binding.apply {
-                    textViewRecipe.text = underFiveIngredientList.keys.joinToString(",")
-                    minutesText.text = mapValues.first
+                    textViewRecipe.text = under5List[0]
+                    minutesText.text = under5List[1]
                     Glide.with(context)
-                        .load(mapValues.second)
+                        .load(under5List[2])
                         .centerCrop()
                         .into(recipeImage)
 
