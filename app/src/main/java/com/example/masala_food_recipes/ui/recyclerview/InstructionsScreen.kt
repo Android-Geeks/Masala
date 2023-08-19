@@ -7,7 +7,6 @@ import com.example.masala_food_recipes.databinding.FragmentInstructionsScreenBin
 import com.example.masala_food_recipes.ui.fragment.BaseFragment
 
 class InstructionsScreen : BaseFragment<FragmentInstructionsScreenBinding>(FragmentInstructionsScreenBinding::inflate) {
-
     override fun onCreateView() {
         val dataList = DataManager(requireContext()).getAllRecipesData()
         val recyclerview = binding.recyclerView2

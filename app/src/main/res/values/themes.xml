@@ -12,6 +12,7 @@
     <style name="Widget.App.CheckBox" parent="Widget.Material3.CompoundButton.CheckBox">
         <item name="buttonTint">@color/orange</item>
     </style>
+
     <style name="roundedImage">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">8dp</item>

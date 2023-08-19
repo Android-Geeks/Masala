@@ -24,7 +24,6 @@ class RecyclerViewAdapter1( private val itemList: List<Recipe>) :
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_card_1, parent, false)
         return ViewHolder(view)
     }
-
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = itemList[position]
         holder.numberText.text = item.ingredientCount

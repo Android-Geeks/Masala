@@ -9,7 +9,6 @@ class DetailsScreen :
 
     override fun onCreateView() {
 
-
 //        val toolbar = binding.topAppBar
 //        toolbar.navigationIcon = resources.getDrawable(R.drawable.baseline_arrow_back_24, null)
 //

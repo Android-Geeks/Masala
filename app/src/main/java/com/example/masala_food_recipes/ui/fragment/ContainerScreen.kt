@@ -6,7 +6,6 @@ import com.example.masala_food_recipes.databinding.FragmentContainerScreenBindin
 import com.example.masala_food_recipes.ui.recyclerview.IngredientsScreen
 import com.example.masala_food_recipes.ui.recyclerview.InstructionsScreen
 import com.google.android.material.tabs.TabLayoutMediator
-
 class ContainerScreen :
     BaseFragment<FragmentContainerScreenBinding>(FragmentContainerScreenBinding::inflate) {
     override fun onCreateView() {
