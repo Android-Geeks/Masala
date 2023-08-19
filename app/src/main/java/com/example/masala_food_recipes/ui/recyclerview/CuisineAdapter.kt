@@ -29,17 +29,17 @@ class CuisineAdapter(items: List<Recipe>, listener: CuisineListener) :BaseRecycl
         @SuppressLint("SetTextI18n")
         override fun bind(item: Recipe) {
             val cuisineMap = Cuisines(listOf(item)).getCuisineCards()
-                val key = cuisineMap.keys.joinToString(",")
-                binding.apply {
-                    cuisineTextview.text = key
-                    itemsCount.text = "${allCuisines[key]?.first.toString()} item"
+            val key = cuisineMap.keys.joinToString(",")
+            binding.apply {
+                cuisineTextview.text = key
+                itemsCount.text = "${allCuisines[key]?.first.toString()} item"
 
 
-                    Glide.with(context)
-                        .load(Cuisines(listOf(item)).getCuisineCards().values.first().second)
-                        .centerCrop()
-                        .into(foodImage)
-                }
+                Glide.with(context)
+                    .load(cuisineMap.values.first().second)
+                    .centerCrop()
+                    .into(foodImage)
+            }
         }
     }
 }

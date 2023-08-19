@@ -10,7 +10,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/cuisines"
-        android:padding="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="18dp"
         android:textColor="@color/black"
         android:textSize="16sp"
         android:fontFamily="@font/font_family"
@@ -22,17 +23,17 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/cuisine_recycler_fragment"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:paddingTop="26dp"
         app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cuisine_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:spanCount="2"
-        android:padding="16dp"
         tool:listitem="@layout/card_view_cuisines"/>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
