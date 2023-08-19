@@ -15,7 +15,7 @@
         android:layout_height="match_parent"
         app:layout_scrollFlags="scroll|enterAlways|snap"
         app:navigationIcon="@drawable/arrow_back"
-        app:title="Sub Category"
+        app:title="Favourite"
         app:titleTextAppearance="@style/TextAppearance.AppCompat" />
 
 </com.google.android.material.appbar.AppBarLayout>
