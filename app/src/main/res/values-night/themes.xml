@@ -37,9 +37,7 @@
         <item name="android:textColor">@color/white</item>
         <item name="backgroundTint">@color/gray_38</item>
     </style>
-    <style name="background">
-        <item name="android:background">@color/light_black</item>
-    </style>
+
     <style name="appBarBackground">
         <item name="android:background">@color/light_black</item>
     </style>

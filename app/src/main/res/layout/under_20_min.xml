@@ -17,7 +17,7 @@
             android:id="@+id/image"
             android:layout_width="match_parent"
             android:layout_height="144dp"
-            android:background="@drawable/image_frame"
+            android:background="@mipmap/empty_card_img"
             android:scaleType="centerCrop"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -25,7 +25,7 @@
             tools:src="@drawable/img" />
 
         <CheckBox
-            android:id="@+id/check_box"
+            android:id="@+id/favourite_check_box"
             style="@style/Widget.App.CheckBox"
             android:layout_width="24dp"
             android:layout_height="24dp"

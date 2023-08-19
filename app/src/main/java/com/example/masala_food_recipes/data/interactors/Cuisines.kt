@@ -1,6 +1,7 @@
 package com.example.masala_food_recipes.data.interactors
 
 import com.example.masala_food_recipes.data.entities.Recipe
+import kotlin.random.Random
 
 class Cuisines(private val recipes : List<Recipe>)
 {
@@ -10,7 +11,7 @@ class Cuisines(private val recipes : List<Recipe>)
                     .map {
                         listOf(
                                 it.value.size ,
-                                it.value[it.value.size].imageUrl
+                                it.value[Random.nextInt(it.value.size)].imageUrl
                         )
                     }
 }
