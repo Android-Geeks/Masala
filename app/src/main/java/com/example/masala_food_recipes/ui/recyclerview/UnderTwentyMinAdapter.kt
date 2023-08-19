@@ -11,26 +11,24 @@ import com.example.masala_food_recipes.data.interactors.UnderTwentyMinsRecipe
 import com.example.masala_food_recipes.databinding.CardViewSubCategoryBinding
 
 interface UnderTwentyMinListener : BaseInteractionListener
-class UnderTwentyMinAdapter(items: List<Recipe>,listener: UnderTwentyMinListener) :BaseRecyclerAdapter<Recipe,BaseRecyclerAdapter.BaseViewHolder<Recipe>>(items, listener) {
+class UnderTwentyMinAdapter(items: List<List<String>>,listener: UnderTwentyMinListener) :BaseRecyclerAdapter<List<String>,BaseRecyclerAdapter.BaseViewHolder<List<String>>>(items, listener) {
     override val layoutId = R.layout.card_view_sub_category
 
-    override fun createViewHolder(view: View): BaseViewHolder<Recipe> = UnderTwentyViewHolder(view)
+    override fun createViewHolder(view: View): BaseViewHolder<List<String>> = UnderTwentyViewHolder(view)
 
-    class UnderTwentyViewHolder(itemView: View) : BaseViewHolder<Recipe>(itemView) {
+    class UnderTwentyViewHolder(itemView: View) : BaseViewHolder<List<String>>(itemView) {
         private val binding = CardViewSubCategoryBinding.bind(itemView)
         private val context: Context = itemView.context
 
         @SuppressLint("SetTextI18n")
-        override fun bind(item: Recipe) {
-            val underTwentyMinList = UnderTwentyMinsRecipe(listOf(item)).execute(10)
+        override fun bind(item: List<String>) {
 
-            if (underTwentyMinList.isNotEmpty()) {
-                val mapValues = underTwentyMinList.values.first()
+            if (item.isNotEmpty()) {
                 binding.apply {
-                    textViewRecipe.text = underTwentyMinList.keys.joinToString(",")
-                    minutesText.text = mapValues.first
+                    textViewRecipe.text = item[0]
+                    minutesText.text = item[1]
                     Glide.with(context)
-                        .load(mapValues.second)
+                        .load(item[2])
                         .centerCrop()
                         .into(recipeImage)
                 }

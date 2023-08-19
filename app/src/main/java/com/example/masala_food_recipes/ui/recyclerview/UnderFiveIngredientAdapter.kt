@@ -14,8 +14,8 @@ import com.example.masala_food_recipes.databinding.CardViewSubCategoryBinding
 
 interface UnderFiveIngredientListener : BaseInteractionListener
 
-class UnderFiveIngredientAdapter(items: List<Recipe>, listener:UnderFiveIngredientListener) :
-    BaseRecyclerAdapter<Recipe, BaseRecyclerAdapter.BaseViewHolder<Recipe>>(items, listener) {
+class UnderFiveIngredientAdapter(items: List<List<String>>, listener:UnderFiveIngredientListener) :
+    BaseRecyclerAdapter<List<String>, BaseRecyclerAdapter.BaseViewHolder<List<String>>>(items, listener) {
     override val layoutId = R.layout.card_view_sub_category
 
 //    private val maxItems = 10 // Define the maximum number of items to display
@@ -28,32 +28,28 @@ class UnderFiveIngredientAdapter(items: List<Recipe>, listener:UnderFiveIngredie
 //        }
 //    }
 
-    override fun createViewHolder(view: View): BaseViewHolder<Recipe> = UnderFiveViewHolder(view)
-
-    class UnderFiveViewHolder(itemView: View) : BaseViewHolder<Recipe>(itemView) {
+    override fun createViewHolder(view: View): BaseViewHolder<List<String>> = UnderFiveViewHolder(view)
+    class UnderFiveViewHolder(itemView: View) : BaseViewHolder<List<String>>(itemView) {
         private val binding = CardViewSubCategoryBinding.bind(itemView)
         private val context: Context = itemView.context
 
         @SuppressLint("SetTextI18n")
-        override fun bind(item: Recipe) {
-            val underFiveIngredient = UnderFiveIngredient(listOf(item)).execute()
+        override fun bind(item: List<String>) {
 
-            if (underFiveIngredient.isNotEmpty()){
-                val under5List = underFiveIngredient[0]
+            if (item.isNotEmpty()){
                 binding.apply {
-                    textViewRecipe.text = under5List[0]
-                    minutesText.text = under5List[1]
+                    textViewRecipe.text = item[0]
+                    minutesText.text = item[1]
                     Glide.with(context)
-                        .load(under5List[2])
+                        .load(item[2])
                         .centerCrop()
                         .into(recipeImage)
-
+                }
+                }
+                else{
+                    itemView.visibility = View.GONE
+                    itemView.layoutParams = RecyclerView.LayoutParams(0, 0)
                 }
             }
-            else{
-                itemView.visibility = View.GONE
-                itemView.layoutParams = RecyclerView.LayoutParams(0, 0)
-            }
         }
-    }
 }
