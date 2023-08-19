@@ -6,17 +6,22 @@ import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
+import com.example.masala_food_recipes.data.DataManager
+import com.example.masala_food_recipes.data.interactors.ForYouRecipe
+import com.example.masala_food_recipes.data.interactors.UnderFiveIngredient
+import com.example.masala_food_recipes.data.interactors.UnderTwentyMinRecipe
+import com.example.masala_food_recipes.data.util.MyViewModle
 import com.example.masala_food_recipes.databinding.ActivityMainBinding
 import com.example.masala_food_recipes.ui.fragment.FavouriteFragment
-import com.example.masala_food_recipes.ui.fragment.HomeFragment
 import com.example.masala_food_recipes.ui.fragment.SearchFragment
 import com.example.masala_food_recipes.ui.fragment.SettingFragment
+import com.example.masala_food_recipes.ui.fragment.UnderTwentyMinFragment
 
 class MainActivity : AppCompatActivity()
 {
 
     private lateinit var binding : ActivityMainBinding
-    private val homeScreen = HomeFragment()
+    private val homeScreen = UnderTwentyMinFragment()
     private val favouriteScreen = FavouriteFragment()
     private val searchScreen = SearchFragment()
     private val settingScreen = SettingFragment()
@@ -32,6 +37,13 @@ class MainActivity : AppCompatActivity()
     {
         if (savedInstanceState == null)
         {
+            MyViewModle.apply {
+                allRecipes = DataManager(this@MainActivity).getAllRecipesData()
+                under20MinList=UnderTwentyMinRecipe(allRecipes).execute()
+                under5IngredientList=UnderFiveIngredient(allRecipes).execute()
+//                cuisineList=Cuisines(allRecipes).getCuisineCards()
+                forYouList=ForYouRecipe(allRecipes).execute(10)
+            }
             initFragment()
             changeAppBar(R.layout.main_app_bar)
         }
