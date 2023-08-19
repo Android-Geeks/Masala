@@ -1,8 +1,8 @@
 package com.example.masala_food_recipes.ui.fragment
 
 import android.view.View
-import com.example.masala_food_recipes.ChildItem
-import com.example.masala_food_recipes.ParentItem
+import com.example.masala_food_recipes.data.entities.ChildItem
+import com.example.masala_food_recipes.data.entities.ParentItem
 import com.example.masala_food_recipes.databinding.ParentItemBinding
 import com.example.masala_food_recipes.ui.recyclerview.ParentAdapter
 

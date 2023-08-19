@@ -1,18 +1,16 @@
 package com.example.masala_food_recipes.ui.recyclerview
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.masala_food_recipes.ChildItem
+import com.example.masala_food_recipes.data.entities.ChildItem
 import com.example.masala_food_recipes.R
 import com.example.masala_food_recipes.data.entities.Recipe
 import com.example.masala_food_recipes.databinding.ChildItemBinding
 import java.lang.Exception
 
 class ChildAdapter(
-    private val context: Context,
     private val childList: List<ChildItem>,
     private val recipeList: List<Recipe>
 ) : RecyclerView.Adapter<ChildAdapter.PViewHolder>() {

@@ -22,15 +22,15 @@ class UnderTwentyMinAdapter(items: List<Recipe>,listener: UnderTwentyMinListener
 
         @SuppressLint("SetTextI18n")
         override fun bind(item: Recipe) {
-            val underTwentyMinList = UnderTwentyMinsRecipe(listOf(item)).execute(2)
+            val underTwentyMinList = UnderTwentyMinsRecipe(listOf(item)).execute(10)
 
             if (underTwentyMinList.isNotEmpty()) {
-
+                val mapValues = underTwentyMinList.values.first()
                 binding.apply {
                     textViewRecipe.text = underTwentyMinList.keys.joinToString(",")
-                    minutesText.text = underTwentyMinList.values.first().first.toString()
+                    minutesText.text = mapValues.first
                     Glide.with(context)
-                        .load(underTwentyMinList.values.first().second)
+                        .load(mapValues.second)
                         .centerCrop()
                         .into(recipeImage)
                 }

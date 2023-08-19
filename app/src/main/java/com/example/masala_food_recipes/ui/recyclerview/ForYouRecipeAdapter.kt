@@ -9,12 +9,7 @@ import com.example.masala_food_recipes.data.entities.Recipe
 import com.example.masala_food_recipes.data.interactors.ForYouRecipe
 import com.example.masala_food_recipes.databinding.RecipeCardBinding
 
-interface ForYouRecipeListener :BaseInteractionListener {
-    fun doNothing() {
-        // Empty implementation
-    }
-}
-
+interface ForYouRecipeListener :BaseInteractionListener
 class ForYouRecipeAdapter(items: List<Recipe>, listener:ForYouRecipeListener) :BaseRecyclerAdapter<Recipe,BaseRecyclerAdapter.BaseViewHolder<Recipe>>(items, listener) {
     override val layoutId = R.layout.recipe_card
 

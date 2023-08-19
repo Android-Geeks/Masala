@@ -5,15 +5,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.masala_food_recipes.ChildItem
-import com.example.masala_food_recipes.ParentItem
+import com.example.masala_food_recipes.data.entities.ChildItem
+import com.example.masala_food_recipes.data.entities.ParentItem
 import com.example.masala_food_recipes.R
 import com.example.masala_food_recipes.data.DataManager
 import com.example.masala_food_recipes.databinding.ParentItemBinding
 import java.lang.Exception
 
 class ParentAdapter(
-    private val context: Context,
+    context: Context,
     private val parentList: List<ParentItem>,
     private val childList: List<ChildItem>
 ) : RecyclerView.Adapter<ParentAdapter.PViewHolder>() {
@@ -31,7 +31,7 @@ class ParentAdapter(
 
         holder.binding.apply {
             headerText.text = parentItem.type
-            childRecyclerOfParent.adapter = ChildAdapter(context, childList, recipeList)
+            childRecyclerOfParent.adapter = ChildAdapter(childList, recipeList)
             parentRecycler.adapter = getAdapter(parentItem.adapterType)
         }
 
