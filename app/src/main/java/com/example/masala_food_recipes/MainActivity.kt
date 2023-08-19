@@ -51,10 +51,8 @@ class MainActivity : AppCompatActivity()
             {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
             }
-            initFragment()
-            changeAppBar(R.layout.main_app_bar)
-
         }
+        initFragment()
         binding.bottomNavigation.setOnItemSelectedListener { item ->
             when (item.itemId)
             {
@@ -69,6 +67,7 @@ class MainActivity : AppCompatActivity()
 
     private fun initFragment()
     {
+        changeAppBar(R.layout.main_app_bar)
         inTransaction { replace(R.id.fragment_container_view , homeScreen) }
     }
 

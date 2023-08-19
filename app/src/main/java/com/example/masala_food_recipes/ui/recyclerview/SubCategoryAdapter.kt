@@ -1,5 +1,6 @@
 package com.example.masala_food_recipes.ui.recyclerview
 
+import android.content.Context
 import android.view.View
 import com.bumptech.glide.Glide
 import com.example.masala_food_recipes.R
@@ -27,6 +28,23 @@ class SubCategoryAdapter(items : List<List<String>> , listener : BaseInteraction
                 Glide.with(itemView)
                         .load(item[2])
                         .into(image)
+                favouriteCheckBox.setOnCheckedChangeListener { compoundButton , isChecked ->
+                    val sharedPref = compoundButton.context.getSharedPreferences(
+                            "MY_PREFS" ,
+                            Context.MODE_PRIVATE
+                    )
+                    val editor = sharedPref.edit()
+                    val favouriteSet = sharedPref.getStringSet("favourite" , null)?.toMutableSet()
+                    if (isChecked)
+                    {
+                        favouriteSet?.add(item[0])
+                    } else
+                    {
+                        favouriteSet?.remove(item[0])
+                    }
+                    editor.putStringSet("favourite" , favouriteSet)
+                    editor.apply()
+                }
             }
         }
     }

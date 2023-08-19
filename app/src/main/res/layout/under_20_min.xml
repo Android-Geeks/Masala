@@ -27,8 +27,8 @@
         <CheckBox
             android:id="@+id/favourite_check_box"
             style="@style/Widget.App.CheckBox"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:background="@drawable/white_background"
