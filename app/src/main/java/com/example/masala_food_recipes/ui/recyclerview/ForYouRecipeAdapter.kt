@@ -2,7 +2,6 @@
 package com.example.masala_food_recipes.ui.recyclerview
 
 import android.content.Context
-import android.util.Log
 import android.view.View
 import com.bumptech.glide.Glide
 import com.example.masala_food_recipes.R
@@ -33,12 +32,9 @@ class ForYouRecipeAdapter(items: List<List<String>>, listener:ForYouRecipeListen
 
                 checkBox.setOnClickListener {
                     PreferencesUtil.apply {
-                        val i = listOf("Cheesy Spinach Open Toast Recipe", "Continental", "https://www.archanaskitchen.com/images/archanaskitchen/1-Author/Farrukh_Aziz_Ansari/Cheesy_Spinach_Open_Toast.jpg")
-                        putInSharedPref("pop", item.toString())
-                        Log.v("MainActivity", (item.toString()+i).toList().joinToString(""))
-
-//                      putInSharedPref(Constants.KEY_TIME, item[1])
-//                        putInSharedPref(Constants.KEY_IMAGE, item[2])
+                        putInSharedPref(Constants.KEY_NAME, item[0])
+                      putInSharedPref(Constants.KEY_TIME, item[1])
+                        putInSharedPref(Constants.KEY_IMAGE, item[2])
                     }
 
                 }

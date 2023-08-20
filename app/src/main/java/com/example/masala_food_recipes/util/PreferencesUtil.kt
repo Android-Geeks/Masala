@@ -14,9 +14,9 @@ object PreferencesUtil {
         return sharedPref.getString(key, null)
     }
     fun putInSharedPref(key: String, value :String) {
-        val existingValue = listOf(sharedPref.getString(key, ""))
-        val updatedValue = existingValue + value
-        sharedPref.edit()?.putString(key, updatedValue.toString())?.apply()
-//        sharedPref.edit()?.putString(key, value)?.apply()
+//        val existingValue = listOf(sharedPref.getString(key, ""))
+//        val updatedValue = existingValue + value
+//        sharedPref.edit()?.putString(key, updatedValue.toString())?.apply()
+        sharedPref.edit()?.putString(key, value)?.apply()
     }
 }
