@@ -1,6 +1,7 @@
 package com.example.masala_food_recipes.ui.recyclerview
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -44,8 +45,8 @@ class ChildAdapter(
 
     private fun getAdapter(adapterType: String): RecyclerView.Adapter<*> {
         val cuisinesList = Cuisines(DataManager(context).getAllRecipesData()).getCuisineCards()
-        val forYouList = ForYouRecipe(DataManager(context).getAllRecipesData()).execute(20)
-        val underFiveList = UnderFiveIngredient(DataManager(context).getAllRecipesData()).execute(20)
+        val forYouList =  ForYouRecipe(DataManager(context).getAllRecipesData()).execute(20)
+    val underFiveList = UnderFiveIngredient(DataManager(context).getAllRecipesData()).execute(20)
         val underTwentyList = UnderTwentyMinsRecipe(DataManager(context).getAllRecipesData()).execute(20)
         return when (adapterType) {
             "CuisineAdapter" -> CuisineAdapter(cuisinesList, object : CuisineListener {})
