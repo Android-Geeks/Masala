@@ -6,7 +6,6 @@ import android.view.View
 import com.bumptech.glide.Glide
 import com.example.masala_food_recipes.R
 import com.example.masala_food_recipes.databinding.CardViewSearchBinding
-import com.example.masala_food_recipes.util.PreferencesUtil
 
 interface FavouriteListener : BaseInteractionListener
 
@@ -24,8 +23,8 @@ class FavouriteAdapter(items: List<List<String>>, listener: FavouriteListener) :
         override fun bind(item: List<String>) {
 
             binding.apply {
-                recipeText.text =  item[0]
-
+                recipeText.text =  "${item[0]} min"
+                minutesText.text = "${item[1]} min"
                 Glide.with(context)
                     .load(item[2])
                     .centerCrop()

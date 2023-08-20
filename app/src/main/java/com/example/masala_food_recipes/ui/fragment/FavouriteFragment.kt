@@ -10,10 +10,10 @@ class FavouriteFragment : BaseFragment<FragmentFavouriteBinding>(FragmentFavouri
     override fun onCreateView() {
         //TODO("Not yet implemented")
         PreferencesUtil.init(requireContext())
-        val po = listOf(PreferencesUtil.getFromSharedPref(Constants.KEY_NAME)!!,
-            "_",PreferencesUtil.getFromSharedPref(Constants.KEY_IMAGE)!!)
+        val list = listOf(PreferencesUtil.getFromSharedPref(Constants.KEY_NAME)!!,
+            PreferencesUtil.getFromSharedPref(Constants.KEY_TIME)!!,PreferencesUtil.getFromSharedPref(Constants.KEY_IMAGE)!!)
 
-            binding.favoriteRecycler.adapter = FavouriteAdapter(listOf(po), object :
+            binding.favoriteRecycler.adapter = FavouriteAdapter(listOf(list), object :
                 FavouriteListener {})
 
     }

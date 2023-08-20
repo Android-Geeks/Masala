@@ -29,15 +29,15 @@ class ForYouRecipeAdapter(items: List<List<String>>, listener:ForYouRecipeListen
                     .load(item[2])
                     .centerCrop()
                     .into(recipeImage)
-
                 checkBox.setOnClickListener {
                     PreferencesUtil.apply {
                         putInSharedPref(Constants.KEY_NAME, item[0])
-                      putInSharedPref(Constants.KEY_TIME, item[1])
+
                         putInSharedPref(Constants.KEY_IMAGE, item[2])
                     }
 
                 }
+
 
             }
         }
