@@ -7,8 +7,6 @@ import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.masala_food_recipes.R
-import com.example.masala_food_recipes.data.entities.Recipe
-import com.example.masala_food_recipes.data.interactors.UnderFiveIngredient
 import com.example.masala_food_recipes.databinding.CardViewSubCategoryBinding
 
 
@@ -38,8 +36,8 @@ class UnderFiveIngredientAdapter(items: List<List<String>>, listener:UnderFiveIn
 
             if (item.isNotEmpty()){
                 binding.apply {
-                    textViewRecipe.text = item[0]
-                    minutesText.text = item[1]
+                    textViewRecipe.text = "${item[0]} min"
+                    minutesText.text = "${item[1]} min"
                     Glide.with(context)
                         .load(item[2])
                         .centerCrop()
