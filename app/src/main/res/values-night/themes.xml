@@ -41,4 +41,8 @@
     <style name="appBarBackground">
         <item name="android:background">@color/light_black</item>
     </style>
+
+    <style name="background">
+        <item name="android:background">#000000</item>
+    </style>
 </resources>

@@ -55,7 +55,10 @@
 
     <style name="appBarBackground">
         <item name="android:background">@color/white</item>
-    </style>.
+    </style>
+    <style name="background">
+        <item name="android:background">@color/white</item>
+    </style>
     <style name="roundedImage">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">12dp</item>

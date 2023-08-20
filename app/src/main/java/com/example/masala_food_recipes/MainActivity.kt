@@ -4,6 +4,7 @@ package com.example.masala_food_recipes
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
@@ -16,14 +17,14 @@ import com.example.masala_food_recipes.data.interactors.UnderTwentyMinRecipe
 import com.example.masala_food_recipes.data.util.MyViewModle
 import com.example.masala_food_recipes.databinding.ActivityMainBinding
 import com.example.masala_food_recipes.ui.fragment.FavouriteFragment
-import com.example.masala_food_recipes.ui.fragment.HomeFragment
 import com.example.masala_food_recipes.ui.fragment.SearchFragment
 import com.example.masala_food_recipes.ui.fragment.SettingFragment
+import com.example.masala_food_recipes.ui.fragment.UnderTwentyMinFragment
 
 class MainActivity : AppCompatActivity()
 {
     private lateinit var binding : ActivityMainBinding
-    private val homeScreen = HomeFragment()
+    private val homeScreen = UnderTwentyMinFragment()
     private val favouriteScreen = FavouriteFragment()
     private val searchScreen = SearchFragment()
     private val settingScreen = SettingFragment()
@@ -33,6 +34,28 @@ class MainActivity : AppCompatActivity()
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         init(savedInstanceState)
+    }
+
+    @Deprecated(
+            "Deprecated in Java" ,
+            ReplaceWith("super.onBackPressed()" , "androidx.appcompat.app.AppCompatActivity")
+    )
+    override fun onBackPressed()
+    {
+        if (binding.bottomNavigation.selectedItemId != R.id.home_icon)
+        {
+            initFragment()
+            binding.bottomNavigation.selectedItemId = R.id.home_icon
+        } else
+        {
+            val builder = AlertDialog.Builder(this)
+            builder.setMessage("Are you sure you want to exit?")
+                    .setCancelable(false)
+                    .setPositiveButton("Yes") { _ , _ -> finish() }
+                    .setNegativeButton("No") { dialog , _ -> dialog.cancel() }
+            val alert = builder.create()
+            alert.show()
+        }
     }
 
     private fun init(savedInstanceState : Bundle?)
@@ -51,8 +74,12 @@ class MainActivity : AppCompatActivity()
             {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
             }
+            initFragment()
         }
-        initFragment()
+        if (binding.bottomNavigation.selectedItemId == R.id.home_icon)
+        {
+            changeAppBar(R.layout.main_app_bar)
+        }
         binding.bottomNavigation.setOnItemSelectedListener { item ->
             when (item.itemId)
             {
