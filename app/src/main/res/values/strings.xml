@@ -1,3 +1,25 @@
 <resources>
     <string name="app_name">masala-food-recipes</string>
+    <string name="title"> Masalaty</string>
+    <string name="cuisines">Cuisines</string>
+    <string name="view_all">View All</string>
+    <string name="for_you">For You</string>
+    <string name="under_20_min_meal">under 20 min meal</string>
+    <string name="under_5_ingredient_meal">under 5 ingrediant meal</string>
+    <string name="sub_category">Sub Category</string>
+    <string name="favourite">Favourite</string>
+    <string name="ingredients">Ingredients</string>
+    <string name="details">Details</string>
+    <string name="instruction">Instructions</string>
+    <string name="more_info">More Info</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="cuisine_image">Cuisine Image</string>
+
+    <string name="food_image">Food Image</string>
+    <string name="heart_icon">Heart Icon</string>
+    <string name="recipe_image">Recipe Image</string>
+    <string name="dish_image">Dish Image</string>
+    <string name="cuisine_image">Cuisine Image</string>
+
 </resources>
