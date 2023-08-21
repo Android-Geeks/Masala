@@ -4,9 +4,11 @@ package com.example.masala_food_recipes
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.example.masala_food_recipes.data.DataManager
@@ -42,11 +44,10 @@ class MainActivity : AppCompatActivity()
     )
     override fun onBackPressed()
     {
-        if (binding.bottomNavigation.selectedItemId != R.id.home_icon)
-        {
-            initFragment()
-            binding.bottomNavigation.selectedItemId = R.id.home_icon
-        } else
+
+        if (supportFragmentManager.fragments.last() != homeScreen)
+            backPressed()
+        else
         {
             val builder = AlertDialog.Builder(this)
             builder.setMessage("Are you sure you want to exit?")
@@ -74,8 +75,9 @@ class MainActivity : AppCompatActivity()
             {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
             }
+            binding.bottomNavigation.selectedItemId = R.id.home_icon
             initFragment()
-        }
+        } else binding.bottomNavigation.selectedItemId = R.id.setting_icon
         if (binding.bottomNavigation.selectedItemId == R.id.home_icon)
         {
             changeAppBar(R.layout.main_app_bar)
@@ -94,7 +96,7 @@ class MainActivity : AppCompatActivity()
 
     private fun initFragment()
     {
-        changeAppBar(R.layout.main_app_bar)
+//        changeAppBar(R.layout.main_app_bar)
         inTransaction { replace(R.id.fragment_container_view , homeScreen) }
     }
 
@@ -106,7 +108,7 @@ class MainActivity : AppCompatActivity()
     }
 
 
-    private fun inTransaction(func : FragmentTransaction.() -> FragmentTransaction)
+    fun inTransaction(func : FragmentTransaction.() -> FragmentTransaction)
     {
         supportFragmentManager
                 .beginTransaction()
@@ -114,7 +116,7 @@ class MainActivity : AppCompatActivity()
                 .commit()
     }
 
-    private fun changeAppBar(appBar : Int?)
+    fun changeAppBar(appBar : Int?)
     {
         val appBarContainer = binding.appBar
         appBarContainer.removeAllViews()
@@ -125,6 +127,17 @@ class MainActivity : AppCompatActivity()
             appBarContainer.addView(newAppBar)
         }
 
+    }
+
+    private fun backPressed()
+    {
+        initFragment()
+        binding.bottomNavigation.selectedItemId = R.id.home_icon
+    }
+
+    fun backPressed(view : View)
+    {
+        (view as Toolbar).setNavigationOnClickListener { backPressed() }
     }
 
 }

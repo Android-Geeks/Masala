@@ -16,6 +16,7 @@
         app:layout_scrollFlags="scroll|enterAlways|snap"
         app:navigationIcon="@drawable/arrow_back"
         app:title="Sub Category"
+        android:onClick="backPressed"
         app:titleTextAppearance="@style/TextAppearance.AppCompat" />
 
 </com.google.android.material.appbar.AppBarLayout>

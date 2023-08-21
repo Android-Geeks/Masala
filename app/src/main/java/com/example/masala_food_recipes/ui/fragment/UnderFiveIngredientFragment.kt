@@ -1,7 +1,9 @@
 package com.example.masala_food_recipes.ui.fragment
 
-import android.content.Intent
-import com.example.masala_food_recipes.DetailsActivity
+import android.content.Context
+import android.os.Bundle
+import com.example.masala_food_recipes.MainActivity
+import com.example.masala_food_recipes.R
 import com.example.masala_food_recipes.data.util.MyViewModle
 import com.example.masala_food_recipes.databinding.SubCategoryRecyclerBinding
 import com.example.masala_food_recipes.ui.recyclerview.BaseInteractionListener
@@ -10,20 +12,29 @@ import com.example.masala_food_recipes.ui.recyclerview.SubCategoryAdapter
 class UnderFiveIngredientFragment :
     BaseFragment<SubCategoryRecyclerBinding>(SubCategoryRecyclerBinding::inflate)
 {
+    private var mainActivity : MainActivity? = null
     override fun onCreateView()
     {
         val listener = object : BaseInteractionListener
         {
             override fun onClick(position : Int)
             {
+                val details = DetailsFragment()
+                val bundle = Bundle()
                 val recipe =
                         MyViewModle.allRecipes.find { MyViewModle.under5IngredientList[position][0] == it.translatedRecipeName }!!
-                val intent = Intent(context , DetailsActivity::class.java)
-                intent.putExtra("recipe" , recipe)
-                startActivity(intent)
+                bundle.putParcelable("recipe" , recipe)
+                details.arguments = bundle
+                mainActivity?.inTransaction { replace(R.id.fragment_container_view , details) }
+                mainActivity?.changeAppBar(R.layout.sub_app_bar)
             }
         }
         binding.subCategory.adapter =
-                SubCategoryAdapter(MyViewModle.under5IngredientList , listener)
+                requireContext().getSharedPreferences("MyPreferences" , Context.MODE_PRIVATE)?.let {
+                    SubCategoryAdapter(
+                            MyViewModle.under5IngredientList , listener ,
+                            it
+                    )
+                }
     }
 }
