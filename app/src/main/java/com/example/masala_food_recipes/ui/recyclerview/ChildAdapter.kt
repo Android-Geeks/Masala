@@ -20,6 +20,11 @@ class ChildAdapter(
     private val childList: List<ChildItem>
 ) : RecyclerView.Adapter<ChildAdapter.PViewHolder>() {
 
+    private val recipeList by lazy { DataManager(context).getAllRecipesData() }
+    private val cuisinesList by lazy { Cuisines(recipeList).getCuisineCards() }
+    private val forYouList by lazy { ForYouRecipe(recipeList).execute(10) }
+    private val underFiveList by lazy { UnderFiveIngredient(recipeList).execute(10) }
+    private val underTwentyList by lazy { UnderTwentyMinsRecipe(recipeList).execute(10) }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PViewHolder {
         return PViewHolder(
             LayoutInflater.from(parent.context).inflate(R.layout.child_item, parent, false)
@@ -43,19 +48,20 @@ class ChildAdapter(
     }
 
     private fun getAdapter(adapterType: String): RecyclerView.Adapter<*> {
-        val recipeList = DataManager(context).getAllRecipesData()
-        val cuisinesList = Cuisines(recipeList).getCuisineCards()
-        val forYouList = ForYouRecipe(recipeList).execute(20)
-        val underFiveList = UnderFiveIngredient(recipeList).execute(20)
-        val underTwentyList = UnderTwentyMinsRecipe(recipeList).execute(20)
         return when (adapterType) {
             "CuisineAdapter" -> CuisineAdapter(cuisinesList, object : CuisineListener {})
 
-            "ForYouRecipeAdapter" -> ForYouRecipeAdapter(forYouList, object : ForYouRecipeListener {})
+            "ForYouRecipeAdapter" -> ForYouRecipeAdapter(
+                forYouList,
+                object : ForYouRecipeListener {})
 
-            "UnderTwentyMinAdapter" -> UnderTwentyMinAdapter(underTwentyList, object : UnderTwentyMinListener {})
+            "UnderTwentyMinAdapter" -> UnderTwentyMinAdapter(
+                underTwentyList,
+                object : UnderTwentyMinListener {})
 
-            "UnderFiveIngredientAdapter" -> UnderFiveIngredientAdapter(underFiveList, object : UnderFiveIngredientListener {})
+            "UnderFiveIngredientAdapter" -> UnderFiveIngredientAdapter(
+                underFiveList,
+                object : UnderFiveIngredientListener {})
 
             else -> throw Exception("No Adapter Found")
         }

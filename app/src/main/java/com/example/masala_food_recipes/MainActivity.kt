@@ -1,7 +1,9 @@
 package com.example.masala_food_recipes
 
 
+import android.annotation.SuppressLint
 import android.os.Bundle
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
@@ -13,21 +15,27 @@ import com.example.masala_food_recipes.ui.fragment.SettingFragment
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMainBinding
+    private val binding by lazy {
+        ActivityMainBinding.inflate(layoutInflater)
+    }
     private val homeScreen = HomeFragment()
     private val favouriteScreen = FavouriteFragment()
     private val searchScreen = SearchFragment()
     private val settingScreen = SettingFragment()
+    @SuppressLint("SourceLockedOrientationActivity")
     override fun onCreate(savedInstanceState: Bundle?) {
-        binding = ActivityMainBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
+        init(savedInstanceState)
         setContentView(binding.root)
-        init()
+
     }
 
-    private fun init() {
-        initFragment()
+    private fun init(savedInstanceState: Bundle?) {
+        if(savedInstanceState == null) {
+            initFragment()
+        }
         binding.bottomNavigation.setOnItemSelectedListener { item ->
+            clearPreviousFragmentStack()
             when (item.itemId) {
                 R.id.home_icon -> replaceFragment(homeScreen)
                 R.id.search_icon -> replaceFragment(searchScreen)
@@ -54,4 +62,9 @@ class MainActivity : AppCompatActivity() {
             .commit()
     }
 
+    private fun clearPreviousFragmentStack() {
+        while (supportFragmentManager.backStackEntryCount > 0) {
+            supportFragmentManager.popBackStackImmediate()
+        }
+    }
 }

@@ -21,12 +21,9 @@ class CuisineScreenAdapter(items: List<List<String>>, listener: CuisineScreenLis
     class CuisineViewHolder(itemView: View) : BaseViewHolder<List<String>>(itemView) {
         private val binding = CardViewCuisinesBinding.bind(itemView)
         private val context: Context = itemView.context
-        private val allCuisines = Cuisines(DataManager(context).getAllRecipesData()).getCuisineCards()
         //item consist of only one recipe(Cuisine) not list of recipes so we need to get all cuisines to count The number of repetitions
         @SuppressLint("SetTextI18n")
         override fun bind(item: List<String>) {
-//            val cuisineMap = Cuisines(listOf(item)).getCuisineCards()
-//            val key = cuisineMap.keys.joinToString(",")
             binding.apply {
                 cuisineTextview.text = item[0]
                 itemsCount.text = "${item[1]} item"
