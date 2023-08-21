@@ -6,6 +6,7 @@ import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.Toolbar
@@ -39,6 +40,22 @@ class MainActivity : AppCompatActivity()
         super.onCreate(savedInstanceState)
         init(savedInstanceState)
         setContentView(binding.root)
+    }
+    @Deprecated("Deprecated in Java")
+    override fun onBackPressed()
+    {
+        if (supportFragmentManager.fragments.last() != homeScreen)
+            backPressed()
+        else
+        {
+            val builder = AlertDialog.Builder(this)
+            builder.setMessage("Are you sure you want to exit?")
+                    .setCancelable(false)
+                    .setPositiveButton("Yes") { _ , _ -> finish() }
+                    .setNegativeButton("No") { dialog , _ -> dialog.cancel() }
+            val alert = builder.create()
+            alert.show()
+        }
     }
 
     private fun init(savedInstanceState : Bundle?)

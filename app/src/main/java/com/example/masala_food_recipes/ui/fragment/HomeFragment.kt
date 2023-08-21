@@ -1,6 +1,9 @@
 package com.example.masala_food_recipes.ui.fragment
 
+import android.content.Context
+import com.example.masala_food_recipes.MainActivity
 import com.example.masala_food_recipes.data.entities.ChildItem
+import com.example.masala_food_recipes.data.util.MyViewModle
 import com.example.masala_food_recipes.databinding.FragmentHomeBinding
 import com.example.masala_food_recipes.ui.recyclerview.ChildAdapter
 
@@ -19,5 +22,13 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding :: in
             parentRecycler.adapter = ChildAdapter(requireContext(), childList)
         }
 
+    }
+    override fun onAttach(context : Context)
+    {
+        super.onAttach(context)
+        if (context is MainActivity)
+        {
+            MyViewModle.mainActivity = context
+        }
     }
 }
