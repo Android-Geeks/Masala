@@ -5,15 +5,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.masala_food_recipes.data.entities.ChildItem
 import com.example.masala_food_recipes.R
 import com.example.masala_food_recipes.data.DataManager
+import com.example.masala_food_recipes.data.entities.ChildItem
 import com.example.masala_food_recipes.data.interactors.Cuisines
 import com.example.masala_food_recipes.data.interactors.ForYouRecipe
 import com.example.masala_food_recipes.data.interactors.UnderFiveIngredient
 import com.example.masala_food_recipes.data.interactors.UnderTwentyMinsRecipe
 import com.example.masala_food_recipes.databinding.ChildItemBinding
-import java.lang.Exception
 
 class ChildAdapter(
     private val context: Context,
@@ -49,19 +48,39 @@ class ChildAdapter(
 
     private fun getAdapter(adapterType: String): RecyclerView.Adapter<*> {
         return when (adapterType) {
-            "CuisineAdapter" -> CuisineAdapter(cuisinesList, object : CuisineListener {})
+            "CuisineAdapter" -> CuisineAdapter(cuisinesList, object : CuisineListener {
+                override fun onClick(position : Int)
+                {
+//                    TODO("Not yet implemented")
+                }
+            })
 
             "ForYouRecipeAdapter" -> ForYouRecipeAdapter(
                 forYouList,
-                object : ForYouRecipeListener {})
+                object : ForYouRecipeListener {
+                    override fun onClick(position : Int)
+                    {
+//                        TODO("Not yet implemented")
+                    }
+                })
 
             "UnderTwentyMinAdapter" -> UnderTwentyMinAdapter(
                 underTwentyList,
-                object : UnderTwentyMinListener {})
+                object : UnderTwentyMinListener {
+                    override fun onClick(position : Int)
+                    {
+//                        TODO("Not yet implemented")
+                    }
+                })
 
             "UnderFiveIngredientAdapter" -> UnderFiveIngredientAdapter(
                 underFiveList,
-                object : UnderFiveIngredientListener {})
+                object : UnderFiveIngredientListener {
+                    override fun onClick(position : Int)
+                    {
+//                        TODO("Not yet implemented")
+                    }
+                })
 
             else -> throw Exception("No Adapter Found")
         }

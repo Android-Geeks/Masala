@@ -10,6 +10,11 @@ class CuisineScreenFragment:BaseFragment<FragmentCuisineBinding>(FragmentCuisine
     override fun onCreateView() {
         val recipes by lazy { DataManager(requireContext()).getAllRecipesData() }
         val cuisinesList by lazy { Cuisines(recipes).getCuisineCards() }
-        binding.cuisineRecyclerFragment.adapter = CuisineScreenAdapter(cuisinesList,object :CuisineScreenListener{})
+        binding.cuisineRecyclerFragment.adapter = CuisineScreenAdapter(cuisinesList,object :CuisineScreenListener{
+            override fun onClick(position : Int)
+            {
+//                TODO("Not yet implemented")
+            }
+        })
     }
 }

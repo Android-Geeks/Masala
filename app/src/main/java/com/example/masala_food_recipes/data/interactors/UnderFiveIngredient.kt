@@ -18,9 +18,9 @@ class UnderFiveIngredient(private val recipes: List<Recipe>) {
             .take(limit)
             .map { recipe ->
                 listOf(
-                    recipe.translatedRecipeName,
-                    recipe.totalTimeInMins,
-                    recipe.imageUrl
+                        recipe.translatedRecipeName ,
+                        recipe.totalTimeInMin ,
+                        recipe.imageUrl
                 )
             }
 }

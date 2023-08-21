@@ -13,13 +13,13 @@ import com.example.masala_food_recipes.data.entities.Recipe
 class UnderTwentyMinsRecipe(private val recipes: List<Recipe>) {
     fun execute(limit: Int) =
         recipes
-            .filter { it.totalTimeInMins.toInt() < 20 }
+            .filter { it.totalTimeInMin.toInt() < 20 }
             .take(limit)
             .map { recipe ->
                 listOf(
-                    recipe.translatedRecipeName,
-                    recipe.totalTimeInMins,
-                    recipe.imageUrl
+                        recipe.translatedRecipeName ,
+                        recipe.totalTimeInMin ,
+                        recipe.imageUrl
                 )
             }
 }
