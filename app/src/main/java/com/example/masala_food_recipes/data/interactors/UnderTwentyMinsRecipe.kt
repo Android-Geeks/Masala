@@ -10,17 +10,16 @@ import com.example.masala_food_recipes.data.entities.Recipe
 //            .shuffled()
 //            .associate { (Pair(it.translatedRecipeName, Pair(it.totalTimeInMins, it.imageUrl))) }
 //}
-class UnderTwentyMinsRecipe(private val recipes : List<Recipe>) {
-    fun execute(limit : Int) =
-            recipes
-                    .filter { it.totalTimeInMins.toInt() < 20 }
-                    .shuffled()
-                    .take(limit)
-                    .map { recipe ->
-                        listOf(
-                            recipe.translatedRecipeName ,
-                            recipe.totalTimeInMins ,
-                            recipe.imageUrl
-                        )
-                    }
+class UnderTwentyMinsRecipe(private val recipes: List<Recipe>) {
+    fun execute(limit: Int) =
+        recipes
+            .filter { it.totalTimeInMins.toInt() < 20 }
+            .take(limit)
+            .map { recipe ->
+                listOf(
+                    recipe.translatedRecipeName,
+                    recipe.totalTimeInMins,
+                    recipe.imageUrl
+                )
+            }
 }

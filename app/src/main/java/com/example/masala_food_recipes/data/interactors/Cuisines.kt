@@ -9,7 +9,6 @@ class Cuisines(private val recipes: List<Recipe>) {
             .groupBy { it.cuisine }
             .map { entry ->
                 val (cuisine, recipes) = entry
-                val randomIndex = nextInt(recipes.size)
-                listOf(cuisine, recipes.size.toString(), recipes[randomIndex].imageUrl)
+                listOf(cuisine, recipes.size.toString(), recipes[0].imageUrl)
             }
 }
