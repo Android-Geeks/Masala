@@ -1,10 +1,10 @@
 package com.example.masala_food_recipes.ui.fragment
 
 import com.example.masala_food_recipes.data.entities.ChildItem
-import com.example.masala_food_recipes.databinding.ParentItemBinding
+import com.example.masala_food_recipes.databinding.FragmentHomeBinding
 import com.example.masala_food_recipes.ui.recyclerview.ChildAdapter
 
-class HomeFragment : BaseFragment<ParentItemBinding>(ParentItemBinding :: inflate) {
+class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding :: inflate) {
 
     override fun onCreateView() {
 
@@ -14,9 +14,10 @@ class HomeFragment : BaseFragment<ParentItemBinding>(ParentItemBinding :: inflat
         val child4 = ChildItem("under 5 ingredient meal", "view all", "UnderFiveIngredientAdapter")
         val childList: List<ChildItem> = listOf(child1, child2, child3, child4)
 
-
+        
         binding.apply {
             parentRecycler.adapter = ChildAdapter(requireContext(), childList)
         }
+
     }
 }
