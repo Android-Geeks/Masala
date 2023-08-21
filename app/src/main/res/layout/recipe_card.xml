@@ -4,7 +4,11 @@
     android:id="@+id/recipe_card"
     android:layout_width="260dp"
     android:layout_height="225dp"
-    app:cardCornerRadius="12dp">
+    android:layout_marginEnd="8dp"
+    app:cardCornerRadius="12dp"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    android:background="@drawable/gradient">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -32,23 +36,25 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/recipe_name"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
             android:layout_marginBottom="8dp"
+            android:layout_marginStart="12dp"
+            android:ellipsize="end"
+            android:maxLines="2"
             android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@id/recipe_cuisine"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             tools:text="Recipe Name" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/recipe_cuisine"
-            style="@style/recipeCard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="12dp"
             android:background="@drawable/cuisine"
             android:drawableStart="@drawable/food"
             android:drawablePadding="8dp"

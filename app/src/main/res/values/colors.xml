@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#1F1F1F</color>
-    <color name="gray_38">#383838</color>
-    <color name="gray_30">#303030</color>
+    <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="orange">#D24C1C</color>
     <color name="light_orange">#FFEAD5</color>
     <color name="off_white">#FFFAF4</color>
     <color name="gray">#9E9B97</color>
-    <color name="light_gray">#CCCCCC</color>
     <color name="dark_brown">#351E06</color>
     <color name="dark_gray">#747775</color>
     <color name="brown">#512C08</color>
-    <color name="gray_brown">#E7E0EC</color>
-    <color name="light_black">#242424</color>
+    <color name="bink">#B0E95889</color>
+    <color name="white_45">#72FDFAFA</color>
+    <color name="light_black">#0B0A0A</color>
+    <color name="black_gradient">#03000000</color>
+    <color name="light_gray">#E0E0E0</color>
+    <color name="darker_gray">#99252525</color>
 
 </resources>
