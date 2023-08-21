@@ -26,14 +26,13 @@ class SearchAdapter(items: List<List<String>>, listener:SearchListener) :BaseRec
                     recipeText.text = item[0]
                     minutesText.text = item[1] + " min"
 
-
                     Glide.with(context)
                         .load(item[2])
                         .centerCrop()
                         .into(itemImage)
-
                 }
-            }else{
+            }
+            else{
                 itemView.visibility = View.GONE
                 itemView.layoutParams = RecyclerView.LayoutParams(0, 0)
             }

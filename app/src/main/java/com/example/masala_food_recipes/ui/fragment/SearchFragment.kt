@@ -12,13 +12,11 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(FragmentSearchBinding
         val recipeList = DataManager(requireContext()).getAllRecipesData()
         val searchList = SearchRecipe(recipeList).execute()
         binding.searchedRecycler.adapter = SearchAdapter(searchList, object : SearchListener {})
-            binding.buttonSearch.setOnClickListener {
+
+        binding.buttonSearch.setOnClickListener {
                 val name = binding.searchBar.text.toString()
-                val newList = searchList.filter {
-                    it[0].substring(0, name.length).equals(name, ignoreCase = true)
-                }
-                binding.searchedRecycler.adapter =
-                    SearchAdapter(newList, object : SearchListener {})
+                val newList = searchList.filter { it[0].substring(0, name.length).equals(name, ignoreCase = true) }
+                binding.searchedRecycler.adapter = SearchAdapter(newList, object : SearchListener {})
 
             }
         }
