@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.example.masala_food_recipes.databinding.ActivityMainBinding
-import com.example.masala_food_recipes.ui.fragment.ContainerScreen
+import com.example.masala_food_recipes.ui.fragment.DetailsScreen
 import com.example.masala_food_recipes.ui.fragment.FavouriteFragment
 import com.example.masala_food_recipes.ui.fragment.HomeFragment
 import com.example.masala_food_recipes.ui.fragment.SearchFragment
@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() {
     private fun initFragment() {
         //inTransaction { add(R.id.fragment_container_view, homeScreen) }
 
-        inTransaction { add(R.id.fragment_container_view, ContainerScreen()) }
+        inTransaction { add(R.id.fragment_container_view, DetailsScreen()) }
     }
 
     private fun replaceFragment(fragment: Fragment): Boolean {

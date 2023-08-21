@@ -6,13 +6,9 @@ import com.example.masala_food_recipes.data.DataManager
 import com.example.masala_food_recipes.databinding.FragmentInstructionsScreenBinding
 import com.example.masala_food_recipes.ui.fragment.BaseFragment
 
-class InstructionsScreen : BaseFragment<FragmentInstructionsScreenBinding>(FragmentInstructionsScreenBinding::inflate) {
+class InstructionsScreen(private val instructions:List<String>) :
+    BaseFragment<FragmentInstructionsScreenBinding>(FragmentInstructionsScreenBinding::inflate) {
     override fun onCreateView() {
-        val dataList = DataManager(requireContext()).getAllRecipesData()
-        val recyclerview = binding.recyclerView2
-        recyclerview.layoutManager = LinearLayoutManager(requireContext())
-        binding.recyclerView2.adapter= RecyclerViewAdapter2(dataList)
+        binding.recyclerView2.adapter= RecyclerViewAdapter2(instructions)
     }
-
-
 }
