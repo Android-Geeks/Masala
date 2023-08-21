@@ -21,5 +21,10 @@
     <string name="recipe_image">Recipe Image</string>
     <string name="dish_image">Dish Image</string>
 
+    <string name="your_favorites">Your Favorites List is Empty</string>
+    <string name="explore_food">Explore food dishes and add them to favorite to show them here.</string>
+    <string name="hinted_search_text">Hinted search text</string>
+    <string name="your_search">Your Search List is Empty</string>
+    <string name="explore_food_2">Explore food dishes and add them to Search to show them here.</string>
 
 </resources>
