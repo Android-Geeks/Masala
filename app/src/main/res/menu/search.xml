@@ -4,7 +4,7 @@
     <item
         android:id="@+id/search"
         android:icon="@drawable/baseline_search_24"
-        android:title="@string/search"
+        android:title="Search"
         app:showAsAction="ifRoom|withText"
         app:actionViewClass="android.widget.SearchView" />
 
@@ -12,7 +12,7 @@
 <item
     android:id="@+id/bottom"
     android:icon="@mipmap/list"
-    android:title="@string/list"
+    android:title="List"
     app:showAsAction="ifRoom"
     />
 </menu>
