@@ -27,6 +27,7 @@ class ChildAdapter(
         holder.binding.apply {
             cuisineText.text = childItem.type
             viewAllText.text = childItem.view_all
+            childRecycler.addItemDecoration(FirstItemPaddingDecoration(16,childItem.list.size-1))
             childRecycler.adapter = getAdapter(childItem.adapterType , childItem.list)
         }
     }
