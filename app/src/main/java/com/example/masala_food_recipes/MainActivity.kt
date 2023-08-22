@@ -17,7 +17,6 @@ import com.example.masala_food_recipes.data.interactors.Cuisines
 import com.example.masala_food_recipes.data.interactors.ForYouRecipe
 import com.example.masala_food_recipes.data.interactors.UnderFiveIngredient
 import com.example.masala_food_recipes.data.interactors.UnderTwentyMinRecipe
-import com.example.masala_food_recipes.data.util.MyViewModle
 import com.example.masala_food_recipes.databinding.ActivityMainBinding
 import com.example.masala_food_recipes.ui.fragment.FavouriteFragment
 import com.example.masala_food_recipes.ui.fragment.HomeFragment
@@ -25,6 +24,13 @@ import com.example.masala_food_recipes.ui.fragment.SearchFragment
 import com.example.masala_food_recipes.ui.fragment.SettingFragment
 
 class MainActivity : AppCompatActivity() {
+    companion object {
+        private lateinit var instance : MainActivity
+        fun getInstance() : MainActivity {
+            return instance
+        }
+    }
+
     private val binding by lazy {
         ActivityMainBinding.inflate(layoutInflater)
     }
@@ -32,6 +38,12 @@ class MainActivity : AppCompatActivity() {
     private val favouriteScreen = FavouriteFragment()
     private val searchScreen = SearchFragment()
     private val settingScreen = SettingFragment()
+
+    private val allRecipes by lazy { DataManager(this).getAllRecipesData() }
+    private val under20MinList by lazy { UnderTwentyMinRecipe(allRecipes).execute() }
+    private val under5IngredientList by lazy { UnderFiveIngredient(allRecipes).execute() }
+    private val cuisineList by lazy { Cuisines(allRecipes).getCuisineCards() }
+    private val forYouList by lazy { ForYouRecipe(allRecipes).execute() }
 
     @SuppressLint("SourceLockedOrientationActivity")
     override fun onCreate(savedInstanceState : Bundle?) {
@@ -41,6 +53,7 @@ class MainActivity : AppCompatActivity() {
         }
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+        instance = this
         init(savedInstanceState)
     }
 
@@ -59,13 +72,12 @@ class MainActivity : AppCompatActivity() {
 
     private fun init(savedInstanceState : Bundle?) {
         if (savedInstanceState == null) {
-            MyViewModle.apply {
-                allRecipes = DataManager(this@MainActivity).getAllRecipesData()
-                under20MinList = UnderTwentyMinRecipe(allRecipes).execute()
-                under5IngredientList = UnderFiveIngredient(allRecipes).execute()
-                cuisineList = Cuisines(allRecipes).getCuisineCards()
-                forYouList = ForYouRecipe(allRecipes).execute(10)
-            }
+            homeScreen.onPass(
+                    allRecipes ,
+                    cuisineList.take(10) ,
+                    forYouList.take(10) ,
+                    under20MinList.take(10) ,
+                    under5IngredientList.take(10))
             initFragment()
         }
         binding.bottomNavigation.setOnItemSelectedListener { item ->
@@ -80,9 +92,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initFragment() {
-        binding.bottomNavigation.selectedItemId = R.id.home_icon
         inTransaction { add(R.id.fragment_container_view , homeScreen) }
         changeAppBar(R.layout.main_app_bar)
+        binding.bottomNavigation.selectedItemId = R.id.home_icon
     }
 
     private fun replaceFragment(fragment : Fragment , appBar : Int?) : Boolean {
@@ -97,7 +109,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun backPressed() {
         initFragment()
-        binding.bottomNavigation.selectedItemId = R.id.home_icon
     }
 
     fun changeAppBar(appBar : Int?) {
