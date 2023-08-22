@@ -3,7 +3,8 @@
     <style name="Base.Theme.Masalafoodrecipes" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
-        <item name="android:statusBarColor">@color/light_black</item>
+        <item name="android:statusBarColor">#1F1F1F</item>
+        <item name="android:windowLightStatusBar">false</item>
     </style>
 
     <style name="cardBackground">
@@ -11,7 +12,7 @@
     </style>
 
     <style name="bottomNavigationBackground">
-        <item name="android:background">@color/black</item>
+        <item name="android:background">@color/light_black_2</item>
     </style>
 
     <style name="vectorColor">
@@ -39,10 +40,10 @@
     </style>
 
     <style name="appBarBackground">
-        <item name="android:background">@color/light_black</item>
+        <item name="android:background">#1F1F1F</item>
     </style>
 
     <style name="background">
-        <item name="android:background">#000000</item>
+        <item name="android:background">#1F1F1F</item>
     </style>
 </resources>
