@@ -5,11 +5,7 @@ import android.content.Context
 import android.view.View
 import com.bumptech.glide.Glide
 import com.example.masala_food_recipes.R
-import com.example.masala_food_recipes.data.DataManager
-import com.example.masala_food_recipes.data.entities.Recipe
-import com.example.masala_food_recipes.data.interactors.Cuisines
 import com.example.masala_food_recipes.databinding.CardViewCuisinesBinding
-import com.example.masala_food_recipes.databinding.CuisineScreenCardBinding
 
 interface CuisineScreenListener : BaseInteractionListener
 
@@ -32,6 +28,7 @@ class CuisineScreenAdapter(items: List<List<String>>, listener: CuisineScreenLis
                 Glide.with(context)
                     .load(item[2])
                     .centerCrop()
+                    .placeholder(R.drawable.loading)
                     .into(foodImage)
             }
         }

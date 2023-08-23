@@ -15,19 +15,19 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
     override fun onCreateView() {
 
         val child1 = ChildItem(
-            "Cuisine", "view all", "CuisineAdapter", cuisineList
+            "Cuisine", "View all", "CuisineAdapter", cuisineList
         )
 
         val child2 = ChildItem(
-            "For You", "view all", "ForYouRecipeAdapter", forYouList
+            "For You", "View all", "ForYouRecipeAdapter", forYouList
         )
 
         val child3 = ChildItem(
-            "under 20 min meal", "view all", "UnderTwentyMinAdapter", under20MinList
+            "Under 20 min meal", "View all", "UnderTwentyMinAdapter", under20MinList
         )
 
         val child4 = ChildItem(
-            "under 5 ingredient meal", "view all", "UnderFiveIngredientAdapter", under5IngredientList
+            "Under 5 ingredient meal", "View all", "UnderFiveIngredientAdapter", under5IngredientList
         )
 
         val childList: List<ChildItem> = listOf(child1, child2, child3, child4)

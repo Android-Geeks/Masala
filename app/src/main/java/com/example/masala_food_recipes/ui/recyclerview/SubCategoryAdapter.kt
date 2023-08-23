@@ -28,7 +28,7 @@ class SubCategoryAdapter(
             binding.apply {
                 reciepeName.text = item[0]
                 time.text = "${item[1]} min "
-                Glide.with(itemView).load(item[2]).into(image)
+                Glide.with(itemView).load(item[2]).placeholder(R.drawable.loading).into(image)
                 favouriteCheckBox.apply {
                     setOnCheckedChangeListener{_,isChecked ->
                         if(isChecked) favouriteSet?.add(item[0])

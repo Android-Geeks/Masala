@@ -33,7 +33,7 @@ class UnderFiveIngredientAdapter(
             binding.apply {
                 reciepeName.text = "${item[0]} min"
                 time.text = "${item[1]} min"
-                Glide.with(context).load(item[2]).centerCrop().into(image)
+                Glide.with(context).load(item[2]).placeholder(R.drawable.loading).centerCrop().into(image)
                 favouriteCheckBox.apply {
                     setOnCheckedChangeListener{_,isChecked ->
                         if(isChecked) favouriteSet?.add(item[0])

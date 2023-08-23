@@ -27,6 +27,7 @@ class CuisineAdapter(items: List<List<String>>, listener: CuisineListener) :Base
                 Glide.with(context)
                     .load(item[2])
                     .centerCrop()
+                    .placeholder(R.drawable.loading)
                     .into(foodImage)
             }
         }

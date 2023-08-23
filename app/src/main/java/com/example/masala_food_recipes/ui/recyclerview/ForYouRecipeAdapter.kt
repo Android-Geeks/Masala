@@ -28,7 +28,7 @@ class ForYouRecipeAdapter(
             binding.apply {
                 recipeName.text = item[0]
                 recipeCuisine.text = item[1]
-                Glide.with(context).load(item[2]).centerCrop().into(recipeImage)
+                Glide.with(context).load(item[2]).placeholder(R.drawable.loading).centerCrop().into(recipeImage)
                 checkBox.apply {
                     setOnCheckedChangeListener{_,isChecked ->
                         if(isChecked) favouriteSet?.add(item[0])
