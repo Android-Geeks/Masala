@@ -13,10 +13,10 @@ class FirstItemPaddingDecoration(
         super.getItemOffsets(outRect , view , parent , state)
         val position = parent.getChildAdapterPosition(view)
         if (position == 0) {
-            outRect.left = padding
+            outRect.left = padding + 16
         }
         if(position == lastItem){
-            outRect.right=padding
+            outRect.right=padding + 8
         }
     }
 }

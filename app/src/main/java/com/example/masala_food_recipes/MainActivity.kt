@@ -67,10 +67,10 @@ class MainActivity : AppCompatActivity() {
             initFragment()
         }
         homeScreen.onPass(
-            cuisineList.take(10),
-            forYouList.take(10),
-            under20MinList.take(10),
-            under5IngredientList.take(10)
+            cuisineList.take(20),
+            forYouList.take(20),
+            under20MinList.take(20),
+            under5IngredientList.take(20)
         )
         binding.bottomNavigation.setOnItemSelectedListener { item ->
             when (item.itemId) {
