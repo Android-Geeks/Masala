@@ -39,9 +39,9 @@ class MainActivity : AppCompatActivity() {
     private val forYouList by lazy { ForYouRecipe(allRecipes).execute() }
 
     @SuppressLint("SourceLockedOrientationActivity")
-    override fun onCreate(savedInstanceState : Bundle?) {
-        val sharedPref = this.getSharedPreferences("MY_PREFS" , Context.MODE_PRIVATE)
-        if (sharedPref.getBoolean("current_state" , false)) {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        val sharedPref = this.getSharedPreferences("MY_PREFS", Context.MODE_PRIVATE)
+        if (sharedPref.getBoolean("current_state", false)) {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
         }
         super.onCreate(savedInstanceState)
@@ -55,23 +55,23 @@ class MainActivity : AppCompatActivity() {
         else {
             val builder = AlertDialog.Builder(this)
             builder.setMessage("Are you sure you want to exit?").setCancelable(false)
-                    .setPositiveButton("Yes") { _ , _ -> finish() }
-                    .setNegativeButton("No") { dialog , _ -> dialog.cancel() }
+                .setPositiveButton("Yes") { _, _ -> finish() }
+                .setNegativeButton("No") { dialog, _ -> dialog.cancel() }
             val alert = builder.create()
             alert.show()
         }
     }
 
-    private fun init(savedInstanceState : Bundle?) {
+    private fun init(savedInstanceState: Bundle?) {
         if (savedInstanceState == null) {
             initFragment()
         }
         homeScreen.onPass(
-                allRecipes ,
-                cuisineList.take(10) ,
-                forYouList.take(10) ,
-                under20MinList.take(10) ,
-                under5IngredientList.take(10))
+            cuisineList.take(10),
+            forYouList.take(10),
+            under20MinList.take(10),
+            under5IngredientList.take(10)
+        )
         binding.bottomNavigation.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.home_icon -> replaceFragment(homeScreen)
@@ -86,20 +86,22 @@ class MainActivity : AppCompatActivity() {
     private fun initFragment() {
         inTransaction {
             add(
-                    R.id.fragment_container_view , homeScreen)
+                R.id.fragment_container_view, homeScreen
+            )
         }
         binding.bottomNavigation.selectedItemId = R.id.home_icon
     }
 
-    private fun replaceFragment(fragment : Fragment) : Boolean {
+    private fun replaceFragment(fragment: Fragment): Boolean {
         inTransaction {
             replace(
-                    R.id.fragment_container_view , fragment)
+                R.id.fragment_container_view, fragment
+            )
         }
         return true
     }
 
-    private fun inTransaction(func : FragmentTransaction.() -> FragmentTransaction) {
+    private fun inTransaction(func: FragmentTransaction.() -> FragmentTransaction) {
         supportFragmentManager.beginTransaction().func().commit()
     }
 
@@ -107,5 +109,5 @@ class MainActivity : AppCompatActivity() {
         initFragment()
     }
 
-    fun backPressed(view : View) = (view as Toolbar).setNavigationOnClickListener { backPressed() }
+    fun backPressed(view: View) = (view as Toolbar).setNavigationOnClickListener { backPressed() }
 }
