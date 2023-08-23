@@ -37,20 +37,26 @@ class DetailsScreen :
         binding.topAppBar.setOnMenuItemClickListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.action_favorite -> {
-                    val heartIcon = menuItem.icon as Drawable
                     if (previous) {
+                        previous = !previous
+
                         menuItem.setIcon(filled_heart)
+                        val heartIcon = menuItem.icon as Drawable
                         heartIcon.setTint(ContextCompat.getColor(requireContext(), R.color.orange))
                     } else {
+                        previous = !previous
+
                         menuItem.setIcon(baseline_favorite_border_24)
+                        val heartIcon = menuItem.icon as Drawable
                         heartIcon.setTint(ContextCompat.getColor(requireContext(), R.color.black))
                     }
-                    previous = !previous
                     true
+
                 }
 
                 else ->
                     false
+
             }
         }
 
