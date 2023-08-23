@@ -4,6 +4,7 @@ import android.view.View
 import com.example.masala_food_recipes.data.DataManager
 import com.example.masala_food_recipes.data.interactors.SearchRecipe
 import com.example.masala_food_recipes.databinding.FragmentSearchBinding
+import com.example.masala_food_recipes.ui.recyclerview.ItemsPaddingDecoration
 import com.example.masala_food_recipes.ui.recyclerview.SearchAdapter
 import com.example.masala_food_recipes.ui.recyclerview.SearchListener
 
@@ -20,6 +21,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(FragmentSearchBinding
             }
            recyclerVisibility(newList, name)
             }
+
     }
 
     private fun recyclerVisibility(newList : List<List<String>>, name : String){
@@ -34,6 +36,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(FragmentSearchBinding
             binding.apply {
                 emptySearch.root.visibility = View.GONE
                 searchedRecycler.visibility = View.VISIBLE
+                searchedRecycler.addItemDecoration(ItemsPaddingDecoration(16,newList.size))
                 searchedRecycler.adapter = SearchAdapter(newList, object : SearchListener {})
             }
         }
