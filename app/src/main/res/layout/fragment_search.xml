@@ -17,12 +17,12 @@
         android:layout_marginStart="@dimen/size_big"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="8dp"
-        android:drawableStart="@drawable/search_icon"
-        android:drawablePadding="8dp"
+
         app:layout_constraintEnd_toStartOf="@id/button_search"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:importantForAutofill="no" />
+
 
     <TextView
         android:id="@+id/button_search"
@@ -34,10 +34,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/search_bar"
         app:layout_constraintTop_toTopOf="parent"
-        app:drawableEndCompat="@drawable/three_lines_icon" />
+        app:drawableEndCompat="@drawable/search_icon" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/searched_recycler"
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
@@ -45,7 +46,13 @@
         app:layout_constraintTop_toBottomOf="@+id/search_bar"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/card_view_search"/>
-
-
+    <include
+        android:id="@+id/empty_search"
+        layout="@layout/empty_search_results_screen"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/search_bar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
