@@ -40,6 +40,7 @@
             android:textColor="@color/brown"
             android:textSize="16sp"
             android:textStyle="normal"
+            android:gravity="start"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/numberText"

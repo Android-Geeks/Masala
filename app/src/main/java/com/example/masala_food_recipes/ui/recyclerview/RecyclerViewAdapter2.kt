@@ -20,6 +20,8 @@ class RecyclerViewAdapter2(private val itemList: List<String>) :
 
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_card_2, parent, false)
         return ViewHolder(view)
+
+
     }
 
     @Suppress("SetTextI18n")
@@ -32,6 +34,8 @@ class RecyclerViewAdapter2(private val itemList: List<String>) :
         } else {
             holder.itemText.text = item
         }
+
+
     }
 
     override fun getItemCount() = itemList.size
