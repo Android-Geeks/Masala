@@ -8,13 +8,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.masala_food_recipes.R
 import com.example.masala_food_recipes.data.entities.ChildItem
 import com.example.masala_food_recipes.data.entities.Recipe
-import com.example.masala_food_recipes.data.interactors.goToDetails
 import com.example.masala_food_recipes.databinding.ChildItemBinding
 
 class ChildAdapter(
         private val context : Context ,
-        private val childList : List<ChildItem> ,
-        val allRecipes : List<Recipe>
+        private val childList : List<ChildItem>
 ) : RecyclerView.Adapter<ChildAdapter.PViewHolder>() {
     override fun onCreateViewHolder(parent : ViewGroup , viewType : Int) : PViewHolder {
         return PViewHolder(
@@ -43,29 +41,27 @@ class ChildAdapter(
     ) : RecyclerView.Adapter<*> {
         return when (adapterType) {
             "CuisineAdapter" -> CuisineAdapter(list , object : CuisineListener {
-                override fun onClick(position : Int) { //                    TODO("Not yet implemented")
+                override fun onClick(position : Int) {
+                //                    TODO("Not yet implemented")
                 }
             })
 
             "ForYouRecipeAdapter" -> ForYouRecipeAdapter(list , object : ForYouRecipeListener {
                 override fun onClick(position : Int) {
-                    goToDetails(allRecipes.find { list[position][0] == it.translatedRecipeName } !!)
                 }
-            })
+            },context.getSharedPreferences("Favourites", Context.MODE_PRIVATE))
 
             "UnderTwentyMinAdapter" -> UnderTwentyMinAdapter(list ,
                     object : UnderTwentyMinListener {
                         override fun onClick(position : Int) {
-                            goToDetails(allRecipes.find { list[position][0] == it.translatedRecipeName } !!)
                         }
-                    })
+                    },context.getSharedPreferences("Favourites", Context.MODE_PRIVATE))
 
             "UnderFiveIngredientAdapter" -> UnderFiveIngredientAdapter(list ,
                     object : UnderFiveIngredientListener {
                         override fun onClick(position : Int) {
-                            goToDetails(allRecipes.find { list[position][0] == it.translatedRecipeName } !!)
                         }
-                    })
+                    },context.getSharedPreferences("Favourites", Context.MODE_PRIVATE))
 
             else -> throw Exception("No Adapter Found")
         }

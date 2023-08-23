@@ -4,7 +4,6 @@ package com.example.masala_food_recipes
 import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -24,12 +23,6 @@ import com.example.masala_food_recipes.ui.fragment.SearchFragment
 import com.example.masala_food_recipes.ui.fragment.SettingFragment
 
 class MainActivity : AppCompatActivity() {
-    companion object {
-        private lateinit var instance : MainActivity
-        fun getInstance() : MainActivity {
-            return instance
-        }
-    }
 
     private val binding by lazy {
         ActivityMainBinding.inflate(layoutInflater)
@@ -53,7 +46,6 @@ class MainActivity : AppCompatActivity() {
         }
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        instance = this
         init(savedInstanceState)
     }
 
@@ -72,53 +64,47 @@ class MainActivity : AppCompatActivity() {
 
     private fun init(savedInstanceState : Bundle?) {
         if (savedInstanceState == null) {
-            homeScreen.onPass(
-                    allRecipes ,
-                    cuisineList.take(10) ,
-                    forYouList.take(10) ,
-                    under20MinList.take(10) ,
-                    under5IngredientList.take(10))
             initFragment()
         }
+        homeScreen.onPass(
+                allRecipes ,
+                cuisineList.take(10) ,
+                forYouList.take(10) ,
+                under20MinList.take(10) ,
+                under5IngredientList.take(10))
         binding.bottomNavigation.setOnItemSelectedListener { item ->
             when (item.itemId) {
-                R.id.home_icon -> replaceFragment(homeScreen , R.layout.main_app_bar)
-                R.id.search_icon -> replaceFragment(searchScreen , R.layout.main_app_bar)
-                R.id.favourite_icon -> replaceFragment(favouriteScreen , R.layout.favourite_app_bar)
-                R.id.setting_icon -> replaceFragment(settingScreen , null)
+                R.id.home_icon -> replaceFragment(homeScreen)
+                R.id.search_icon -> replaceFragment(searchScreen)
+                R.id.favourite_icon -> replaceFragment(favouriteScreen)
+                R.id.setting_icon -> replaceFragment(settingScreen)
                 else -> false
             }
         }
     }
 
     private fun initFragment() {
-        inTransaction { add(R.id.fragment_container_view , homeScreen) }
-        changeAppBar(R.layout.main_app_bar)
+        inTransaction {
+            add(
+                    R.id.fragment_container_view , homeScreen)
+        }
         binding.bottomNavigation.selectedItemId = R.id.home_icon
     }
 
-    private fun replaceFragment(fragment : Fragment , appBar : Int?) : Boolean {
-        inTransaction { replace(R.id.fragment_container_view , fragment) }
-        changeAppBar(appBar)
+    private fun replaceFragment(fragment : Fragment) : Boolean {
+        inTransaction {
+            replace(
+                    R.id.fragment_container_view , fragment)
+        }
         return true
     }
 
-    fun inTransaction(func : FragmentTransaction.() -> FragmentTransaction) {
+    private fun inTransaction(func : FragmentTransaction.() -> FragmentTransaction) {
         supportFragmentManager.beginTransaction().func().commit()
     }
 
     private fun backPressed() {
         initFragment()
-    }
-
-    fun changeAppBar(appBar : Int?) {
-        val appBarContainer = binding.appBar
-        appBarContainer.removeAllViews()
-        if (appBar != null) {
-            val inflater = LayoutInflater.from(this)
-            val newAppBar = inflater.inflate(appBar , appBarContainer , false)
-            appBarContainer.addView(newAppBar)
-        }
     }
 
     fun backPressed(view : View) = (view as Toolbar).setNavigationOnClickListener { backPressed() }

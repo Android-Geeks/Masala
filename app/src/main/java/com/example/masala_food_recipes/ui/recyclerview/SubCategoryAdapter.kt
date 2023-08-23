@@ -12,16 +12,17 @@ class SubCategoryAdapter(
         listener : BaseInteractionListener ,
         val sharedPref : SharedPreferences
 ) : BaseRecyclerAdapter<List<String> , BaseRecyclerAdapter.BaseViewHolder<List<String>>>(
-    items , listener
-) {
+        items , listener) {
 
     override val layoutId : Int = R.layout.under_20_min
+    val favouriteSet = sharedPref.getStringSet("Favourite" , emptySet())?.toMutableSet()
 
     override fun createViewHolder(view : View) : BaseViewHolder<List<String>> =
-        RecipeViewHolder(view)
+            RecipeViewHolder(view)
 
     inner class RecipeViewHolder(itemView : View) : BaseViewHolder<List<String>>(itemView) {
         private val binding = Under20MinBinding.bind(itemView)
+
         @SuppressLint("SetTextI18n")
         override fun bind(item : List<String>) {
             binding.apply {
@@ -29,13 +30,12 @@ class SubCategoryAdapter(
                 time.text = "${item[1]} min "
                 Glide.with(itemView).load(item[2]).into(image)
                 favouriteCheckBox.apply {
-                    val editor = sharedPref.edit()
-                    isChecked = sharedPref.getBoolean(item[0] , false)
-                    setOnCheckedChangeListener { _ , isChecked ->
-                        if (isChecked) editor.putBoolean(item[0] , true)
-                        else editor.putBoolean(item[0] , false)
-                        editor.apply()
+                    setOnCheckedChangeListener{_,isChecked ->
+                        if(isChecked) favouriteSet?.add(item[0])
+                        else favouriteSet?.remove(item[0])
+                        sharedPref.edit().putStringSet("Favourite",favouriteSet).apply()
                     }
+                    isChecked=favouriteSet?.contains(item[0]) == true
                 }
             }
         }

@@ -28,7 +28,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
         val childList : List<ChildItem> = listOf(child1 , child2 , child3 , child4)
 
         binding.apply {
-            parentRecycler.adapter = ChildAdapter(requireContext() , childList , allRecipes)
+            parentRecycler.adapter = ChildAdapter(requireContext() , childList)
         }
     }
 

@@ -12,6 +12,7 @@
         android:layout_height="match_parent">
 
         <androidx.appcompat.widget.AppCompatTextView
+            android:layout_marginTop="64dp"
             android:id="@+id/dark_mode"
             style="@style/vectorColor"
             android:layout_width="wrap_content"

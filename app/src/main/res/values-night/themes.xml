@@ -21,6 +21,7 @@
 
     <style name="navigationColor">
         <item name="navigationIconTint">@color/white</item>
+        <item name="android:background">#1F1F1F</item>
     </style>
 
     <style name="textColor">
