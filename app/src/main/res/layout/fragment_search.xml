@@ -9,32 +9,31 @@
 
     <EditText
         android:id="@+id/search_bar"
-        android:layout_width="312dp"
-        android:layout_height="56dp"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
         android:background="@color/off_white"
         android:hint="@string/hinted_search_text"
         android:inputType="textShortMessage"
         android:layout_marginStart="@dimen/size_big"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintBottom_toTopOf="@id/searched_recycler"
+        android:layout_margin="16dp"
+
         app:layout_constraintEnd_toStartOf="@id/button_search_icon"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:importantForAutofill="no" />
 
 
-    <TextView
+    <ImageButton
         android:id="@+id/button_search_icon"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:layout_marginEnd="16dp"
+        android:layout_margin="16dp"
+        android:gravity="center"
         android:background="@drawable/search_button"
-        app:layout_constraintBottom_toBottomOf="@+id/search_bar"
+        android:src="@drawable/search_icon"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/search_bar"
         app:layout_constraintTop_toTopOf="parent"
-        app:drawableEndCompat="@drawable/search_icon" />
+        android:contentDescription="@string/your_search" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/searched_recycler"
@@ -47,12 +46,13 @@
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/card_view_search"
         android:paddingBottom="75dp"/>
+
     <include
         android:id="@+id/empty_search"
         layout="@layout/empty_search_results_screen"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/search_bar"
+        app:layout_constraintTop_toBottomOf="@+id/search_bar"
         app:layout_constraintBottom_toBottomOf="parent"
         />
 
