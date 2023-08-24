@@ -32,7 +32,6 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(FragmentSearchBinding
             binding.apply {
                 emptySearch.root.visibility = View.GONE
                 searchedRecycler.visibility = View.VISIBLE
-//                searchedRecycler.addItemDecoration(ItemsPaddingDecoration(16,newList.size-1))
                 searchedRecycler.adapter = SearchAdapter(newList, object : SearchListener {})
             }
         }
