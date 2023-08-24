@@ -59,4 +59,11 @@ dependencies {
     // CircleImageView
     implementation 'de.hdodenhof:circleimageview:3.1.0'
 
+    // Navigation
+    def nav_version = "2.3.5"
+    //noinspection GradleDependency
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    //noinspection GradleDependency
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+
 }

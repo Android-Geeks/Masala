@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/home_icon"
+        android:id="@+id/homeFragment"
         android:enabled="true"
         android:icon="@drawable/home_icon"
-        android:title="@string/home"/>
+        android:title="home"/>
     <item
-        android:id="@+id/search_icon"
+        android:id="@+id/searchFragment"
         android:enabled="true"
         android:icon="@drawable/search_icon"
-        android:title="@string/search"/>
+        android:title="search"/>
     <item
-        android:id="@+id/favourite_icon"
+        android:id="@+id/favouriteFragment"
         android:enabled="true"
         android:icon="@drawable/unfilled_heart"
-        android:title="@string/favourites"/>
+        android:title="favourites"/>
     <item
-        android:id="@+id/setting_icon"
+        android:id="@+id/settingFragment"
         android:enabled="true"
         android:icon="@drawable/settings_icon"
-        android:title="@string/settings"/>
+        android:title="settings"/>
 </menu>

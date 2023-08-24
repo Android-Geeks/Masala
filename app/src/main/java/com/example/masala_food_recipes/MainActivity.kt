@@ -11,6 +11,8 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
+import androidx.navigation.findNavController
+import androidx.navigation.ui.setupWithNavController
 import com.example.masala_food_recipes.data.DataManager
 import com.example.masala_food_recipes.data.interactors.Cuisines
 import com.example.masala_food_recipes.data.interactors.ForYouRecipe
@@ -51,18 +53,25 @@ class MainActivity : AppCompatActivity() {
         init(savedInstanceState)
     }
 
-    @Deprecated("Deprecated in Java")
-    override fun onBackPressed() {
-        if (supportFragmentManager.fragments.last() != homeScreen) backPressed()
-        else {
-            val builder = AlertDialog.Builder(this)
-            builder.setMessage("Are you sure you want to exit?").setCancelable(false)
-                .setPositiveButton("Yes") { _, _ -> finish() }
-                .setNegativeButton("No") { dialog, _ -> dialog.cancel() }
-            val alert = builder.create()
-            alert.show()
-        }
+    // Navigate Bottom bar  ("look at bottom_nav_menu")
+    override fun onResume() {
+        super.onResume()
+        val navController = findNavController(R.id.fragment_container_view)
+        binding.bottomNavigation.setupWithNavController(navController)
     }
+
+//    @Deprecated("Deprecated in Java")
+//    override fun onBackPressed() {
+//        if (supportFragmentManager.fragments.last() != homeScreen) backPressed()
+//        else {
+//            val builder = AlertDialog.Builder(this)
+//            builder.setMessage("Are you sure you want to exit?").setCancelable(false)
+//                .setPositiveButton("Yes") { _, _ -> finish() }
+//                .setNegativeButton("No") { dialog, _ -> dialog.cancel() }
+//            val alert = builder.create()
+//            alert.show()
+//        }
+//    }
 
     private fun init(savedInstanceState: Bundle?) {
         if (savedInstanceState == null) {
@@ -75,15 +84,15 @@ class MainActivity : AppCompatActivity() {
             under5IngredientList.take(20)
         )
         searchScreen.onPass(searchList)
-        binding.bottomNavigation.setOnItemSelectedListener { item ->
-            when (item.itemId) {
-                R.id.home_icon -> replaceFragment(homeScreen)
-                R.id.search_icon -> replaceFragment(searchScreen)
-                R.id.favourite_icon -> replaceFragment(favouriteScreen)
-                R.id.setting_icon -> replaceFragment(settingScreen)
-                else -> false
-            }
-        }
+//        binding.bottomNavigation.setOnItemSelectedListener { item ->
+//            when (item.itemId) {
+//                R.id.homeFragment -> replaceFragment(homeScreen)
+//                R.id.settingFragment -> replaceFragment(searchScreen)
+//                R.id.favouriteFragment -> replaceFragment(favouriteScreen)
+//                R.id.settingFragment -> replaceFragment(settingScreen)
+//                else -> false
+//            }
+//        }
     }
 
     private fun initFragment() {
@@ -92,7 +101,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.fragment_container_view, homeScreen
             )
         }
-        binding.bottomNavigation.selectedItemId = R.id.home_icon
+        binding.bottomNavigation.selectedItemId = R.id.homeFragment
     }
 
     private fun replaceFragment(fragment: Fragment): Boolean {
@@ -108,9 +117,9 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction().func().commit()
     }
 
-    private fun backPressed() {
-        initFragment()
-    }
-
-    fun backPressed(view: View) = (view as Toolbar).setNavigationOnClickListener { backPressed() }
+//    private fun backPressed() {
+//        initFragment()
+//    }
+//
+//    fun backPressed(view: View) = (view as Toolbar).setNavigationOnClickListener { backPressed() }
 }

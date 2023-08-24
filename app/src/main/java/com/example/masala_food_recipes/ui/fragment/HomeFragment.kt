@@ -1,5 +1,7 @@
 package com.example.masala_food_recipes.ui.fragment
 
+import androidx.navigation.Navigation
+import com.example.masala_food_recipes.R
 import com.example.masala_food_recipes.data.entities.ChildItem
 import com.example.masala_food_recipes.data.listener.HomeFragmentListener
 import com.example.masala_food_recipes.databinding.FragmentHomeBinding
@@ -34,6 +36,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
 
         binding.apply {
             parentRecycler.adapter = ChildAdapter(requireContext(), childList)
+//            this.parentRecycler.setOnClickListener { v->
+//                Navigation.findNavController(v).navigate(R.id.action_homeFragment_to_cuisineScreenFragment)
+//            }
         }
     }
 
