@@ -26,5 +26,12 @@
     <string name="hinted_search_text">Hinted search text</string>
     <string name="your_search">Your Search List is Empty</string>
     <string name="explore_food_2">Explore food dishes and add them to Search to show them here.</string>
+    <string name="what_s_new">What\'s new?</string>
+    <string name="english">English</string>
+    <string name="language">Language</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="history_of_indian_food">History of indian food</string>
+    <string name="terms_of_service">Terms of service</string>
+    <string name="faq">FAQ</string>
 
 </resources>
