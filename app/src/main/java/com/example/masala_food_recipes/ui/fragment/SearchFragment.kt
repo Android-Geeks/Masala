@@ -11,7 +11,7 @@ import com.example.masala_food_recipes.ui.recyclerview.SearchListener
 
 class SearchFragment :
     BaseFragment<FragmentSearchBinding>(FragmentSearchBinding::inflate), SearchFragmentListener {
-        private lateinit var searchList : List<List<String>>
+    private lateinit var searchList: List<List<String>>
     override fun onCreateView() {
 
         //Searching by button
@@ -25,7 +25,7 @@ class SearchFragment :
 
         //Searching by TextWatcher
         binding.searchBar.addTextChangedListener(
-            object : TextWatcher{
+            object : TextWatcher {
 
                 override fun afterTextChanged(s: Editable?) {
                     val name = binding.searchBar.text.toString()
@@ -40,7 +40,6 @@ class SearchFragment :
             }
         )
     }
-
     private fun recyclerVisibility(newList : List<List<String>>, name : String){
         if (newList.isEmpty() || name.isEmpty()) {          //Recycler is Empty (INVISIBLE)
             binding.apply {
