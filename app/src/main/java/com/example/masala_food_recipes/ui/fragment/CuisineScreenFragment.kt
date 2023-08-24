@@ -11,9 +11,12 @@ class CuisineScreenFragment:BaseFragment<FragmentCuisineBinding>(FragmentCuisine
     override fun onCreateView() {
         val recipes by lazy { DataManager(requireContext()).getAllRecipesData() }
         val cuisinesList by lazy { Cuisines(recipes).getCuisineCards() }
-        binding.cuisineRecyclerFragment.adapter = CuisineScreenAdapter(cuisinesList,object :CuisineScreenListener{})
-        binding.cuisineText.setOnClickListener { v->
-            navigateTo(v, R.id.action_cuisineScreenFragment_to_homeFragment2)
+        binding.apply {
+            cuisineRecyclerFragment.adapter = CuisineScreenAdapter(cuisinesList, object : CuisineScreenListener {})
+
+            cuisineText.setOnClickListener { v ->
+                navigateTo(v, R.id.action_cuisineScreenFragment_to_homeFragment2)
+            }
         }
     }
 }

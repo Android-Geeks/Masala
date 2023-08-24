@@ -28,12 +28,12 @@
         android:orientation="vertical"
         android:paddingTop="26dp"
         app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
-        app:layout_constraintTop_toBottomOf="@id/cuisine_text"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cuisine_text"
         app:spanCount="2"
-        tool:listitem="@layout/card_view_cuisines"/>
-
+        tool:listitem="@layout/card_view_cuisines" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

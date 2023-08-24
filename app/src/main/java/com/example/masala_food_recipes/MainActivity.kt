@@ -4,36 +4,26 @@ package com.example.masala_food_recipes
 import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.Navigation
 import androidx.navigation.findNavController
-import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
 import com.example.masala_food_recipes.databinding.ActivityMainBinding
-import com.example.masala_food_recipes.ui.fragment.FavouriteFragment
-import com.example.masala_food_recipes.ui.fragment.HomeFragment
-import com.example.masala_food_recipes.ui.fragment.SearchFragment
-import com.example.masala_food_recipes.ui.fragment.SettingFragment
 
 class MainActivity : AppCompatActivity() {
 
     private val binding by lazy {
         ActivityMainBinding.inflate(layoutInflater)
     }
-    private val homeScreen = HomeFragment()
-    private val favouriteScreen = FavouriteFragment()
-    private val searchScreen = SearchFragment()
-    private val settingScreen = SettingFragment()
 
     @SuppressLint("SourceLockedOrientationActivity")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        init(savedInstanceState)
         setContentView(binding.root)
     }
 
+    // Navigate Bottom bar  ("look at bottom_nav_menu")
     override fun onResume() {
         super.onResume()
-        val navController = findNavController(R.id.fragmentContainerView)
+        val navController = findNavController(R.id.fragment_container_view)
         binding.bottomNavigation.setupWithNavController(navController)
     }
 }

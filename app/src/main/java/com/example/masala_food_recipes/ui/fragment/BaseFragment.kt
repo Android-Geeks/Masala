@@ -27,6 +27,7 @@ abstract class BaseFragment<VB : ViewBinding>(
     }
 
     abstract fun onCreateView()
+
     fun navigateTo(v :View, id : Int){
         Navigation.findNavController(v).navigate(id)
     }
