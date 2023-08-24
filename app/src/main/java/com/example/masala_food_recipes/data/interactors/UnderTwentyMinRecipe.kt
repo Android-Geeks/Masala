@@ -6,12 +6,12 @@ class UnderTwentyMinRecipe(private val recipes : List<Recipe>)
 {
     fun execute() =
             recipes
-                    .filter { it.totalTimeInMin.toInt() < 20 }
+                    .filter { it.totalTimeInMins.toInt() < 20 }
                     .shuffled()
                     .map {
                         listOf(
                                 it.translatedRecipeName ,
-                                it.totalTimeInMin ,
+                                it.totalTimeInMins ,
                                 it.imageUrl
                         )
                     }

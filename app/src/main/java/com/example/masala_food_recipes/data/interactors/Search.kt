@@ -12,7 +12,7 @@ class Search(private val recipes: List<Recipe>) {
                     it.translatedIngredients.any {
                         it.lowercase(Locale.ROOT).contains(lowerCaseKeyword)
                     } ||
-                    it.totalTimeInMin.contains(lowerCaseKeyword) ||
+                    it.totalTimeInMins.contains(lowerCaseKeyword) ||
 
                     it.translatedInstructions.any {
                         it.lowercase(Locale.ROOT).contains(lowerCaseKeyword)

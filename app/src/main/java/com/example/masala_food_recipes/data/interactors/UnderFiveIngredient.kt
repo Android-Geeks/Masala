@@ -19,7 +19,7 @@ class UnderFiveIngredient(private val recipes: List<Recipe>) {
             .map { recipe ->
                 listOf(
                         recipe.translatedRecipeName ,
-                        recipe.totalTimeInMin ,
+                        recipe.totalTimeInMins ,
                         recipe.imageUrl
                 )
             }

@@ -34,7 +34,7 @@ class CsvParser(private val buffer: BufferedReader) {
         Recipe(
                 translatedRecipeName = mappedStrings[Constants.ColumnIndex.TRANSLATED_RECIPE_NAME] ,
                 translatedIngredients = getTranslatedIngredientsFromString(mappedStrings[Constants.ColumnIndex.TRANSLATED_INGREDIENTS]) ,
-                totalTimeInMin = mappedStrings[Constants.ColumnIndex.TOTAL_TIME_IN_MINS] ,
+                totalTimeInMins = mappedStrings[Constants.ColumnIndex.TOTAL_TIME_IN_MINS] ,
                 cuisine = mappedStrings[Constants.ColumnIndex.CUISINE] ,
                 translatedInstructions = getInstructionsFromString(mappedStrings[Constants.ColumnIndex.TRANSLATED_INSTRUCTIONS]) ,
                 url = mappedStrings[Constants.ColumnIndex.URL] ,
