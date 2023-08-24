@@ -1,9 +1,7 @@
 package com.example.masala_food_recipes.ui.fragment
 
 import android.content.Intent
-import android.graphics.drawable.Drawable
 import android.net.Uri
-import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.example.masala_food_recipes.R
 import com.example.masala_food_recipes.R.drawable.baseline_favorite_border_24
@@ -19,7 +17,7 @@ class DetailsScreen :
     BaseFragment<FragmentDetailsScreenBinding>(FragmentDetailsScreenBinding::inflate) {
     override fun onCreateView() {
 
-        val fakeRecipe by lazy { DataManager(requireContext()).getAllRecipesData()[1] }
+        val fakeRecipe by lazy { DataManager(requireContext()).getAllRecipesData()[0] }
 
         binding.nameRecipe.text = fakeRecipe.translatedRecipeName
 
@@ -33,27 +31,19 @@ class DetailsScreen :
 
         binding.topAppBar.setNavigationOnClickListener {  //TODO
         }
-        var previous: Boolean = true
+
+        var previous = true
         binding.topAppBar.setOnMenuItemClickListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.action_favorite -> {
                     if (previous) {
-                        previous = !previous
-
                         menuItem.setIcon(filled_heart)
-                        val heartIcon = menuItem.icon as Drawable
-                        heartIcon.setTint(ContextCompat.getColor(requireContext(), R.color.orange))
                     } else {
-                        previous = !previous
-
                         menuItem.setIcon(baseline_favorite_border_24)
-                        val heartIcon = menuItem.icon as Drawable
-                        heartIcon.setTint(ContextCompat.getColor(requireContext(), R.color.black))
                     }
+                    previous = !previous
                     true
-
                 }
-
                 else ->
                     false
 

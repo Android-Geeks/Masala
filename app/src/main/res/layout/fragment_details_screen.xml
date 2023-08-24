@@ -45,13 +45,15 @@
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/recipe_imageview"
-                tools:src="@drawable/image"
                 android:layout_width="match_parent"
                 android:layout_height="224dp"
-                android:layout_marginTop="8dp"
                 android:scaleType="centerCrop"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
                 app:shapeAppearanceOverlay="@style/roundedImage"
-                tools:ignore="MissingConstraints,NotSibling" />
+                tools:ignore="MissingConstraints,NotSibling"
+                tools:src="@drawable/image" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/recipe_prepare_time"

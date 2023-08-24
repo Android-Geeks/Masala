@@ -7,14 +7,16 @@
     tools:context=".ui.recyclerview.IngredientsScreen">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view1"
+        android:id="@+id/ingredient_recycler"
         android:layout_width="match_parent"
-        android:layout_height="272dp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:layout_height="match_parent"
         android:layout_gravity="bottom"
+        android:paddingBottom="60dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:listitem="@layout/item_card_1" />
+        tools:listitem="@layout/ingredient_details" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
