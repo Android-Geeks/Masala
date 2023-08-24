@@ -20,15 +20,12 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(FragmentSearchBinding
             }
            recyclerVisibility(newList, name)
             }
-
     }
-
     private fun recyclerVisibility(newList : List<List<String>>, name : String){
         if (newList.isEmpty() || name.isEmpty()) {          //Recycler is Empty (IN VISIBLE)
             binding.apply {
                 searchedRecycler.visibility = View.GONE
                 emptySearch.root.visibility = View.VISIBLE
-
             }
         }
         else{                                               //Recycler is VISIBLE

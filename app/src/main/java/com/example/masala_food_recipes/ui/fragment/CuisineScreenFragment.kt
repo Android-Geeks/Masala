@@ -1,5 +1,7 @@
 package com.example.masala_food_recipes.ui.fragment
 
+import androidx.navigation.Navigation
+import com.example.masala_food_recipes.R
 import com.example.masala_food_recipes.data.DataManager
 import com.example.masala_food_recipes.data.interactors.Cuisines
 import com.example.masala_food_recipes.databinding.FragmentCuisineBinding
@@ -11,5 +13,8 @@ class CuisineScreenFragment:BaseFragment<FragmentCuisineBinding>(FragmentCuisine
         val recipes by lazy { DataManager(requireContext()).getAllRecipesData() }
         val cuisinesList by lazy { Cuisines(recipes).getCuisineCards() }
         binding.cuisineRecyclerFragment.adapter = CuisineScreenAdapter(cuisinesList,object :CuisineScreenListener{})
+        binding.cuisineText.setOnClickListener { v->
+            Navigation.findNavController(v).navigate(R.id.action_cuisineScreenFragment_to_homeFragment2)
+        }
     }
 }

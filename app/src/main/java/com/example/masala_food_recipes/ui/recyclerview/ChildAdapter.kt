@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.masala_food_recipes.data.entities.ChildItem
 import com.example.masala_food_recipes.R
@@ -38,6 +39,9 @@ class ChildAdapter(
             cuisineText.text = childItem.type
             viewAllText.text = childItem.view_all
             childRecycler.adapter = getAdapter(childItem.adapterType)
+            viewAllText.setOnClickListener { v->
+                Navigation.findNavController(v).navigate(childItem.navId)
+            }
         }
     }
 
