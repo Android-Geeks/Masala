@@ -9,6 +9,11 @@
     <color name="dark_brown">#351E06</color>
     <color name="dark_gray">#747775</color>
     <color name="brown">#512C08</color>
-
+    <color name="bink">#B0E95889</color>
+    <color name="white_45">#72FDFAFA</color>
+    <color name="light_black">#0B0A0A</color>
+    <color name="black_gradient">#03000000</color>
+    <color name="light_gray">#E0E0E0</color>
+    <color name="darker_gray">#99252525</color>
 
 </resources>

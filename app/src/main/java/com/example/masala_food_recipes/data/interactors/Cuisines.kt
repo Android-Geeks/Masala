@@ -4,14 +4,11 @@ import com.example.masala_food_recipes.data.entities.Recipe
 import kotlin.random.Random.Default.nextInt
 
 class Cuisines(private val recipes: List<Recipe>) {
-    fun getCuisineCards(): Map<String, Pair<Int, String>> =
+    fun getCuisineCards(): List<List<String>> =
         recipes
             .groupBy { it.cuisine }
-            .mapValues {
-                Pair(
-                    it.value.size,
-                    it.value[nextInt(it.value.size)].imageUrl
-                )
+            .map { entry ->
+                val (cuisine, recipes) = entry
+                listOf(cuisine, recipes.size.toString(), recipes[0].imageUrl)
             }
-
 }
