@@ -14,6 +14,7 @@ import androidx.fragment.app.FragmentTransaction
 import com.example.masala_food_recipes.data.DataManager
 import com.example.masala_food_recipes.data.interactors.Cuisines
 import com.example.masala_food_recipes.data.interactors.ForYouRecipe
+import com.example.masala_food_recipes.data.interactors.SearchRecipe
 import com.example.masala_food_recipes.data.interactors.UnderFiveIngredient
 import com.example.masala_food_recipes.data.interactors.UnderTwentyMinRecipe
 import com.example.masala_food_recipes.databinding.ActivityMainBinding
@@ -37,6 +38,7 @@ class MainActivity : AppCompatActivity() {
     private val under5IngredientList by lazy { UnderFiveIngredient(allRecipes).execute() }
     private val cuisineList by lazy { Cuisines(allRecipes).getCuisineCards() }
     private val forYouList by lazy { ForYouRecipe(allRecipes).execute() }
+    private val searchList by lazy { SearchRecipe(allRecipes).execute() }
 
     @SuppressLint("SourceLockedOrientationActivity")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -72,6 +74,7 @@ class MainActivity : AppCompatActivity() {
             under20MinList.take(20),
             under5IngredientList.take(20)
         )
+        searchScreen.onPass(searchList)
         binding.bottomNavigation.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.home_icon -> replaceFragment(homeScreen)
