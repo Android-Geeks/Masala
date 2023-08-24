@@ -5,7 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
 import androidx.viewbinding.ViewBinding
+import com.example.masala_food_recipes.R
 
 abstract class BaseFragment<VB : ViewBinding>(
     private val bindingInflater: (inflater: LayoutInflater) -> VB
@@ -25,4 +27,7 @@ abstract class BaseFragment<VB : ViewBinding>(
     }
 
     abstract fun onCreateView()
+    fun navigateTo(v :View, id : Int){
+        Navigation.findNavController(v).navigate(id)
+    }
 }

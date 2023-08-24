@@ -3,10 +3,11 @@ package com.example.masala_food_recipes
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
+import androidx.navigation.Navigation
+import androidx.navigation.findNavController
+import androidx.navigation.ui.NavigationUI
+import androidx.navigation.ui.setupWithNavController
 import com.example.masala_food_recipes.databinding.ActivityMainBinding
 import com.example.masala_food_recipes.ui.fragment.FavouriteFragment
 import com.example.masala_food_recipes.ui.fragment.HomeFragment
@@ -22,13 +23,21 @@ class MainActivity : AppCompatActivity() {
     private val favouriteScreen = FavouriteFragment()
     private val searchScreen = SearchFragment()
     private val settingScreen = SettingFragment()
+
     @SuppressLint("SourceLockedOrientationActivity")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 //        init(savedInstanceState)
         setContentView(binding.root)
-
     }
+
+    override fun onResume() {
+        super.onResume()
+        val navController = findNavController(R.id.fragmentContainerView)
+        binding.bottomNavigation.setupWithNavController(navController)
+    }
+}
+
 
 //    private fun init(savedInstanceState: Bundle?) {
 //        if(savedInstanceState == null) {
@@ -67,4 +76,3 @@ class MainActivity : AppCompatActivity() {
 //            supportFragmentManager.popBackStackImmediate()
 //        }
 //    }
-}
