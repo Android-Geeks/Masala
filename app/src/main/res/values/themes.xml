@@ -1,6 +1,10 @@
-<resources xmlns:tools="http://schemas.android.com/tools">    <!-- Base application theme. -->
-    <style name="Base.Theme.Masalafoodrecipes" parent="Theme.Material3.DayNight.NoActionBar">        <!-- Customize your light theme here. -->        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->    </style>
-
+<resources>    <!-- Base application theme. -->
+    <style name="Base.Theme.Masalafoodrecipes" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="android:statusBarColor">@color/white</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
     <style name="Theme.Masalafoodrecipes" parent="Base.Theme.Masalafoodrecipes" />
 
     <style name="masalaty">
@@ -39,9 +43,47 @@
     <style name="Widget.App.CheckBox" parent="Widget.Material3.CompoundButton.CheckBox">
         <item name="buttonTint">@color/orange</item>
     </style>
+    <style name="bottomNavigationBackground">
+        <item name="backgroundTint">@color/off_white</item>
+    </style>
 
+    <style name="cardBackground">
+        <item name="android:background">@color/off_white</item>
+    </style>
+
+    <style name="vectorColor">
+        <item name="android:drawableTint">@color/black</item>
+    </style>
+
+    <style name="navigationColor">
+        <item name="navigationIconTint">@color/black</item>
+        <item name="android:background">@color/white</item>
+    </style>
+
+    <style name="textColor">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="recipeCard">
+        <item name="android:textColor">@color/dark_brown</item>
+        <item name="android:drawableTint">@color/brown</item>
+        <item name="backgroundTint">@color/light_orange</item>
+    </style>
+
+    <style name="timerStyle">
+        <item name="drawableTint">@color/black</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="backgroundTint">@color/light_orange</item>
+    </style>
+
+    <style name="appBarBackground">
+        <item name="android:background">@color/white</item>
+    </style>
+    <style name="background">
+        <item name="android:background">@color/white</item>
+    </style>
     <style name="roundedImage">
         <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">8dp</item>
+        <item name="cornerSize">12dp</item>
     </style>
 </resources>

@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    style="@style/background"
     tools:context=".ui.fragment.SearchFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -10,6 +11,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:text="Seaarch Fragment" />
+        android:text="Search Fragment" />
 
 </FrameLayout>
