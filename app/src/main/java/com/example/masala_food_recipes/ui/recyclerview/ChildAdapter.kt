@@ -5,63 +5,63 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.masala_food_recipes.data.entities.ChildItem
 import com.example.masala_food_recipes.R
-import com.example.masala_food_recipes.data.DataManager
-import com.example.masala_food_recipes.data.interactors.Cuisines
-import com.example.masala_food_recipes.data.interactors.ForYouRecipe
-import com.example.masala_food_recipes.data.interactors.UnderFiveIngredient
-import com.example.masala_food_recipes.data.interactors.UnderTwentyMinsRecipe
+import com.example.masala_food_recipes.data.entities.ChildItem
+import com.example.masala_food_recipes.data.entities.Recipe
 import com.example.masala_food_recipes.databinding.ChildItemBinding
-import java.lang.Exception
 
 class ChildAdapter(
-    private val context: Context,
-    private val childList: List<ChildItem>
+        private val context : Context ,
+        private val childList : List<ChildItem>
 ) : RecyclerView.Adapter<ChildAdapter.PViewHolder>() {
-
-    private val recipeList by lazy { DataManager(context).getAllRecipesData() }
-    private val cuisinesList by lazy { Cuisines(recipeList).getCuisineCards() }
-    private val forYouList by lazy { ForYouRecipe(recipeList).execute(10) }
-    private val underFiveList by lazy { UnderFiveIngredient(recipeList).execute(10) }
-    private val underTwentyList by lazy { UnderTwentyMinsRecipe(recipeList).execute(10) }
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PViewHolder {
+    override fun onCreateViewHolder(parent : ViewGroup , viewType : Int) : PViewHolder {
         return PViewHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.child_item, parent, false)
-        )
+                LayoutInflater.from(parent.context).inflate(R.layout.child_item , parent , false))
     }
 
-    override fun onBindViewHolder(holder: PViewHolder, position: Int) {
+    override fun onBindViewHolder(holder : PViewHolder , position : Int) {
         val childItem = childList[position]
 
         holder.binding.apply {
             cuisineText.text = childItem.type
             viewAllText.text = childItem.view_all
-            childRecycler.adapter = getAdapter(childItem.adapterType)
+            childRecycler.addItemDecoration(FirstItemPaddingDecoration(16,childItem.list.size-1))
+            childRecycler.adapter = getAdapter(childItem.adapterType , childItem.list)
         }
     }
 
-    override fun getItemCount(): Int = childList.size
+    override fun getItemCount() : Int = childList.size
 
-    class PViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class PViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
         val binding = ChildItemBinding.bind(itemView)
     }
 
-    private fun getAdapter(adapterType: String): RecyclerView.Adapter<*> {
+    private fun getAdapter(
+            adapterType : String , list : List<List<String>>
+    ) : RecyclerView.Adapter<*> {
         return when (adapterType) {
-            "CuisineAdapter" -> CuisineAdapter(cuisinesList, object : CuisineListener {})
+            "CuisineAdapter" -> CuisineAdapter(list , object : CuisineListener {
+                override fun onClick(position : Int) {
+                //                    TODO("Not yet implemented")
+                }
+            })
 
-            "ForYouRecipeAdapter" -> ForYouRecipeAdapter(
-                forYouList,
-                object : ForYouRecipeListener {})
+            "ForYouRecipeAdapter" -> ForYouRecipeAdapter(list , object : ForYouRecipeListener {
+                override fun onClick(position : Int) {
+                }
+            },context.getSharedPreferences("Favourites", Context.MODE_PRIVATE))
 
-            "UnderTwentyMinAdapter" -> UnderTwentyMinAdapter(
-                underTwentyList,
-                object : UnderTwentyMinListener {})
+            "UnderTwentyMinAdapter" -> UnderTwentyMinAdapter(list ,
+                    object : UnderTwentyMinListener {
+                        override fun onClick(position : Int) {
+                        }
+                    },context.getSharedPreferences("Favourites", Context.MODE_PRIVATE))
 
-            "UnderFiveIngredientAdapter" -> UnderFiveIngredientAdapter(
-                underFiveList,
-                object : UnderFiveIngredientListener {})
+            "UnderFiveIngredientAdapter" -> UnderFiveIngredientAdapter(list ,
+                    object : UnderFiveIngredientListener {
+                        override fun onClick(position : Int) {
+                        }
+                    },context.getSharedPreferences("Favourites", Context.MODE_PRIVATE))
 
             else -> throw Exception("No Adapter Found")
         }

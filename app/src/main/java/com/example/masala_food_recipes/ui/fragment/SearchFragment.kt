@@ -7,7 +7,8 @@ import com.example.masala_food_recipes.ui.recyclerview.SearchAdapter
 import com.example.masala_food_recipes.ui.recyclerview.SearchListener
 
 
-class SearchFragment : BaseFragment<FragmentSearchBinding>(FragmentSearchBinding :: inflate) {
+class SearchFragment :
+    BaseFragment<FragmentSearchBinding>(FragmentSearchBinding::inflate) {
     override fun onCreateView() {
         val recipeList = DataManager(requireContext()).getAllRecipesData()
         val searchList = SearchRecipe(recipeList).execute()
