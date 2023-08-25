@@ -4,14 +4,9 @@ package com.example.masala_food_recipes
 import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.appcompat.widget.Toolbar
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
-import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.masala_food_recipes.data.DataManager
@@ -63,9 +58,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun init(savedInstanceState: Bundle?) {
-//        if (savedInstanceState == null) {
-//            initFragment()
-//        }
+
         homeScreen.onPass(
             cuisineList.take(20),
             forYouList.take(20),
