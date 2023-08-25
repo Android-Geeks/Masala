@@ -25,10 +25,8 @@
             app:destination="@id/searchFragment" />
         <action
             android:id="@+id/action_homeFragment_to_fragment_details_screen"
-            app:destination="@id/fragment_details_screen" />
-        <action
-            android:id="@+id/action_homeFragment_to_detailsFragment2"
-            app:destination="@id/detailsFragment2" />
+            app:destination="@id/fragment_details" >
+        </action>
     </fragment>
     <fragment
         android:id="@+id/favouriteFragment"
@@ -51,13 +49,12 @@
         android:label="CuisineScreenFragment"
         tools:layout="@layout/fragment_cuisine"/>
     <fragment
-        android:id="@+id/fragment_details_screen"
-        android:name="com.example.masala_food_recipes.ui.fragment.DetailsScreen"
-        android:label="fragment_details_screen"
-        tools:layout="@layout/fragment_details_screen" />
-    <fragment
-        android:id="@+id/detailsFragment2"
+        android:id="@+id/fragment_details"
         android:name="com.example.masala_food_recipes.ui.fragment.DetailsFragment"
-        android:label="fragment_details"
-        tools:layout="@layout/fragment_details" />
+        android:label="fragment_details_screen"
+        tools:layout="@layout/fragment_details" >
+        <argument
+            android:name="recipe"
+            app:argType="com.example.masala_food_recipes.data.entities.Recipe" />
+    </fragment>
 </navigation>

@@ -13,7 +13,8 @@ import com.example.masala_food_recipes.databinding.ChildItemBinding
 
 class ChildAdapter(
         private val context : Context ,
-        private val childList : List<ChildItem>
+        private val childList : List<ChildItem> ,
+        private val allRecipes : List<Recipe>
 ) : RecyclerView.Adapter<ChildAdapter.PViewHolder>() {
     override fun onCreateViewHolder(parent : ViewGroup , viewType : Int) : PViewHolder {
         return PViewHolder(
@@ -26,10 +27,13 @@ class ChildAdapter(
         holder.binding.apply {
             cuisineText.text = childItem.type
             viewAllText.text = childItem.view_all
-            childRecycler.addItemDecoration(FirstItemPaddingDecoration(16,childItem.list.size-1))
+            childRecycler.addItemDecoration(
+                    FirstItemPaddingDecoration(
+                            16 ,
+                            childItem.list.size - 1))
             childRecycler.adapter = getAdapter(childItem.adapterType , childItem.list)
 
-            viewAllText.setOnClickListener { v->
+            viewAllText.setOnClickListener { v ->
                 Navigation.findNavController(v).navigate(childItem.navID)
 
             }
@@ -47,27 +51,30 @@ class ChildAdapter(
     ) : RecyclerView.Adapter<*> {
         return when (adapterType) {
             "CuisineAdapter" -> CuisineAdapter(list , object : CuisineListener {
-                override fun onClick(position : Int) {
-                //                    TODO("Not yet implemented")
+                override fun onClick(position : Int) { //                    TODO("Not yet implemented")
                 }
-            })
+            } , allRecipes)
 
             "ForYouRecipeAdapter" -> ForYouRecipeAdapter(list , object : ForYouRecipeListener {
                 override fun onClick(position : Int) {
                 }
-            },context.getSharedPreferences("Favourites", Context.MODE_PRIVATE))
+            } , context.getSharedPreferences("Favourites" , Context.MODE_PRIVATE) , allRecipes)
 
             "UnderTwentyMinAdapter" -> UnderTwentyMinAdapter(list ,
                     object : UnderTwentyMinListener {
                         override fun onClick(position : Int) {
                         }
-                    },context.getSharedPreferences("Favourites", Context.MODE_PRIVATE))
+                    } ,
+                    context.getSharedPreferences("Favourites" , Context.MODE_PRIVATE) ,
+                    allRecipes)
 
             "UnderFiveIngredientAdapter" -> UnderFiveIngredientAdapter(list ,
                     object : UnderFiveIngredientListener {
                         override fun onClick(position : Int) {
                         }
-                    },context.getSharedPreferences("Favourites", Context.MODE_PRIVATE))
+                    } ,
+                    context.getSharedPreferences("Favourites" , Context.MODE_PRIVATE) ,
+                    allRecipes)
 
             else -> throw Exception("No Adapter Found")
         }

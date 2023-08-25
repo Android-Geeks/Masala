@@ -7,7 +7,10 @@ import android.view.View
 import androidx.navigation.Navigation
 import com.bumptech.glide.Glide
 import com.example.masala_food_recipes.R
+import com.example.masala_food_recipes.data.entities.Recipe
+import com.example.masala_food_recipes.data.interactors.Details
 import com.example.masala_food_recipes.databinding.Under20MinBinding
+import com.example.masala_food_recipes.ui.fragment.HomeFragmentDirections
 
 
 interface UnderFiveIngredientListener : BaseInteractionListener
@@ -15,7 +18,8 @@ interface UnderFiveIngredientListener : BaseInteractionListener
 class UnderFiveIngredientAdapter(
         items : List<List<String>> ,
         listener : UnderFiveIngredientListener ,
-        private val sharedPref : SharedPreferences
+        private val sharedPref : SharedPreferences ,
+        private val allRecipes : List<Recipe>
 ) : BaseRecyclerAdapter<List<String> , BaseRecyclerAdapter.BaseViewHolder<List<String>>>(
         items , listener) {
     override val layoutId = R.layout.under_20_min
@@ -34,17 +38,20 @@ class UnderFiveIngredientAdapter(
             binding.apply {
                 reciepeName.text = "${item[0]} min"
                 time.text = "${item[1]} min"
-                Glide.with(context).load(item[2]).placeholder(R.drawable.loading).centerCrop().into(image)
+                Glide.with(context).load(item[2]).placeholder(R.drawable.loading).centerCrop()
+                        .into(image)
                 favouriteCheckBox.apply {
-                    setOnCheckedChangeListener{_,isChecked ->
-                        if(isChecked) favouriteSet?.add(item[0])
+                    setOnCheckedChangeListener { _ , isChecked ->
+                        if (isChecked) favouriteSet?.add(item[0])
                         else favouriteSet?.remove(item[0])
-                        sharedPref.edit().putStringSet("Favourite",favouriteSet).apply()
+                        sharedPref.edit().putStringSet("Favourite" , favouriteSet).apply()
                     }
-                    isChecked=favouriteSet?.contains(item[0]) == true
+                    isChecked = favouriteSet?.contains(item[0]) == true
                 }
-                image.setOnClickListener { v->
-                    Navigation.findNavController(v).navigate(R.id.action_homeFragment_to_fragment_details_screen)
+                image.setOnClickListener {
+                    val action = HomeFragmentDirections.actionHomeFragmentToFragmentDetailsScreen(
+                            Details(allRecipes).findRecipe(item[0]))
+                    Navigation.findNavController(it).navigate(action)
 
                 }
             }

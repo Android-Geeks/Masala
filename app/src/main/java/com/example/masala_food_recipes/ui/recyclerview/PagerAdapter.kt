@@ -1,9 +1,9 @@
 package com.example.masala_food_recipes.ui.recyclerview
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.example.masala_food_recipes.ui.fragment.DetailsScreen
+import com.example.masala_food_recipes.ui.fragment.DetailsFragment
 
-class PagerAdapter(container: DetailsScreen, private val fragments: List<Fragment>) : FragmentStateAdapter(container) {
+class PagerAdapter(container: DetailsFragment , private val fragments: List<Fragment>) : FragmentStateAdapter(container) {
 
     override fun getItemCount(): Int =2
     override fun createFragment(position: Int): Fragment {

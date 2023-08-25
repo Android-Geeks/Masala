@@ -6,11 +6,16 @@ import android.view.View
 import androidx.navigation.Navigation
 import com.bumptech.glide.Glide
 import com.example.masala_food_recipes.R
+import com.example.masala_food_recipes.data.entities.Recipe
 import com.example.masala_food_recipes.databinding.CardViewCuisinesBinding
 
 interface CuisineListener : BaseInteractionListener
 
-class CuisineAdapter(items: List<List<String>>, listener: CuisineListener) :
+class CuisineAdapter(
+        items : List<List<String>> ,
+        listener : CuisineListener ,
+        allRecipes : List<Recipe>
+) :
     BaseRecyclerAdapter<List<String>, BaseRecyclerAdapter.BaseViewHolder<List<String>>>(
         items,
         listener
