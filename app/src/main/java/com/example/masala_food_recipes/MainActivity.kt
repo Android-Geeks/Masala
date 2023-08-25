@@ -77,9 +77,9 @@ class MainActivity : AppCompatActivity() {
 
     @Deprecated("Deprecated in Java")
     override fun onBackPressed() {
-        if (supportFragmentManager.fragments.last() != homeScreen) backPressed()
-
-        else{
+        val navController = findNavController(R.id.fragment_container_view)
+        val currentFragmentId = navController.currentDestination?.id
+        if (currentFragmentId == R.id.homeFragment) {
             val builder = AlertDialog.Builder(this)
             builder.setMessage("Are you sure you want to exit?").setCancelable(false)
                 .setPositiveButton("Yes") { _, _ -> finish() }
@@ -87,15 +87,9 @@ class MainActivity : AppCompatActivity() {
             val alert = builder.create()
             alert.show()
         }
+        else navController.popBackStack()
+
     }
-
-    private fun backPressed() {
-
-        val navController = findNavController(R.id.fragment_container_view)
-        navController.navigate(R.id.homeFragment)
-    }
-
-    fun backPressed(view: View) = (view as Toolbar).setNavigationOnClickListener { backPressed() }
 }
 
 
@@ -110,7 +104,7 @@ class MainActivity : AppCompatActivity() {
 //        }
 //        binding.bottomNavigation.selectedItemId = R.id.homeFragment
 //    }
-
+//
 //    private fun replaceFragment(fragment: Fragment): Boolean {
 //        inTransaction {
 //            replace(
@@ -119,7 +113,7 @@ class MainActivity : AppCompatActivity() {
 //        }
 //        return true
 //    }
-
+//
 //    private fun inTransaction(func: FragmentTransaction.() -> FragmentTransaction) {
 //        supportFragmentManager.beginTransaction().func().commit()
 //    }
