@@ -62,45 +62,44 @@ class MainActivity : AppCompatActivity() {
         binding.bottomNavigation.setupWithNavController(navController)
     }
 
-//    @Deprecated("Deprecated in Java")
-//    override fun onBackPressed() {
-//        if (supportFragmentManager.fragments.last() == homeScreen) backPressed()
-//
-//       else{
-//            val builder = AlertDialog.Builder(this)
-//            builder.setMessage("Are you sure you want to exit?").setCancelable(false)
-//                .setPositiveButton("Yes") { _, _ -> finish() }
-//                .setNegativeButton("No") { dialog, _ -> dialog.cancel() }
-//            val alert = builder.create()
-//            alert.show()
-//        }
-//    }
-
     private fun init(savedInstanceState: Bundle?) {
-        if (savedInstanceState == null) {
+//        if (savedInstanceState == null) {
 //            initFragment()
-        }
-          onPass(
+//        }
+        homeScreen.onPass(
             cuisineList.take(20),
             forYouList.take(20),
             under20MinList.take(20),
             under5IngredientList.take(20)
         )
         searchScreen.onPass(searchList)
-
     }
 
+    @Deprecated("Deprecated in Java")
+    override fun onBackPressed() {
+        if (supportFragmentManager.fragments.last() != homeScreen) backPressed()
 
-//    private fun backPressed() {
-//        //stay at homeFragment
-//        supportFragmentManager.beginTransaction()
-//        .replace(R.id.fragment_container_view, homeScreen)
-//        .addToBackStack(null)
-//        .commit()
-//    }
-//
-//    fun backPressed(view: View) = (view as Toolbar).setNavigationOnClickListener { backPressed() }
+        else{
+            val builder = AlertDialog.Builder(this)
+            builder.setMessage("Are you sure you want to exit?").setCancelable(false)
+                .setPositiveButton("Yes") { _, _ -> finish() }
+                .setNegativeButton("No") { dialog, _ -> dialog.cancel() }
+            val alert = builder.create()
+            alert.show()
+        }
+    }
+
+    private fun backPressed() {
+
+        val navController = findNavController(R.id.fragment_container_view)
+        navController.navigate(R.id.homeFragment)
+    }
+
+    fun backPressed(view: View) = (view as Toolbar).setNavigationOnClickListener { backPressed() }
 }
+
+
+
 
 
 //    private fun initFragment() {

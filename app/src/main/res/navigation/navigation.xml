@@ -18,7 +18,8 @@
             app:destination="@id/settingFragment" />
         <action
             android:id="@+id/action_homeFragment_to_favouriteFragment"
-            app:destination="@id/favouriteFragment" />
+            app:destination="@id/favouriteFragment"
+ />
         <action
             android:id="@+id/action_homeFragment_to_searchFragment"
             app:destination="@id/searchFragment" />
