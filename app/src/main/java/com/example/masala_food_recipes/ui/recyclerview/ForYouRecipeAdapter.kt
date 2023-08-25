@@ -3,6 +3,7 @@ package com.example.masala_food_recipes.ui.recyclerview
 import android.content.Context
 import android.content.SharedPreferences
 import android.view.View
+import androidx.navigation.Navigation
 import com.bumptech.glide.Glide
 import com.example.masala_food_recipes.R
 import com.example.masala_food_recipes.databinding.RecipeCardBinding
@@ -37,7 +38,10 @@ class ForYouRecipeAdapter(
                     }
                     isChecked=favouriteSet?.contains(item[0]) == true
                 }
+                recipeImage.setOnClickListener { v->
+                    Navigation.findNavController(v).navigate(R.id.action_homeFragment_to_fragment_details_screen)
 
+                }
             }
         }
 

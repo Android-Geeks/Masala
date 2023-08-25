@@ -1,6 +1,5 @@
 package com.example.masala_food_recipes.ui.fragment
 
-import androidx.navigation.Navigation
 import com.example.masala_food_recipes.R
 import com.example.masala_food_recipes.data.entities.ChildItem
 import com.example.masala_food_recipes.data.listener.HomeFragmentListener
@@ -15,30 +14,29 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
     private lateinit var under5IngredientList: List<List<String>>
 
     override fun onCreateView() {
+        val cuisineNavId = R.id.action_homeFragment_to_cuisineScreenFragment
+        val subCategoryNavId = R.id.action_homeFragment_to_detailsFragment2        //until creating sub category fragment
 
         val child1 = ChildItem(
-            "Cuisine", "View all", "CuisineAdapter", cuisineList
+            "Cuisine", "View all", "CuisineAdapter", cuisineList, cuisineNavId
         )
 
         val child2 = ChildItem(
-            "For You", "View all", "ForYouRecipeAdapter", forYouList
+            "For You", "View all", "ForYouRecipeAdapter", forYouList, subCategoryNavId
         )
 
         val child3 = ChildItem(
-            "Under 20 min meal", "View all", "UnderTwentyMinAdapter", under20MinList
+            "Under 20 min meal", "View all", "UnderTwentyMinAdapter", under20MinList, subCategoryNavId
         )
 
         val child4 = ChildItem(
-            "Under 5 ingredient meal", "View all", "UnderFiveIngredientAdapter", under5IngredientList
+            "Under 5 ingredient meal", "View all", "UnderFiveIngredientAdapter", under5IngredientList, subCategoryNavId
         )
 
         val childList: List<ChildItem> = listOf(child1, child2, child3, child4)
 
         binding.apply {
             parentRecycler.adapter = ChildAdapter(requireContext(), childList)
-//            this.parentRecycler.setOnClickListener { v->
-//                Navigation.findNavController(v).navigate(R.id.action_homeFragment_to_cuisineScreenFragment)
-//            }
         }
     }
 

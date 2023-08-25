@@ -68,6 +68,10 @@ class DetailsScreen :
         TabLayoutMediator(binding.tabLayout, binding.viewpager) { tab, position ->
             tab.text = tabTitle[position]
         }.attach()
+
+        binding.topAppBar.setNavigationOnClickListener {v->
+            navTo("back", v, null)
+        }
     }
 
 

@@ -22,6 +22,12 @@
         <action
             android:id="@+id/action_homeFragment_to_searchFragment"
             app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_fragment_details_screen"
+            app:destination="@id/fragment_details_screen" />
+        <action
+            android:id="@+id/action_homeFragment_to_detailsFragment2"
+            app:destination="@id/detailsFragment2" />
     </fragment>
     <fragment
         android:id="@+id/favouriteFragment"
@@ -43,4 +49,14 @@
         android:name="com.example.masala_food_recipes.ui.fragment.CuisineScreenFragment"
         android:label="CuisineScreenFragment"
         tools:layout="@layout/fragment_cuisine"/>
+    <fragment
+        android:id="@+id/fragment_details_screen"
+        android:name="com.example.masala_food_recipes.ui.fragment.DetailsScreen"
+        android:label="fragment_details_screen"
+        tools:layout="@layout/fragment_details_screen" />
+    <fragment
+        android:id="@+id/detailsFragment2"
+        android:name="com.example.masala_food_recipes.ui.fragment.DetailsFragment"
+        android:label="fragment_details"
+        tools:layout="@layout/fragment_details" />
 </navigation>

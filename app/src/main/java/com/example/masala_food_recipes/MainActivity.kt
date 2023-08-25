@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
+import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.masala_food_recipes.data.DataManager
@@ -51,6 +52,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         init(savedInstanceState)
+
     }
 
     // Navigate Bottom bar  ("look at bottom_nav_menu")
@@ -62,8 +64,9 @@ class MainActivity : AppCompatActivity() {
 
 //    @Deprecated("Deprecated in Java")
 //    override fun onBackPressed() {
-//        if (supportFragmentManager.fragments.last() != homeScreen) backPressed()
-//        else {
+//        if (supportFragmentManager.fragments.last() == homeScreen) backPressed()
+//
+//       else{
 //            val builder = AlertDialog.Builder(this)
 //            builder.setMessage("Are you sure you want to exit?").setCancelable(false)
 //                .setPositiveButton("Yes") { _, _ -> finish() }
@@ -75,51 +78,49 @@ class MainActivity : AppCompatActivity() {
 
     private fun init(savedInstanceState: Bundle?) {
         if (savedInstanceState == null) {
-            initFragment()
+//            initFragment()
         }
-        homeScreen.onPass(
+          onPass(
             cuisineList.take(20),
             forYouList.take(20),
             under20MinList.take(20),
             under5IngredientList.take(20)
         )
         searchScreen.onPass(searchList)
-//        binding.bottomNavigation.setOnItemSelectedListener { item ->
-//            when (item.itemId) {
-//                R.id.homeFragment -> replaceFragment(homeScreen)
-//                R.id.settingFragment -> replaceFragment(searchScreen)
-//                R.id.favouriteFragment -> replaceFragment(favouriteScreen)
-//                R.id.settingFragment -> replaceFragment(settingScreen)
-//                else -> false
-//            }
-//        }
+
     }
 
-    private fun initFragment() {
-        inTransaction {
-            add(
-                R.id.fragment_container_view, homeScreen
-            )
-        }
-        binding.bottomNavigation.selectedItemId = R.id.homeFragment
-    }
-
-    private fun replaceFragment(fragment: Fragment): Boolean {
-        inTransaction {
-            replace(
-                R.id.fragment_container_view, fragment
-            )
-        }
-        return true
-    }
-
-    private fun inTransaction(func: FragmentTransaction.() -> FragmentTransaction) {
-        supportFragmentManager.beginTransaction().func().commit()
-    }
 
 //    private fun backPressed() {
-//        initFragment()
+//        //stay at homeFragment
+//        supportFragmentManager.beginTransaction()
+//        .replace(R.id.fragment_container_view, homeScreen)
+//        .addToBackStack(null)
+//        .commit()
 //    }
 //
 //    fun backPressed(view: View) = (view as Toolbar).setNavigationOnClickListener { backPressed() }
 }
+
+
+//    private fun initFragment() {
+//        inTransaction {
+//            add(
+//                R.id.fragment_container_view, homeScreen
+//            )
+//        }
+//        binding.bottomNavigation.selectedItemId = R.id.homeFragment
+//    }
+
+//    private fun replaceFragment(fragment: Fragment): Boolean {
+//        inTransaction {
+//            replace(
+//                R.id.fragment_container_view, fragment
+//            )
+//        }
+//        return true
+//    }
+
+//    private fun inTransaction(func: FragmentTransaction.() -> FragmentTransaction) {
+//        supportFragmentManager.beginTransaction().func().commit()
+//    }

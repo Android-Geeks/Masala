@@ -3,6 +3,7 @@ package com.example.masala_food_recipes.ui.recyclerview
 import android.annotation.SuppressLint
 import android.content.Context
 import android.view.View
+import androidx.navigation.Navigation
 import com.bumptech.glide.Glide
 import com.example.masala_food_recipes.R
 import com.example.masala_food_recipes.databinding.CardViewCuisinesBinding
@@ -35,6 +36,11 @@ class CuisineAdapter(items: List<List<String>>, listener: CuisineListener) :
                     .centerCrop()
                     .placeholder(R.drawable.loading)
                     .into(foodImage)
+
+                foodImage.setOnClickListener { v->
+                    Navigation.findNavController(v).navigate(R.id.action_homeFragment_to_fragment_details_screen)
+
+                }
             }
         }
     }

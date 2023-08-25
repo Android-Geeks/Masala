@@ -3,6 +3,7 @@ package com.example.masala_food_recipes.ui.recyclerview
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 
 interface BaseInteractionListener
@@ -41,6 +42,7 @@ abstract class BaseRecyclerAdapter<T , VH : BaseRecyclerAdapter.BaseViewHolder<T
     }
 
     override fun getItemCount() : Int = items.size
+
 }
 
 

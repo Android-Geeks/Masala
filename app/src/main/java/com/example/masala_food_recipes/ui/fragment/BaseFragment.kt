@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
 import androidx.viewbinding.ViewBinding
 
 abstract class BaseFragment<VB : ViewBinding>(
@@ -25,4 +26,14 @@ abstract class BaseFragment<VB : ViewBinding>(
     }
 
     abstract fun onCreateView()
+
+    fun navTo(direction : String, v : View, id : Int?){
+        if (direction == "forward"){
+            Navigation.findNavController(v).navigate(id!!)
+        }
+        else if (direction =="back") {
+            Navigation.findNavController(v).popBackStack()
+        }
+
+    }
 }
