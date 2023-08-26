@@ -12,4 +12,5 @@ object Constants {
         const val IMAGE_URL: Int = 7
         const val INGREDIENT_COUNT: Int = 8
     }
+    const val CUISINE_KEY = "CUISINE KEY"
 }

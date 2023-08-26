@@ -3,8 +3,13 @@ package com.example.masala_food_recipes.ui.recyclerview
 import android.annotation.SuppressLint
 import android.content.Context
 import android.view.View
+import androidx.core.content.ContentProviderCompat.requireContext
+import androidx.fragment.app.FragmentManager
+import androidx.navigation.Navigation
 import com.bumptech.glide.Glide
 import com.example.masala_food_recipes.R
+import com.example.masala_food_recipes.data.util.Constants
+import com.example.masala_food_recipes.data.util.PreferencesUtil
 import com.example.masala_food_recipes.databinding.CardViewCuisinesBinding
 
 interface CuisineListener : BaseInteractionListener
@@ -36,7 +41,10 @@ class CuisineAdapter(items: List<List<String>>, listener: CuisineListener) :
                     .placeholder(R.drawable.loading)
                     .into(foodImage)
                 foodImage.setOnClickListener {
-
+                    PreferencesUtil.apply{
+                        init(context)
+                        putInSharedPref(Constants.CUISINE_KEY, item[0])
+                    }
                 }
             }
         }
