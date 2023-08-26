@@ -18,6 +18,7 @@ import com.example.masala_food_recipes.data.interactors.SearchRecipe
 import com.example.masala_food_recipes.data.interactors.UnderFiveIngredient
 import com.example.masala_food_recipes.data.interactors.UnderTwentyMinRecipe
 import com.example.masala_food_recipes.databinding.ActivityMainBinding
+import com.example.masala_food_recipes.ui.fragment.CuisineDetailsFragment
 import com.example.masala_food_recipes.ui.fragment.FavouriteFragment
 import com.example.masala_food_recipes.ui.fragment.HomeFragment
 import com.example.masala_food_recipes.ui.fragment.SearchFragment
@@ -32,6 +33,7 @@ class MainActivity : AppCompatActivity() {
     private val favouriteScreen = FavouriteFragment()
     private val searchScreen = SearchFragment()
     private val settingScreen = SettingFragment()
+//    private  val cuisineDetail = CuisineDetailsFragment()
 
     private val allRecipes by lazy { DataManager(this).getAllRecipesData() }
     private val under20MinList by lazy { UnderTwentyMinRecipe(allRecipes).execute() }
@@ -80,6 +82,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.home_icon -> replaceFragment(homeScreen)
                 R.id.search_icon -> replaceFragment(searchScreen)
                 R.id.favourite_icon -> replaceFragment(favouriteScreen)
+//                R.id.favourite_icon -> replaceFragment(cuisineDetail)
                 R.id.setting_icon -> replaceFragment(settingScreen)
                 else -> false
             }

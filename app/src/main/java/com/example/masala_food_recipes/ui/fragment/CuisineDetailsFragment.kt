@@ -15,11 +15,15 @@ class CuisineDetailsFragment  :
         val cuisineName = PreferencesUtil.getFromSharedPref(Constants.CUISINE_KEY)
         if (cuisineName!!.isNotEmpty()) {
             val cuisinesList by lazy { Cuisines(recipes).getCuisineDetails(cuisineName) }
-            binding.cuisineRecyclerFragment.adapter = CuisineDetailsAdapter(cuisinesList, object : CuisineDetailsListener{
-                override fun onClick(position: Int) {
-                    TODO("Not yet implemented")
-                }
-            })
+            binding.apply {
+                cuisineType.text = cuisineName
+                cuisineRecyclerFragment.adapter =
+                    CuisineDetailsAdapter(cuisinesList, object : CuisineDetailsListener {
+                        override fun onClick(position: Int) {
+                            TODO("Not yet implemented")
+                        }
+                    })
+            }
         }
     }
 }
