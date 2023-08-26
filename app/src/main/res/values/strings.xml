@@ -33,5 +33,9 @@
     <string name="history_of_indian_food">History of indian food</string>
     <string name="terms_of_service">Terms of service</string>
     <string name="faq">FAQ</string>
+    <string name="home">Home</string>
+    <string name="search">Search</string>
+    <string name="favourites">Favourites</string>
+    <string name="settings">Settings</string>
 
 </resources>
