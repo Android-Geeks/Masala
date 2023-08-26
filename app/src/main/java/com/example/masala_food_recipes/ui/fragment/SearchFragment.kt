@@ -3,7 +3,7 @@ package com.example.masala_food_recipes.ui.fragment
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
-import com.example.masala_food_recipes.data.listener.SearchFragmentListener
+import com.example.masala_food_recipes.ui.listeners.SearchFragmentListener
 import com.example.masala_food_recipes.databinding.FragmentSearchBinding
 import com.example.masala_food_recipes.ui.recyclerview.SearchAdapter
 import com.example.masala_food_recipes.ui.recyclerview.SearchListener

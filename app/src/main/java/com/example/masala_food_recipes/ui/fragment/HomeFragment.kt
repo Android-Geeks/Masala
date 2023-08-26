@@ -1,7 +1,7 @@
 package com.example.masala_food_recipes.ui.fragment
 
 import com.example.masala_food_recipes.data.entities.ChildItem
-import com.example.masala_food_recipes.data.listener.HomeFragmentListener
+import com.example.masala_food_recipes.ui.listeners.HomeFragmentListener
 import com.example.masala_food_recipes.databinding.FragmentHomeBinding
 import com.example.masala_food_recipes.ui.recyclerview.ChildAdapter
 

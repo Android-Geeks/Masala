@@ -1,4 +1,4 @@
-package com.example.masala_food_recipes.data.listener
+package com.example.masala_food_recipes.ui.listeners
 
 interface HomeFragmentListener {
     fun onPass(

@@ -1,7 +1,7 @@
 package com.example.masala_food_recipes.ui.fragment
 
 import android.content.Context
-import com.example.masala_food_recipes.data.listener.Under20MinFragmentListener
+import com.example.masala_food_recipes.ui.listeners.Under20MinFragmentListener
 import com.example.masala_food_recipes.databinding.SubCategoryRecyclerBinding
 import com.example.masala_food_recipes.ui.recyclerview.BaseInteractionListener
 import com.example.masala_food_recipes.ui.recyclerview.SubCategoryAdapter
