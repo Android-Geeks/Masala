@@ -3,8 +3,7 @@ package com.example.masala_food_recipes.ui.recyclerview
 import android.annotation.SuppressLint
 import android.content.Context
 import android.view.View
-import androidx.core.content.ContentProviderCompat.requireContext
-import androidx.fragment.app.FragmentManager
+
 import androidx.navigation.Navigation
 import com.bumptech.glide.Glide
 import com.example.masala_food_recipes.R
@@ -44,6 +43,7 @@ class CuisineAdapter(items: List<List<String>>, listener: CuisineListener) :
                     PreferencesUtil.apply{
                         init(context)
                         putInSharedPref(Constants.CUISINE_KEY, item[0])
+                        Navigation.findNavController(it).navigate(R.id.action_homeFragment_to_cuisineDetailsFragment)
                     }
                 }
             }

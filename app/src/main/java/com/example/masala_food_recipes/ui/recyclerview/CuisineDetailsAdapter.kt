@@ -3,6 +3,7 @@ package com.example.masala_food_recipes.ui.recyclerview
 import android.annotation.SuppressLint
 import android.content.Context
 import android.view.View
+import androidx.navigation.Navigation
 import com.bumptech.glide.Glide
 import com.example.masala_food_recipes.R
 import com.example.masala_food_recipes.databinding.Under20MinBinding
@@ -33,6 +34,9 @@ class CuisineDetailsAdapter(items: List<List<String>>, listener: CuisineDetailsL
                     .centerCrop()
                     .placeholder(R.drawable.loading)
                     .into(image)
+                image.setOnClickListener{
+                    Navigation.findNavController(it).navigate(R.id.action_cuisineDetailsFragment_to_detailsScreen)
+                }
             }
         }
     }

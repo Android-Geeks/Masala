@@ -12,17 +12,10 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.Navigation
+import androidx.navigation.findNavController
+import androidx.navigation.ui.setupWithNavController
 import com.example.masala_food_recipes.data.DataManager
-import com.example.masala_food_recipes.data.interactors.Cuisines
-import com.example.masala_food_recipes.data.interactors.ForYouRecipe
-import com.example.masala_food_recipes.data.interactors.SearchRecipe
-import com.example.masala_food_recipes.data.interactors.UnderFiveIngredient
-import com.example.masala_food_recipes.data.interactors.UnderTwentyMinRecipe
 import com.example.masala_food_recipes.databinding.ActivityMainBinding
-import com.example.masala_food_recipes.ui.fragment.CuisineDetailsFragment
 import com.example.masala_food_recipes.ui.fragment.FavouriteFragment
 import com.example.masala_food_recipes.ui.fragment.HomeFragment
 import com.example.masala_food_recipes.ui.fragment.SearchFragment
@@ -50,12 +43,19 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         val viewModel: GlobalViewModel by viewModels()
         viewModel.recipes = DataManager(this).getAllRecipesData()
-        init(savedInstanceState)
-    }
 
+//        init(savedInstanceState)
+    }
+/*    override fun onResume() {
+        super.onResume()
+        val navController = findNavController(R.id.fragment_container_view)
+        binding.bottomNavigation.setupWithNavController(navController)
+    }*/
+    @SuppressLint("SuspiciousIndentation")
     override fun onResume() {
         super.onResume()
-        binding.bottomNavigation.setOnItemSelectedListener {}
+    val navController = findNavController(R.id.fragment_container_view)
+        binding.bottomNavigation.setupWithNavController(navController)
     }
     @Deprecated("Deprecated in Java")
     override fun onBackPressed() {
@@ -93,7 +93,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.fragment_container_view, homeScreen
             )
         }
-        binding.bottomNavigation.selectedItemId = R.id.home_icon
+//        binding.bottomNavigation.selectedItemId = R.id.home_icon
     }
 
     private fun replaceFragment(fragment: Fragment): Boolean {
