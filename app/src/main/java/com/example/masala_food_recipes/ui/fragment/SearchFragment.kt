@@ -17,7 +17,7 @@ class SearchFragment :
         binding.buttonSearchIcon.setOnClickListener {
             val name = binding.searchBar.text.toString()
             val newList = searchList.filter {
-                it[0].substring(0, name.length).equals(name, ignoreCase = true)
+                it[0].contains(name, ignoreCase = true)
             }
             recyclerVisibility(newList, name)
         }
@@ -29,7 +29,9 @@ class SearchFragment :
                 override fun afterTextChanged(s: Editable?) {
                     val name = binding.searchBar.text.toString()
                     val newList = searchList.filter {
-                        it[0].substring(0, name.length).equals(name, ignoreCase = true)
+                        it[0].contains(name, ignoreCase = true)
+//                        equals(name, ignoreCase = true)
+//                        substring(0, name.length).
                     }
                     recyclerVisibility(newList, name)
                 }

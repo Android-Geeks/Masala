@@ -39,6 +39,7 @@ class CuisineAdapter(items: List<List<String>>, listener: CuisineListener) :
                     .centerCrop()
                     .placeholder(R.drawable.loading)
                     .into(foodImage)
+
                 foodImage.setOnClickListener {
                     PreferencesUtil.apply{
                         init(context)

@@ -46,11 +46,7 @@ class MainActivity : AppCompatActivity() {
 
 //        init(savedInstanceState)
     }
-/*    override fun onResume() {
-        super.onResume()
-        val navController = findNavController(R.id.fragment_container_view)
-        binding.bottomNavigation.setupWithNavController(navController)
-    }*/
+
     @SuppressLint("SuspiciousIndentation")
     override fun onResume() {
         super.onResume()

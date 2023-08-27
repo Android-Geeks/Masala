@@ -21,7 +21,8 @@
             app:destination="@id/settingFragment" />
         <action
             android:id="@+id/action_homeFragment_to_cuisineDetailsFragment"
-            app:destination="@id/cuisineDetailsFragment" />
+            app:destination="@id/cuisineDetailsFragment"
+            app:popUpTo="@id/homeFragment" />
         <action
             android:id="@+id/action_homeFragment_to_detailsScreen"
             app:destination="@id/detailsScreen" />

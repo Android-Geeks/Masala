@@ -1,5 +1,6 @@
 package com.example.masala_food_recipes.ui.fragment
 
+import androidx.navigation.Navigation
 import com.example.masala_food_recipes.data.entities.Recipe
 import com.example.masala_food_recipes.databinding.FragmentDetailsBinding
 
@@ -7,7 +8,9 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding>(FragmentDetailsBind
     override fun onCreateView() {
 //        val recipe = arguments?.getParcelable<Recipe>("recipe")
 //        binding.textview.text = recipe?.translatedRecipeName
-
+binding.textview.setOnClickListener{
+    Navigation.findNavController(it).popBackStack()
+}
     }
 }
 
