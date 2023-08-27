@@ -70,10 +70,10 @@ class MainActivity : AppCompatActivity() {
 
         binding.bottomNavigation.setOnItemSelectedListener { item ->
             when (item.itemId) {
-                R.id.home_icon -> replaceFragment(homeScreen)
-                R.id.search_icon -> replaceFragment(searchScreen)
-                R.id.favourite_icon -> replaceFragment(favouriteScreen)
-                R.id.setting_icon -> replaceFragment(settingScreen)
+                R.id.homeFragment -> replaceFragment(homeScreen)
+                R.id.searchFragment -> replaceFragment(searchScreen)
+                R.id.favouriteFragment -> replaceFragment(favouriteScreen)
+                R.id.settingFragment -> replaceFragment(settingScreen)
                 else -> false
             }
         }
@@ -85,7 +85,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.fragment_container_view, homeScreen
             )
         }
-        binding.bottomNavigation.selectedItemId = R.id.home_icon
+        binding.bottomNavigation.selectedItemId = R.id.homeFragment
     }
 
     private fun replaceFragment(fragment: Fragment): Boolean {
