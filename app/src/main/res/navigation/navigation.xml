@@ -54,5 +54,9 @@
         android:id="@+id/detailsScreen"
         android:name="com.example.masala_food_recipes.ui.fragment.DetailsScreen"
         android:label="DetailsScreen"
-        tools:layout="@layout/fragment_details_screen"/>
+        tools:layout="@layout/fragment_details_screen">
+        <argument
+            android:name="recipe"
+            app:argType="com.example.masala_food_recipes.data.entities.Recipe" />
+    </fragment>
 </navigation>
