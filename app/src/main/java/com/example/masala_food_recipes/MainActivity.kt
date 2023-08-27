@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import com.example.masala_food_recipes.data.DataManager
 import com.example.masala_food_recipes.data.interactors.Cuisines
 import com.example.masala_food_recipes.data.interactors.ForYouRecipe
@@ -52,6 +53,10 @@ class MainActivity : AppCompatActivity() {
         init(savedInstanceState)
     }
 
+    override fun onResume() {
+        super.onResume()
+        binding.bottomNavigation.setOnItemSelectedListener {}
+    }
     @Deprecated("Deprecated in Java")
     override fun onBackPressed() {
         if (supportFragmentManager.fragments.last() != homeScreen) backPressed()
@@ -70,16 +75,16 @@ class MainActivity : AppCompatActivity() {
             initFragment()
         }
 
-        binding.bottomNavigation.setOnItemSelectedListener { item ->
-            when (item.itemId) {
-                R.id.home_icon -> replaceFragment(homeScreen)
-                R.id.search_icon -> replaceFragment(searchScreen)
-                R.id.favourite_icon -> replaceFragment(favouriteScreen)
-//                R.id.favourite_icon -> replaceFragment(cuisineDetail)
-                R.id.setting_icon -> replaceFragment(settingScreen)
-                else -> false
-            }
-        }
+//        binding.bottomNavigation.setOnItemSelectedListener { item ->
+//            when (item.itemId) {
+//                R.id.home_icon -> replaceFragment(homeScreen)
+//                R.id.search_icon -> replaceFragment(searchScreen)
+//                R.id.favourite_icon -> replaceFragment(favouriteScreen)
+////                R.id.favourite_icon -> replaceFragment(cuisineDetail)
+//                R.id.setting_icon -> replaceFragment(settingScreen)
+//                else -> false
+//            }
+//        }
     }
 
     private fun initFragment() {
