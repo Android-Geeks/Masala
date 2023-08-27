@@ -9,8 +9,7 @@ import com.example.masala_food_recipes.ui.recyclerview.CuisineScreenListener
 class CuisineScreenFragment :
     BaseFragment<FragmentCuisineBinding>(FragmentCuisineBinding::inflate) {
     override fun onCreateView() {
-        val recipes by lazy { DataManager(requireContext()).getAllRecipesData() }
-        val cuisinesList by lazy { Cuisines(recipes).getCuisineCards() }
+        val cuisinesList = viewModel.cuisineList
         binding.cuisineRecyclerFragment.adapter =
             CuisineScreenAdapter(cuisinesList, object : CuisineScreenListener {
                 override fun onClick(position: Int) {

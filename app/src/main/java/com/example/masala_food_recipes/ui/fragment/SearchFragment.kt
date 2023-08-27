@@ -3,17 +3,16 @@ package com.example.masala_food_recipes.ui.fragment
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
-import com.example.masala_food_recipes.ui.listeners.SearchFragmentListener
 import com.example.masala_food_recipes.databinding.FragmentSearchBinding
 import com.example.masala_food_recipes.ui.recyclerview.SearchAdapter
 import com.example.masala_food_recipes.ui.recyclerview.SearchListener
 
 
 class SearchFragment :
-    BaseFragment<FragmentSearchBinding>(FragmentSearchBinding::inflate), SearchFragmentListener {
+    BaseFragment<FragmentSearchBinding>(FragmentSearchBinding::inflate) {
     private lateinit var searchList: List<List<String>>
     override fun onCreateView() {
-
+        searchList = viewModel.searchList
         //Searching by button
         binding.buttonSearchIcon.setOnClickListener {
             val name = binding.searchBar.text.toString()
@@ -35,19 +34,26 @@ class SearchFragment :
                     recyclerVisibility(newList, name)
                 }
 
-                override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+                override fun beforeTextChanged(
+                    s: CharSequence?,
+                    start: Int,
+                    count: Int,
+                    after: Int
+                ) {
+                }
+
                 override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
             }
         )
     }
-    private fun recyclerVisibility(newList : List<List<String>>, name : String){
+
+    private fun recyclerVisibility(newList: List<List<String>>, name: String) {
         if (newList.isEmpty() || name.isEmpty()) {          //Recycler is Empty (INVISIBLE)
             binding.apply {
                 searchedRecycler.visibility = View.GONE
                 emptySearch.root.visibility = View.VISIBLE
             }
-        }
-        else{                                               //Recycler is VISIBLE
+        } else {                                               //Recycler is VISIBLE
             binding.apply {
                 emptySearch.root.visibility = View.GONE
                 searchedRecycler.visibility = View.VISIBLE
@@ -59,11 +65,6 @@ class SearchFragment :
             }
         }
     }
-
-    override fun onPass(recipes: List<List<String>>) {
-        searchList = recipes
-    }
-
 }
 
 

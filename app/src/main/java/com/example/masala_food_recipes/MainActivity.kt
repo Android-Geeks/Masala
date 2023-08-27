@@ -5,12 +5,15 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
 import android.view.View
+import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import com.example.masala_food_recipes.data.DataManager
 import com.example.masala_food_recipes.data.interactors.Cuisines
 import com.example.masala_food_recipes.data.interactors.ForYouRecipe
@@ -28,17 +31,11 @@ class MainActivity : AppCompatActivity() {
     private val binding by lazy {
         ActivityMainBinding.inflate(layoutInflater)
     }
+
     private val homeScreen = HomeFragment()
     private val favouriteScreen = FavouriteFragment()
     private val searchScreen = SearchFragment()
     private val settingScreen = SettingFragment()
-
-    private val allRecipes by lazy { DataManager(this).getAllRecipesData() }
-    private val under20MinList by lazy { UnderTwentyMinRecipe(allRecipes).execute() }
-    private val under5IngredientList by lazy { UnderFiveIngredient(allRecipes).execute() }
-    private val cuisineList by lazy { Cuisines(allRecipes).getCuisineCards() }
-    private val forYouList by lazy { ForYouRecipe(allRecipes).execute() }
-    private val searchList by lazy { SearchRecipe(allRecipes).execute() }
 
     @SuppressLint("SourceLockedOrientationActivity")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,6 +45,8 @@ class MainActivity : AppCompatActivity() {
         }
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+        val viewModel: GlobalViewModel by viewModels()
+        viewModel.recipes = DataManager(this).getAllRecipesData()
         init(savedInstanceState)
     }
 
@@ -68,13 +67,7 @@ class MainActivity : AppCompatActivity() {
         if (savedInstanceState == null) {
             initFragment()
         }
-        homeScreen.onPass(
-            cuisineList.take(10),
-            forYouList.take(10),
-            under20MinList.take(10),
-            under5IngredientList.take(10)
-        )
-        searchScreen.onPass(searchList)
+
         binding.bottomNavigation.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.home_icon -> replaceFragment(homeScreen)
