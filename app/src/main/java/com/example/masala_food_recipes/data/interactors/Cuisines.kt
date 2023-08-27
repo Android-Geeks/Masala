@@ -12,4 +12,13 @@ class Cuisines(private val recipes : List<Recipe>) {
                     listOf(cuisine , recipes.size.toString() , recipes[nextInt(recipes.size)].imageUrl)
                 }
                 .shuffled()
+
+    fun getCuisineDetails(cuisine :String)/*: List<List<String>>*/ =
+        recipes
+            .filter { it.cuisine == cuisine }
+            .map { recipe ->
+                listOf(recipe.translatedRecipeName,
+                    recipe.totalTimeInMins ,
+                    recipe.imageUrl)
+            }
 }
