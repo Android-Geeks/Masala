@@ -21,18 +21,18 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
         val inder5NavID = R.id.action_homeFragment_to_underFiveIngredientFragment
         val inder20NavID = R.id.action_homeFragment_to_underTwentyMinFragment
         val child1 = ChildItem(
-            "Cuisine", "View all", "CuisineAdapter", cuisineList, cuisineNavID)
+            "Cuisine", "View all", "CuisineAdapter", cuisineList.take(10), cuisineNavID)
 
         val child2 = ChildItem(
-            "For You", "View all", "ForYouRecipeAdapter", forYouList, forYouNavID
+            "For You", "View all", "ForYouRecipeAdapter", forYouList.take(10), forYouNavID
         )
 
         val child3 = ChildItem(
-            "Under 20 min meal", "View all", "UnderTwentyMinAdapter", under20MinList, inder20NavID
+            "Under 20 min meal", "View all", "UnderTwentyMinAdapter", under20MinList.take(10), inder20NavID
         )
 
         val child4 = ChildItem(
-            "Under 5 ingredient meal","View all","UnderFiveIngredientAdapter", under5IngredientList, inder5NavID
+            "Under 5 ingredient meal","View all","UnderFiveIngredientAdapter", under5IngredientList.take(10), inder5NavID
         )
 
         val childList: List<ChildItem> = listOf(child1, child2, child3, child4)

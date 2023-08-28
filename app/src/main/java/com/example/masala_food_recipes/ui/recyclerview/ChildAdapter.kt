@@ -51,7 +51,7 @@ class ChildAdapter(
         return when (adapterType) {
             "CuisineAdapter" -> CuisineAdapter(list , object : CuisineListener {
                 override fun onClick(position : Int) {
-                //                    TODO("Not yet implemented")
+
                 }
             })
 
