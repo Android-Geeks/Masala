@@ -37,7 +37,9 @@ class SubCategoryAdapter(
                     }
                     isChecked=favouriteSet?.contains(item[0]) == true
                 }
+
             }
+
         }
     }
 }

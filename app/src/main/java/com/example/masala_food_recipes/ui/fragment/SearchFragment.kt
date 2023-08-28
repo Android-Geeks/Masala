@@ -3,6 +3,7 @@ package com.example.masala_food_recipes.ui.fragment
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
+import com.example.masala_food_recipes.data.entities.Recipe
 import com.example.masala_food_recipes.databinding.FragmentSearchBinding
 import com.example.masala_food_recipes.ui.recyclerview.SearchAdapter
 import com.example.masala_food_recipes.ui.recyclerview.SearchListener
@@ -11,8 +12,11 @@ import com.example.masala_food_recipes.ui.recyclerview.SearchListener
 class SearchFragment :
     BaseFragment<FragmentSearchBinding>(FragmentSearchBinding::inflate) {
     private lateinit var searchList: List<List<String>>
+    private lateinit var recipeList :List<Recipe>
+
     override fun onCreateView() {
         searchList = viewModel.searchList
+        recipeList = viewModel.recipes
         //Searching by button
         binding.buttonSearchIcon.setOnClickListener {
             val name = binding.searchBar.text.toString()
@@ -43,6 +47,7 @@ class SearchFragment :
                 override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
             }
         )
+
     }
 
     private fun recyclerVisibility(newList: List<List<String>>, name: String) {
@@ -57,9 +62,9 @@ class SearchFragment :
                 searchedRecycler.visibility = View.VISIBLE
                 searchedRecycler.adapter = SearchAdapter(newList, object : SearchListener {
                     override fun onClick(position: Int) {
-                        TODO("Not yet implemented")
+//                        TODO("Not yet implemented")
                     }
-                })
+                }, recipeList)
             }
         }
     }
