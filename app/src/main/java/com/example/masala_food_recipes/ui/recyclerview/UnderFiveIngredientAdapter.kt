@@ -44,7 +44,7 @@ class UnderFiveIngredientAdapter(
                     this.isChecked =
                             FavouritePreferences.getFromSharedPref()?.contains(item[0]) == true
                 }
-                image.setOnClickListener {
+                under20min.setOnClickListener {
                     val action = HomeFragmentDirections.actionHomeFragmentToDetailsFragment(
                             Details(recipeList).findRecipe(item[0]) !!)
                     Navigation.findNavController(it).navigate(action)

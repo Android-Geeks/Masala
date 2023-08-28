@@ -32,7 +32,7 @@ class CuisineDetailsAdapter(items : List<List<String>> , val recipeList : List<R
 
                 Glide.with(context).load(item[2]).centerCrop().placeholder(R.drawable.loading)
                         .into(foodImage)
-                foodImage.setOnClickListener {
+                cardViewCuisine.setOnClickListener {
                     val action =
                             CuisineDetailsFragmentDirections.actionCuisineDetailsFragmentToDetailsFragment(
                                     Details(recipeList).findRecipe(item[0]) !!)

@@ -42,7 +42,7 @@ class ForYouRecipeAdapter(
                     this.isChecked =
                             FavouritePreferences.getFromSharedPref()?.contains(item[0]) == true
                 }
-                recipeImage.setOnClickListener {
+                recipeCard.setOnClickListener {
                     val action = HomeFragmentDirections.actionHomeFragmentToDetailsFragment(
                             Details(recipeList).findRecipe(item[0]) !!)
                     Navigation.findNavController(it).navigate(action)

@@ -2,10 +2,14 @@ package com.example.masala_food_recipes.ui.recyclerview
 
 import android.annotation.SuppressLint
 import android.view.View
+import androidx.navigation.Navigation
 import com.bumptech.glide.Glide
 import com.example.masala_food_recipes.R
+import com.example.masala_food_recipes.data.interactors.Details
 import com.example.masala_food_recipes.data.util.FavouritePreferences
 import com.example.masala_food_recipes.databinding.Under20MinBinding
+import com.example.masala_food_recipes.ui.fragment.HomeFragmentDirections
+
 
 class SubCategoryAdapter(
         items : List<List<String>>
@@ -37,8 +41,9 @@ class SubCategoryAdapter(
                             FavouritePreferences.getFromSharedPref()?.contains(item[0]) == true
                 }
 
+
+                } }
+
             }
 
         }
-    }
-}

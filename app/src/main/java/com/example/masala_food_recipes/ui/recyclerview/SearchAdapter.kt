@@ -36,7 +36,7 @@ class SearchAdapter(
                     minutesText.text = item[1] + " min"
 
                     Glide.with(context).load(item[2]).centerCrop().into(itemImage)
-                    itemImage.setOnClickListener {
+                    searchCard.setOnClickListener {
                         val action =
                                 SearchFragmentDirections.actionSearchFragmentToDetailsFragment2(
                                         Details(recipeList).findRecipe(item[0]) !!)
