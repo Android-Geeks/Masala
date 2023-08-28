@@ -5,7 +5,7 @@ import android.content.SharedPreferences
 
 object PreferencesUtil {
     lateinit var sharedPref : SharedPreferences
-    private const val Shared_Preferences = "MySharedPref"
+    private const val Shared_Preferences = "MySharedPreferences"
 
     fun init(context: Context){
         sharedPref = context.getSharedPreferences(Shared_Preferences, Context.MODE_PRIVATE)

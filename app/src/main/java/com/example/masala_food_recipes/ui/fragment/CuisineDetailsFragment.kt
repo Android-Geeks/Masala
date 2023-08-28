@@ -20,15 +20,14 @@ class CuisineDetailsFragment  :
 
         if (cuisineFromViewAll != null)   buildingFragmentContent(cuisineFromViewAll)
 
-
     }
     private fun buildingFragmentContent(cuisineName : String){
             val recipes = viewModel.recipes
-//            val cuisinesList = viewModel.cuisineList
+            val cuisinesList by lazy { Cuisines(recipes).getCuisineDetails(cuisineName) }
             binding.apply {
                 cuisineType.text = cuisineName
                 cuisineRecyclerFragment.adapter =
-                    CuisineDetailsAdapter(Cuisines(recipes).getCuisineDetails(cuisineName), object : CuisineDetailsListener {
+                    CuisineDetailsAdapter(cuisinesList, object : CuisineDetailsListener {
                         override fun onClick(position: Int) {
                             TODO("Not yet implemented")
                         }
