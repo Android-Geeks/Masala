@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
+<!--    <TextView
         android:id="@+id/cuisine_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -20,6 +20,12 @@
         app:drawableStartCompat="@drawable/arrow_back_24px"
         app:layout_constraintBottom_toTopOf="@id/cuisine_recycler_fragment"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />-->
+    <include
+        android:id="@+id/up_bar"
+        layout="@layout/cuisine_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
@@ -31,7 +37,7 @@
         app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cuisine_text"
+        app:layout_constraintTop_toBottomOf="@id/up_bar"
         app:spanCount="2"
         tool:listitem="@layout/card_view_cuisines" />
 

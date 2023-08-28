@@ -17,7 +17,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
         under5IngredientList = viewModel.under5IngredientList
 
         val cuisineNavID = R.id.action_homeFragment_to_cuisineScreenFragment
-        val subCategoryID = R.id.action_homeFragment_to_favouriteFragment      // TODO
+        val subCategoryID = R.id.action_homeFragment_to_subCategoryFragment
         val child1 = ChildItem(
             "Cuisine", "View all", "CuisineAdapter", cuisineList, cuisineNavID)
 

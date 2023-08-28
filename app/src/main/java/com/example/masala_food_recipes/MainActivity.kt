@@ -4,14 +4,11 @@ package com.example.masala_food_recipes
 import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
-import android.view.View
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.appcompat.widget.Toolbar
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.masala_food_recipes.data.DataManager
@@ -51,25 +48,30 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         val navController = findNavController(R.id.fragment_container_view)
-        binding.bottomNavigation.setupWithNavController(navController)
+        val currentFragmentId = navController.currentDestination?.id
+        if (currentFragmentId == R.id.homeFragment)
+        {binding.bottomNavigation.setupWithNavController(navController)}
+        else{Toast.makeText(this, "NOT HOME", Toast.LENGTH_SHORT).show()}
     }
     @Deprecated("Deprecated in Java")
     override fun onBackPressed() {
-        if (supportFragmentManager.fragments.last() != homeScreen) backPressed()
-        else {
+        val navController = findNavController(R.id.fragment_container_view)
+        val currentFragmentId = navController.currentDestination?.id
+        if (currentFragmentId == R.id.homeFragment) {
             val builder = AlertDialog.Builder(this)
             builder.setMessage("Are you sure you want to exit?").setCancelable(false)
-                .setPositiveButton("Yes") { _, _ -> finish() }
-                .setNegativeButton("No") { dialog, _ -> dialog.cancel() }
+                .setPositiveButton("Yes") { _ , _ -> finish() }
+                .setNegativeButton("No") { dialog , _ -> dialog.cancel() }
             val alert = builder.create()
             alert.show()
-        }
+        } else navController.popBackStack()
+
     }
 
-    private fun init(savedInstanceState: Bundle?) {
-        if (savedInstanceState == null) {
-            initFragment()
-        }
+//    private fun init(savedInstanceState: Bundle?) {
+//        if (savedInstanceState == null) {
+//            initFragment()
+//        }
 
 //        binding.bottomNavigation.setOnItemSelectedListener { item ->
 //            when (item.itemId) {
@@ -81,33 +83,34 @@ class MainActivity : AppCompatActivity() {
 //                else -> false
 //            }
 //        }
-    }
-
-    private fun initFragment() {
-        inTransaction {
-            add(
-                R.id.fragment_container_view, homeScreen
-            )
-        }
-//        binding.bottomNavigation.selectedItemId = R.id.home_icon
-    }
-
-    private fun replaceFragment(fragment: Fragment): Boolean {
-        inTransaction {
-            replace(
-                R.id.fragment_container_view, fragment
-            )
-        }
-        return true
-    }
-
-    private fun inTransaction(func: FragmentTransaction.() -> FragmentTransaction) {
-        supportFragmentManager.beginTransaction().func().commit()
-    }
-
-    private fun backPressed() {
-        initFragment()
-    }
-
-    fun backPressed(view: View) = (view as Toolbar).setNavigationOnClickListener { backPressed() }
+//    }
+//
+//    private fun initFragment() {
+//        inTransaction {
+//            add(
+//                R.id.fragment_container_view, homeScreen
+//            )
+//        }
+////        binding.bottomNavigation.selectedItemId = R.id.home_icon
+//    }
+//
+//    private fun replaceFragment(fragment: Fragment): Boolean {
+//        inTransaction {
+//            replace(
+//                R.id.fragment_container_view, fragment
+//            )
+//        }
+//        return true
+//    }
+//
+//    private fun inTransaction(func: FragmentTransaction.() -> FragmentTransaction) {
+//        supportFragmentManager.beginTransaction().func().commit()
+//    }
+//
+//    private fun backPressed() {
+//        val navController = findNavController(R.id.fragment_container_view)
+//        navController.popBackStack()
+//    }
+////
+//    fun backPressed(view: View) = (view as Toolbar).setNavigationOnClickListener { backPressed() }
 }
