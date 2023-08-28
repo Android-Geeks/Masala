@@ -13,6 +13,7 @@ object FavouritePreferences {
     }
 
     fun getFromSharedPref() = sharedPref.getStringSet(FAVOURITE_SET_KEY , emptySet())?.toMutableSet()
+
     fun putInSharedPref(value : Set<String>) =
             sharedPref.edit()?.putStringSet(FAVOURITE_SET_KEY , value)?.apply()
 }

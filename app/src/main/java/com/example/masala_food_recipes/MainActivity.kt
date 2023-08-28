@@ -30,8 +30,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         val viewModel: GlobalViewModel by viewModels()
         viewModel.recipes = DataManager(this).getAllRecipesData()
-
     }
+
 
     @SuppressLint("SuspiciousIndentation")
     override fun onResume() {
@@ -39,6 +39,8 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.fragment_container_view)
         binding.bottomNavigation.setupWithNavController(navController)
     }
+
+
     @Deprecated("Deprecated in Java")
     override fun onBackPressed() {
         val navController = findNavController(R.id.fragment_container_view)
@@ -51,6 +53,5 @@ class MainActivity : AppCompatActivity() {
             val alert = builder.create()
             alert.show()
         } else navController.popBackStack()
-
     }
 }
