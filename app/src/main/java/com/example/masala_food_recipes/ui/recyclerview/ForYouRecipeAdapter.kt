@@ -9,7 +9,6 @@ import com.example.masala_food_recipes.R
 import com.example.masala_food_recipes.data.entities.Recipe
 import com.example.masala_food_recipes.data.interactors.Details
 import com.example.masala_food_recipes.databinding.RecipeCardBinding
-import com.example.masala_food_recipes.ui.fragment.HomeFragmentDirections
 
 interface ForYouRecipeListener : BaseInteractionListener
 class ForYouRecipeAdapter(
