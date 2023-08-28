@@ -1,9 +1,13 @@
 package com.example.masala_food_recipes.ui.recyclerview
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
+import androidx.navigation.Navigation.findNavController
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.masala_food_recipes.R
 import com.example.masala_food_recipes.data.entities.ChildItem
@@ -14,6 +18,7 @@ class ChildAdapter(
         private val context : Context ,
         private val childList : List<ChildItem>
 ) : RecyclerView.Adapter<ChildAdapter.PViewHolder>() {
+
     override fun onCreateViewHolder(parent : ViewGroup , viewType : Int) : PViewHolder {
         return PViewHolder(
                 LayoutInflater.from(parent.context).inflate(R.layout.child_item , parent , false))
@@ -27,6 +32,11 @@ class ChildAdapter(
             viewAllText.text = childItem.view_all
             childRecycler.addItemDecoration(FirstItemPaddingDecoration(16,childItem.list.size-1))
             childRecycler.adapter = getAdapter(childItem.adapterType , childItem.list)
+            viewAllText.setOnClickListener {
+//                Log.v("MainActivity", childItem.navToID.toString())
+
+                Navigation.findNavController(it).navigate(childItem.navToID)
+            }
         }
     }
 

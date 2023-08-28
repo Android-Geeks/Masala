@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity() {
     @SuppressLint("SuspiciousIndentation")
     override fun onResume() {
         super.onResume()
-    val navController = findNavController(R.id.fragment_container_view)
+        val navController = findNavController(R.id.fragment_container_view)
         binding.bottomNavigation.setupWithNavController(navController)
     }
     @Deprecated("Deprecated in Java")

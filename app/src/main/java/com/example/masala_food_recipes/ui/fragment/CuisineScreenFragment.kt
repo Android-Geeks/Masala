@@ -1,5 +1,6 @@
 package com.example.masala_food_recipes.ui.fragment
 
+import androidx.navigation.Navigation
 import com.example.masala_food_recipes.data.DataManager
 import com.example.masala_food_recipes.data.interactors.Cuisines
 import com.example.masala_food_recipes.databinding.FragmentCuisineBinding
@@ -16,5 +17,8 @@ class CuisineScreenFragment :
 //                TODO("Not yet implemented")
                 }
             })
+        binding.cuisineText.setOnClickListener {
+            Navigation.findNavController(it).popBackStack()
+        }
     }
 }

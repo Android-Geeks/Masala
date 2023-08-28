@@ -14,7 +14,7 @@ class CuisineScreenAdapter(items: List<List<String>>, listener: CuisineScreenLis
         items,
         listener
     ) {
-    override val layoutId = R.layout.cuisine_screen_card
+    override val layoutId = R.layout.card_view_cuisines
 
     override fun createViewHolder(view: View): BaseViewHolder<List<String>> =
         CuisineViewHolder(view)

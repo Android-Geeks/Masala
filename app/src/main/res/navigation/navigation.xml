@@ -21,11 +21,13 @@
             app:destination="@id/settingFragment" />
         <action
             android:id="@+id/action_homeFragment_to_cuisineDetailsFragment"
-            app:destination="@id/cuisineDetailsFragment"
-            app:popUpTo="@id/homeFragment" />
+            app:destination="@id/cuisineDetailsFragment" />
         <action
             android:id="@+id/action_homeFragment_to_detailsScreen"
             app:destination="@id/detailsScreen" />
+        <action
+            android:id="@+id/action_homeFragment_to_cuisineScreenFragment"
+            app:destination="@id/cuisineScreenFragment" />
     </fragment>
     <fragment
         android:id="@+id/favouriteFragment"
@@ -60,4 +62,9 @@
             android:name="recipe"
             app:argType="com.example.masala_food_recipes.data.entities.Recipe" />
     </fragment>
+    <fragment
+        android:id="@+id/cuisineScreenFragment"
+        android:name="com.example.masala_food_recipes.ui.fragment.CuisineScreenFragment"
+        android:label="CuisineScreenFragment"
+        tools:layout="@layout/fragment_cuisine"/>
 </navigation>
