@@ -77,18 +77,24 @@
         android:name="com.example.masala_food_recipes.ui.fragment.DetailsFragment"
         android:label="DetailsFragment"
         tools:layout="@layout/fragment_details">
+        <argument
+            android:name="recipe"
+            app:argType="com.example.masala_food_recipes.data.entities.Recipe" />
     </fragment>
     <fragment
         android:id="@+id/underFiveIngredientFragment"
         android:name="com.example.masala_food_recipes.ui.fragment.UnderFiveIngredientFragment"
         android:label="UnderFiveIngredientFragment"
+        tools:layout="@layout/sub_category_fragment"
         />
     <fragment
         android:id="@+id/underTwentyMinFragment"
         android:name="com.example.masala_food_recipes.ui.fragment.UnderTwentyMinFragment"
-        android:label="UnderTwentyMinFragment" />
+        android:label="UnderTwentyMinFragment"
+        tools:layout="@layout/sub_category_fragment"/>
     <fragment
         android:id="@+id/forYouFragment"
         android:name="com.example.masala_food_recipes.ui.fragment.ForYouFragment"
-        android:label="ForYouFragment" />
+        android:label="ForYouFragment"
+        tools:layout="@layout/sub_category_fragment"/>
 </navigation>
