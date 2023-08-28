@@ -5,6 +5,7 @@ import android.net.Uri
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
+import com.example.masala_food_recipes.GlobalViewModel
 import com.example.masala_food_recipes.databinding.FragmentDetailsBinding
 import com.example.masala_food_recipes.ui.recyclerview.IngredientsScreen
 import com.example.masala_food_recipes.ui.recyclerview.InstructionsScreen
@@ -30,41 +31,21 @@ class DetailsFragment :  BaseFragment<FragmentDetailsBinding>(FragmentDetailsBin
             findNavController().popBackStack()
         }
 
-        var previous = true
-//        binding.topAppBar.setOnMenuItemClickListener { menuItem ->
-//            when (menuItem.itemId) {
-//                R.id.action_favorite -> {
-//                    if (previous) {
-//                        menuItem.setIcon(filled_heart)
-//                    } else {
-//                        menuItem.setIcon(baseline_favorite_border_24)
-//                    }
-//                    previous = !previous
-//                    true
-//                }
-//
-//                else ->
-//                    false
-//
-//            }
-//        }
-
         binding.moreInfo.setOnClickListener {
             val url = fakeRecipe.url
-            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+            val intent = Intent(Intent.ACTION_VIEW , Uri.parse(url))
             startActivity(intent)
         }
 
-
+        GlobalViewModel.ingredients = fakeRecipe.cleanedIngredients
+        GlobalViewModel.instructions = fakeRecipe.translatedInstructions
         val fragments = listOf(
-            IngredientsScreen(fakeRecipe.translatedIngredients),
-            InstructionsScreen(fakeRecipe.translatedInstructions)
-        )
-        val tabTitle = listOf("Ingredients", "Instructions")
-        val adapter = PagerAdapter(this, fragments)
+                IngredientsScreen() , InstructionsScreen())
+        val tabTitle = listOf("Ingredients" , "Instructions")
+        val adapter = PagerAdapter(this , fragments)
         binding.viewpager.adapter = adapter
 
-        TabLayoutMediator(binding.tabLayout, binding.viewpager) { tab, position ->
+        TabLayoutMediator(binding.tabLayout , binding.viewpager) { tab , position ->
             tab.text = tabTitle[position]
         }.attach()
 
