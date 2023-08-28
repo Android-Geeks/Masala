@@ -1,21 +1,18 @@
 package com.example.masala_food_recipes.ui.recyclerview
 
 import android.annotation.SuppressLint
-import android.content.SharedPreferences
 import android.view.View
 import com.bumptech.glide.Glide
 import com.example.masala_food_recipes.R
+import com.example.masala_food_recipes.data.util.FavouritePreferences
 import com.example.masala_food_recipes.databinding.Under20MinBinding
 
 class SubCategoryAdapter(
-        items : List<List<String>> ,
-        listener : BaseInteractionListener ,
-        val sharedPref : SharedPreferences
+        items : List<List<String>>
 ) : BaseRecyclerAdapter<List<String> , BaseRecyclerAdapter.BaseViewHolder<List<String>>>(
-        items , listener) {
+        items) {
 
     override val layoutId : Int = R.layout.under_20_min
-    val favouriteSet = sharedPref.getStringSet("Favourite" , emptySet())?.toMutableSet()
 
     override fun createViewHolder(view : View) : BaseViewHolder<List<String>> =
             RecipeViewHolder(view)
@@ -30,12 +27,14 @@ class SubCategoryAdapter(
                 time.text = "${item[1]} min "
                 Glide.with(itemView).load(item[2]).placeholder(R.drawable.loading).into(image)
                 favouriteCheckBox.apply {
-                    setOnCheckedChangeListener{_,isChecked ->
-                        if(isChecked) favouriteSet?.add(item[0])
+                    setOnCheckedChangeListener { _ , isChecked ->
+                        val favouriteSet = FavouritePreferences.getFromSharedPref()
+                        if (isChecked) favouriteSet?.add(item[0])
                         else favouriteSet?.remove(item[0])
-                        sharedPref.edit().putStringSet("Favourite",favouriteSet).apply()
+                        FavouritePreferences.putInSharedPref(favouriteSet !!)
                     }
-                    isChecked=favouriteSet?.contains(item[0]) == true
+                    this.isChecked =
+                            FavouritePreferences.getFromSharedPref()?.contains(item[0]) == true
                 }
 
             }

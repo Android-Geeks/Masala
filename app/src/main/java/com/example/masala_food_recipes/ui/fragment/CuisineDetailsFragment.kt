@@ -7,9 +7,8 @@ import com.example.masala_food_recipes.data.util.PreferencesUtil
 import com.example.masala_food_recipes.databinding.FragmentCuisineDetailsBinding
 import com.example.masala_food_recipes.ui.recyclerview.CuisineDetailsAdapter
 import com.example.masala_food_recipes.ui.recyclerview.CuisineDetailsItemPadding
-import com.example.masala_food_recipes.ui.recyclerview.CuisineDetailsListener
 
-class CuisineDetailsFragment  :
+class CuisineDetailsFragment :
     BaseFragment<FragmentCuisineDetailsBinding>(FragmentCuisineDetailsBinding::inflate) {
     override fun onCreateView() {
 
@@ -18,25 +17,20 @@ class CuisineDetailsFragment  :
         if (cuisineFromHome != null) {
             buildingFragmentContent(cuisineFromHome)
         }
-
-
     }
-    private fun buildingFragmentContent(cuisineName : String){
-            val recipes = viewModel.recipes
-            val cuisinesList by lazy { Cuisines(recipes).getCuisineDetails(cuisineName) }
-            binding.apply {
-                cuisineType.text = cuisineName
-                cuisineRecyclerFragment.adapter =
-                    CuisineDetailsAdapter(cuisinesList, object : CuisineDetailsListener {
-                        override fun onClick(position: Int) {
-                            TODO("Not yet implemented")
-                        }
-                    }, recipes)
-                cuisineRecyclerFragment.addItemDecoration(CuisineDetailsItemPadding(16))
 
-                cuisineType.setOnClickListener {
-                    Navigation.findNavController(it).popBackStack()
-                }
+    private fun buildingFragmentContent(cuisineName : String) {
+
+        val recipes = viewModel.recipes
+        val cuisinesList by lazy { Cuisines(recipes).getCuisineDetails(cuisineName) }
+
+        binding.apply {
+            cuisineType.text = cuisineName
+            cuisineRecyclerFragment.adapter = CuisineDetailsAdapter(cuisinesList , recipes)
+            cuisineRecyclerFragment.addItemDecoration(CuisineDetailsItemPadding(16))
+            cuisineType.setOnClickListener {
+                Navigation.findNavController(it).popBackStack()
             }
+        }
     }
 }

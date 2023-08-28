@@ -1,7 +1,9 @@
 package com.example.masala_food_recipes.ui.fragment
+
 import com.example.masala_food_recipes.R
 import com.example.masala_food_recipes.data.entities.ChildItem
 import com.example.masala_food_recipes.data.entities.Recipe
+import com.example.masala_food_recipes.data.util.FavouritePreferences
 import com.example.masala_food_recipes.databinding.FragmentHomeBinding
 import com.example.masala_food_recipes.ui.recyclerview.ChildAdapter
 
@@ -18,6 +20,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
         under20MinList = viewModel.under20MinList
         under5IngredientList = viewModel.under5IngredientList
         recipeList = viewModel.recipes
+
+        FavouritePreferences.init(requireContext())
 
         val cuisineNavID = R.id.action_homeFragment_to_cuisineScreenFragment
         val forYouNavID = R.id.action_homeFragment_to_forYouFragment
@@ -41,7 +45,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
         val childList: List<ChildItem> = listOf(child1, child2, child3, child4)
 
         binding.apply {
-            parentRecycler.adapter = ChildAdapter(requireContext(), childList, recipeList)
+            parentRecycler.adapter = ChildAdapter(childList, recipeList)
         }
     }
 }
