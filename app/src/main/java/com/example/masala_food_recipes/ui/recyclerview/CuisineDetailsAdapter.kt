@@ -39,7 +39,7 @@ class CuisineDetailsAdapter(items: List<List<String>>, listener: CuisineDetailsL
                     .into(image)
                 image.setOnClickListener{
 //                    val action = CuisineDetailsFragmentDirections.actionCuisineDetailsFragmentToDetailsScreen(Details())
-                    Navigation.findNavController(it).navigate(R.id.action_cuisineDetailsFragment_to_detailsScreen)
+                    Navigation.findNavController(it).navigate(R.id.action_cuisineDetailsFragment_to_detailsFragment)
                 }
             }
         }

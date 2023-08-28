@@ -4,9 +4,13 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.SharedPreferences
 import android.view.View
+import androidx.navigation.Navigation
 import com.bumptech.glide.Glide
 import com.example.masala_food_recipes.R
+import com.example.masala_food_recipes.data.DataManager
+import com.example.masala_food_recipes.data.interactors.Details
 import com.example.masala_food_recipes.databinding.Under20MinBinding
+import com.example.masala_food_recipes.ui.fragment.HomeFragmentDirections
 
 
 interface UnderFiveIngredientListener : BaseInteractionListener
@@ -26,6 +30,8 @@ class UnderFiveIngredientAdapter(
     inner class UnderFiveViewHolder(itemView : View) : BaseViewHolder<List<String>>(itemView) {
         private val binding = Under20MinBinding.bind(itemView)
         private val context : Context = itemView.context
+        val allRecipe = DataManager(context).getAllRecipesData()
+
 
         @SuppressLint("SetTextI18n")
         override fun bind(item : List<String>) {
@@ -41,6 +47,10 @@ class UnderFiveIngredientAdapter(
                         sharedPref.edit().putStringSet("Favourite",favouriteSet).apply()
                     }
                     isChecked=favouriteSet?.contains(item[0]) == true
+                }
+                image.setOnClickListener {
+                    val action = HomeFragmentDirections.actionHomeFragmentToDetailsScreen(Details(allRecipe).findRecipe(item[0])!!)
+                    Navigation.findNavController(it).navigate(action)
                 }
             }
         }

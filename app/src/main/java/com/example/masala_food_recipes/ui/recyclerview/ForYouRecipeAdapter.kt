@@ -3,9 +3,14 @@ package com.example.masala_food_recipes.ui.recyclerview
 import android.content.Context
 import android.content.SharedPreferences
 import android.view.View
+import androidx.navigation.Navigation
 import com.bumptech.glide.Glide
 import com.example.masala_food_recipes.R
+import com.example.masala_food_recipes.data.DataManager
+import com.example.masala_food_recipes.data.entities.Recipe
+import com.example.masala_food_recipes.data.interactors.Details
 import com.example.masala_food_recipes.databinding.RecipeCardBinding
+import com.example.masala_food_recipes.ui.fragment.HomeFragmentDirections
 
 interface ForYouRecipeListener : BaseInteractionListener
 class ForYouRecipeAdapter(
@@ -24,6 +29,8 @@ class ForYouRecipeAdapter(
 
         private val binding = RecipeCardBinding.bind(itemView)
         private val context : Context = itemView.context
+        val allRecipe = DataManager(context).getAllRecipesData()
+
         override fun bind(item : List<String>) {
             binding.apply {
                 recipeName.text = item[0]
@@ -37,8 +44,14 @@ class ForYouRecipeAdapter(
                     }
                     isChecked=favouriteSet?.contains(item[0]) == true
                 }
-
+//                recipeImage.setOnClickListener {
+//
+//                    val action = HomeFragmentDirections.actionHomeFragmentToCuisineDetailsFragment(
+//                        Details(allRecipe).findRecipe(item[0]))
+//                    Navigation.findNavController(it).navigate(action)
+//                }
             }
+
         }
 
     }

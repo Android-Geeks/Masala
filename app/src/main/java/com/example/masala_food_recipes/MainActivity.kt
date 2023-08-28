@@ -24,11 +24,6 @@ class MainActivity : AppCompatActivity() {
         ActivityMainBinding.inflate(layoutInflater)
     }
 
-    private val homeScreen = HomeFragment()
-    private val favouriteScreen = FavouriteFragment()
-    private val searchScreen = SearchFragment()
-    private val settingScreen = SettingFragment()
-//    private  val cuisineDetail = CuisineDetailsFragment()
 
     @SuppressLint("SourceLockedOrientationActivity")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,17 +36,13 @@ class MainActivity : AppCompatActivity() {
         val viewModel: GlobalViewModel by viewModels()
         viewModel.recipes = DataManager(this).getAllRecipesData()
 
-//        init(savedInstanceState)
     }
 
     @SuppressLint("SuspiciousIndentation")
     override fun onResume() {
         super.onResume()
         val navController = findNavController(R.id.fragment_container_view)
-        val currentFragmentId = navController.currentDestination?.id
-        if (currentFragmentId == R.id.homeFragment)
-        {binding.bottomNavigation.setupWithNavController(navController)}
-        else{Toast.makeText(this, "NOT HOME", Toast.LENGTH_SHORT).show()}
+        binding.bottomNavigation.setupWithNavController(navController)
     }
     @Deprecated("Deprecated in Java")
     override fun onBackPressed() {

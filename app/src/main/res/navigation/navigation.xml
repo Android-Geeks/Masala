@@ -23,14 +23,14 @@
             android:id="@+id/action_homeFragment_to_cuisineDetailsFragment"
             app:destination="@id/cuisineDetailsFragment" />
         <action
-            android:id="@+id/action_homeFragment_to_detailsScreen"
-            app:destination="@id/detailsScreen" />
-        <action
             android:id="@+id/action_homeFragment_to_cuisineScreenFragment"
             app:destination="@id/cuisineScreenFragment" />
         <action
             android:id="@+id/action_homeFragment_to_subCategoryFragment"
             app:destination="@id/subCategoryFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/favouriteFragment"
@@ -53,17 +53,8 @@
         android:label="CuisineDetailsFragment"
         tools:layout="@layout/fragment_cuisine_details">
         <action
-            android:id="@+id/action_cuisineDetailsFragment_to_detailsScreen"
-            app:destination="@id/detailsScreen" />
-    </fragment>
-    <fragment
-        android:id="@+id/detailsScreen"
-        android:name="com.example.masala_food_recipes.ui.fragment.DetailsScreen"
-        android:label="DetailsScreen"
-        tools:layout="@layout/fragment_details_screen">
-        <argument
-            android:name="recipe"
-            app:argType="com.example.masala_food_recipes.data.entities.Recipe" />
+            android:id="@+id/action_cuisineDetailsFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/cuisineScreenFragment"
@@ -75,4 +66,13 @@
         android:name="com.example.masala_food_recipes.ui.fragment.SubCategoryFragment"
         android:label="SubCategoryFragment"
         tools:layout="@layout/sub_category_fragment"/>
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.example.masala_food_recipes.ui.fragment.DetailsFragment"
+        android:label="DetailsFragment"
+        tools:layout="@layout/fragment_details">
+        <argument
+            android:name="recipe"
+            app:argType="com.example.masala_food_recipes.data.entities.Recipe" />
+    </fragment>
 </navigation>
