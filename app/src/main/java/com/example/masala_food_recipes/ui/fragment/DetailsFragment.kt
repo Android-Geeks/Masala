@@ -5,7 +5,6 @@ import android.net.Uri
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
-import com.example.masala_food_recipes.GlobalViewModel
 import com.example.masala_food_recipes.databinding.FragmentDetailsBinding
 import com.example.masala_food_recipes.ui.recyclerview.IngredientsScreen
 import com.example.masala_food_recipes.ui.recyclerview.InstructionsScreen
@@ -37,8 +36,8 @@ class DetailsFragment :  BaseFragment<FragmentDetailsBinding>(FragmentDetailsBin
             startActivity(intent)
         }
 
-        GlobalViewModel.ingredients = fakeRecipe.cleanedIngredients
-        GlobalViewModel.instructions = fakeRecipe.translatedInstructions
+        viewModel.ingredients = fakeRecipe.cleanedIngredients
+        viewModel.instructions = fakeRecipe.translatedInstructions
         val fragments = listOf(
                 IngredientsScreen() , InstructionsScreen())
         val tabTitle = listOf("Ingredients" , "Instructions")

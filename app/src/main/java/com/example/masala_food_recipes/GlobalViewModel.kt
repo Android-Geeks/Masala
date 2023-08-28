@@ -9,6 +9,7 @@ import com.example.masala_food_recipes.data.interactors.UnderFiveIngredient
 import com.example.masala_food_recipes.data.interactors.UnderTwentyMinRecipe
 
 object GlobalViewModel : ViewModel() {
+
     var recipes : List<Recipe> = listOf()
 
     val under20MinList by lazy { UnderTwentyMinRecipe(recipes).execute() }
