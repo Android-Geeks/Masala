@@ -1,45 +1,26 @@
 package com.example.masala_food_recipes.ui.recyclerview
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
-import com.example.masala_food_recipes.GlobalViewModel
-
-interface BaseInteractionListener
-{
-    fun onClick(position : Int)
-}        // an listener to be modified as needed
 
 abstract class BaseRecyclerAdapter<T , VH : BaseRecyclerAdapter.BaseViewHolder<T>>(
-        private val items : List<T> , private val listener : BaseInteractionListener
-) : RecyclerView.Adapter<VH>()
-{
+        private val items : List<T>
+) : RecyclerView.Adapter<VH>() {
 
     abstract val layoutId : Int                   // The ID of the layout to be worked on
 
-    override fun onCreateViewHolder(parent : ViewGroup , viewType : Int) : VH
-    {
+    override fun onCreateViewHolder(parent : ViewGroup , viewType : Int) : VH {
         return createViewHolder(
-                LayoutInflater.from(parent.context).inflate(layoutId , parent , false)
-        )
+                LayoutInflater.from(parent.context).inflate(layoutId , parent , false))
     }
 
     abstract fun createViewHolder(view : View) : VH
 
-    override fun onBindViewHolder(holder : VH , position : Int)
-    {
-        holder.bind(items[position])
-        holder.itemView.setOnClickListener {
-            listener.onClick(position)
-        }
+    override fun onBindViewHolder(holder : VH , position : Int) = holder.bind(items[position])
 
-    }
-
-    abstract class BaseViewHolder<T>(itemView : View) : RecyclerView.ViewHolder(itemView)
-    {
+    abstract class BaseViewHolder<T>(itemView : View) : RecyclerView.ViewHolder(itemView) {
         abstract fun bind(item : T)
     }
 
