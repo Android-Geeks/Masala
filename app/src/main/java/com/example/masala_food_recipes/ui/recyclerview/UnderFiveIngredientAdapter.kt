@@ -49,8 +49,8 @@ class UnderFiveIngredientAdapter(
                     isChecked=favouriteSet?.contains(item[0]) == true
                 }
                 image.setOnClickListener {
-                    val action = HomeFragmentDirections.actionHomeFragmentToDetailsScreen(Details(allRecipe).findRecipe(item[0])!!)
-                    Navigation.findNavController(it).navigate(action)
+
+                    Navigation.findNavController(it).navigate(R.id.action_homeFragment_to_detailsFragment)
                 }
             }
         }

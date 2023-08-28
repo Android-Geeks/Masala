@@ -13,4 +13,5 @@ object Constants {
         const val INGREDIENT_COUNT: Int = 8
     }
     const val CUISINE_KEY = "CUISINE KEY"
+    const val CUISINE_SCREEN_KEY = "CUISINE SCREEN KEY"
 }

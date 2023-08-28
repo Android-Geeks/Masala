@@ -15,7 +15,7 @@ class UnderTwentyMinFragment :
             }
         }
 
-        binding.subCategory.adapter =
+        binding.subCategoryRecycler.adapter =
             requireContext()
                 .getSharedPreferences("MyPreferences", Context.MODE_PRIVATE)
                 ?.let {

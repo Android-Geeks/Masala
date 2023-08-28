@@ -29,7 +29,6 @@ class ForYouRecipeAdapter(
 
         private val binding = RecipeCardBinding.bind(itemView)
         private val context : Context = itemView.context
-        val allRecipe = DataManager(context).getAllRecipesData()
 
         override fun bind(item : List<String>) {
             binding.apply {
@@ -44,12 +43,10 @@ class ForYouRecipeAdapter(
                     }
                     isChecked=favouriteSet?.contains(item[0]) == true
                 }
-//                recipeImage.setOnClickListener {
-//
-//                    val action = HomeFragmentDirections.actionHomeFragmentToCuisineDetailsFragment(
-//                        Details(allRecipe).findRecipe(item[0]))
-//                    Navigation.findNavController(it).navigate(action)
-//                }
+                recipeImage.setOnClickListener {
+
+                    Navigation.findNavController(it).navigate(R.id.action_homeFragment_to_detailsFragment)
+                }
             }
 
         }

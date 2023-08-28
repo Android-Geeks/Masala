@@ -38,7 +38,6 @@ class CuisineDetailsAdapter(items: List<List<String>>, listener: CuisineDetailsL
                     .placeholder(R.drawable.loading)
                     .into(image)
                 image.setOnClickListener{
-//                    val action = CuisineDetailsFragmentDirections.actionCuisineDetailsFragmentToDetailsScreen(Details())
                     Navigation.findNavController(it).navigate(R.id.action_cuisineDetailsFragment_to_detailsFragment)
                 }
             }

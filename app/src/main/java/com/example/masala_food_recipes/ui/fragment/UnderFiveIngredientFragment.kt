@@ -14,7 +14,7 @@ class UnderFiveIngredientFragment :
             override fun onClick(position: Int) {
             }
         }
-        binding.subCategory.adapter =
+        binding.subCategoryRecycler.adapter =
             requireContext()
                 .getSharedPreferences("MyPreferences", Context.MODE_PRIVATE)
                 ?.let {

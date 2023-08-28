@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.SharedPreferences
 import android.view.View
+import androidx.navigation.Navigation
 import com.bumptech.glide.Glide
 import com.example.masala_food_recipes.R
 import com.example.masala_food_recipes.databinding.Under20MinBinding
@@ -48,6 +49,9 @@ class UnderTwentyMinAdapter(
                         sharedPref.edit().putStringSet("Favourite", favouriteSet).apply()
                     }
                     isChecked = favouriteSet?.contains(item[0]) == true
+                }
+                image.setOnClickListener {
+                        Navigation.findNavController(it).navigate(R.id.action_homeFragment_to_detailsFragment)
                 }
             }
         }

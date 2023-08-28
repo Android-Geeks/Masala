@@ -44,8 +44,8 @@ class CuisineAdapter(items: List<List<String>>, listener: CuisineListener) :
                     PreferencesUtil.apply{
                         init(context)
                         putInSharedPref(Constants.CUISINE_KEY, item[0])
-                        Navigation.findNavController(it).navigate(R.id.action_homeFragment_to_cuisineDetailsFragment)
                     }
+                    Navigation.findNavController(it).navigate(R.id.action_homeFragment_to_cuisineDetailsFragment)
                 }
             }
         }

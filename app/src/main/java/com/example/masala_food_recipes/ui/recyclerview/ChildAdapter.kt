@@ -33,9 +33,8 @@ class ChildAdapter(
             childRecycler.addItemDecoration(FirstItemPaddingDecoration(16,childItem.list.size-1))
             childRecycler.adapter = getAdapter(childItem.adapterType , childItem.list)
             viewAllText.setOnClickListener {
-//                Log.v("MainActivity", childItem.navToID.toString())
 
-                Navigation.findNavController(it).navigate(childItem.navToID)
+                findNavController(it).navigate(childItem.navToID)
             }
         }
     }

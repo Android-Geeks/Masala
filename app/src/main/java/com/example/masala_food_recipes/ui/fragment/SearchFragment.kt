@@ -30,10 +30,12 @@ class SearchFragment :
                     val name = binding.searchBar.text.toString()
                     val newList = searchList.filter {
                         it[0].contains(name, ignoreCase = true)
-//                        equals(name, ignoreCase = true)
-//                        substring(0, name.length).
                     }
-                    recyclerVisibility(newList, name)
+                    var subNewList = newList
+                    if (newList.size > 5){
+                        subNewList = newList.take(5)
+                    }
+                    recyclerVisibility(subNewList, name)
                 }
 
                 override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
