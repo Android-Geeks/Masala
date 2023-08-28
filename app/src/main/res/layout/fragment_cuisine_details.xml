@@ -34,7 +34,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cuisine_type"
         app:spanCount="2"
-        tool:listitem="@layout/under_20_min" />
+        tool:listitem="@layout/card_view_cuisines" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,6 +1,7 @@
 package com.example.masala_food_recipes.ui.fragment
 
 import androidx.navigation.Navigation
+import com.example.masala_food_recipes.data.interactors.Cuisines
 import com.example.masala_food_recipes.data.util.Constants
 import com.example.masala_food_recipes.data.util.PreferencesUtil
 import com.example.masala_food_recipes.databinding.FragmentCuisineDetailsBinding
@@ -22,17 +23,17 @@ class CuisineDetailsFragment  :
 
     }
     private fun buildingFragmentContent(cuisineName : String){
-
-            val cuisinesList = viewModel.cuisineList
+            val recipes = viewModel.recipes
+//            val cuisinesList = viewModel.cuisineList
             binding.apply {
                 cuisineType.text = cuisineName
                 cuisineRecyclerFragment.adapter =
-                    CuisineDetailsAdapter(cuisinesList, object : CuisineDetailsListener {
+                    CuisineDetailsAdapter(Cuisines(recipes).getCuisineDetails(cuisineName), object : CuisineDetailsListener {
                         override fun onClick(position: Int) {
                             TODO("Not yet implemented")
                         }
                     })
-                cuisineRecyclerFragment.addItemDecoration(CuisineDetailsItemPadding(16,cuisinesList.size-1))
+                cuisineRecyclerFragment.addItemDecoration(CuisineDetailsItemPadding(16))
                 cuisineType.setOnClickListener {
                     Navigation.findNavController(it).popBackStack()
                 }

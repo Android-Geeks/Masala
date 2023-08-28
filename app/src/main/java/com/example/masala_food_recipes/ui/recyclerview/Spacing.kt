@@ -22,7 +22,7 @@ class FirstItemPaddingDecoration(
 }
 
 class CuisineDetailsItemPadding(
-    private val padding : Int , private val lastItem :Int
+    private val padding : Int
 ) : RecyclerView.ItemDecoration() {
     override fun getItemOffsets(
         outRect : Rect , view : View , parent : RecyclerView , state : RecyclerView.State
@@ -33,9 +33,5 @@ class CuisineDetailsItemPadding(
             outRect.right = padding + 16
             outRect.bottom = padding + 16
 
-
-//        if(position == lastItem){
-//            outRect.right=padding + 8
-//        }
     }
 }
