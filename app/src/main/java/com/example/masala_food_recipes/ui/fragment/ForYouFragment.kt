@@ -6,11 +6,11 @@ import com.example.masala_food_recipes.databinding.SubCategoryFragmentBinding
 import com.example.masala_food_recipes.ui.recyclerview.BaseInteractionListener
 import com.example.masala_food_recipes.ui.recyclerview.SubCategoryAdapter
 
-class UnderFiveIngredientFragment :
+class ForYouFragment:
     BaseFragment<SubCategoryFragmentBinding>(SubCategoryFragmentBinding::inflate) {
-    private lateinit var under5IngredientList: List<List<String>>
+    private lateinit var forYouList: List<List<String>>
     override fun onCreateView() {
-        under5IngredientList = viewModel.under5IngredientList
+        forYouList = viewModel.forYouList
         val listener = object : BaseInteractionListener {
             override fun onClick(position: Int) {
             }
@@ -20,7 +20,7 @@ class UnderFiveIngredientFragment :
                 .getSharedPreferences("MyPreferences", Context.MODE_PRIVATE)
                 ?.let {
                     SubCategoryAdapter(
-                        under5IngredientList, listener, it
+                        forYouList, listener, it
                     )
                 }
         binding.upBar.toolBar.setNavigationOnClickListener {

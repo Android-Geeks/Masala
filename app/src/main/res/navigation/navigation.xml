@@ -25,12 +25,19 @@
         <action
             android:id="@+id/action_homeFragment_to_cuisineScreenFragment"
             app:destination="@id/cuisineScreenFragment" />
-        <action
-            android:id="@+id/action_homeFragment_to_subCategoryFragment"
-            app:destination="@id/subCategoryFragment" />
+
         <action
             android:id="@+id/action_homeFragment_to_detailsFragment"
             app:destination="@id/detailsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_underFiveIngredientFragment"
+            app:destination="@id/underFiveIngredientFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_underTwentyMinFragment"
+            app:destination="@id/underTwentyMinFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_forYouFragment"
+            app:destination="@id/forYouFragment" />
     </fragment>
     <fragment
         android:id="@+id/favouriteFragment"
@@ -66,14 +73,22 @@
             app:destination="@id/cuisineDetailsFragment" />
     </fragment>
     <fragment
-        android:id="@+id/subCategoryFragment"
-        android:name="com.example.masala_food_recipes.ui.fragment.SubCategoryFragment"
-        android:label="SubCategoryFragment"
-        tools:layout="@layout/sub_category_fragment"/>
-    <fragment
         android:id="@+id/detailsFragment"
         android:name="com.example.masala_food_recipes.ui.fragment.DetailsFragment"
         android:label="DetailsFragment"
         tools:layout="@layout/fragment_details">
     </fragment>
+    <fragment
+        android:id="@+id/underFiveIngredientFragment"
+        android:name="com.example.masala_food_recipes.ui.fragment.UnderFiveIngredientFragment"
+        android:label="UnderFiveIngredientFragment"
+        />
+    <fragment
+        android:id="@+id/underTwentyMinFragment"
+        android:name="com.example.masala_food_recipes.ui.fragment.UnderTwentyMinFragment"
+        android:label="UnderTwentyMinFragment" />
+    <fragment
+        android:id="@+id/forYouFragment"
+        android:name="com.example.masala_food_recipes.ui.fragment.ForYouFragment"
+        android:label="ForYouFragment" />
 </navigation>

@@ -1,6 +1,7 @@
 package com.example.masala_food_recipes.ui.fragment
 
 import android.content.Context
+import androidx.navigation.Navigation
 import com.example.masala_food_recipes.databinding.SubCategoryFragmentBinding
 import com.example.masala_food_recipes.ui.recyclerview.BaseInteractionListener
 import com.example.masala_food_recipes.ui.recyclerview.SubCategoryAdapter
@@ -23,5 +24,8 @@ class UnderTwentyMinFragment :
                         under20MinList, listener, it
                     )
                 }
+        binding.upBar.toolBar.setNavigationOnClickListener {
+            Navigation.findNavController(it).popBackStack()
+        }
     }
 }
