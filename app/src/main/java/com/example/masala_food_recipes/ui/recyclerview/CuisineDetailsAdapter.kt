@@ -6,12 +6,14 @@ import android.view.View
 import androidx.navigation.Navigation
 import com.bumptech.glide.Glide
 import com.example.masala_food_recipes.R
+import com.example.masala_food_recipes.data.entities.Recipe
+import com.example.masala_food_recipes.data.interactors.Details
 import com.example.masala_food_recipes.databinding.CardViewCuisinesBinding
-import com.example.masala_food_recipes.databinding.Under20MinBinding
+import com.example.masala_food_recipes.ui.fragment.CuisineDetailsFragmentDirections
 
 interface CuisineDetailsListener : BaseInteractionListener
 
-class CuisineDetailsAdapter(items: List<List<String>>, listener: CuisineDetailsListener) :
+class CuisineDetailsAdapter(items: List<List<String>>, listener: CuisineDetailsListener,val recipeList: List<Recipe>) :
     BaseRecyclerAdapter<List<String>, BaseRecyclerAdapter.BaseViewHolder<List<String>>>(
         items,
         listener
@@ -37,15 +39,12 @@ class CuisineDetailsAdapter(items: List<List<String>>, listener: CuisineDetailsL
                     .placeholder(R.drawable.loading)
                     .into(foodImage)
                 foodImage.setOnClickListener{
-                    Navigation.findNavController(it).navigate(R.id.action_cuisineDetailsFragment_to_detailsFragment)
+                    val action = CuisineDetailsFragmentDirections.actionCuisineDetailsFragmentToDetailsFragment(
+                        Details(recipeList).findRecipe(item[0])!!
+                    )
+                    Navigation.findNavController(it).navigate(action)
                 }
             }
         }
     }
 }
-/*                recipeImage.setOnClickListener {
-
-    val action = HomeFragmentDirections.actionHomeFragmentToFragmentDetailsScreen(
-            Details(allRecipes).findRecipe(item[0]))
-    Navigation.findNavController(it).navigate(action)
-}*/

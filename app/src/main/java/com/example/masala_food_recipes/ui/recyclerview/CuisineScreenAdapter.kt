@@ -42,7 +42,7 @@ class CuisineScreenAdapter(items: List<List<String>>, listener: CuisineScreenLis
                 foodImage.setOnClickListener {
                     PreferencesUtil.apply {
                         init(context)
-                        putInSharedPref(Constants.CUISINE_SCREEN_KEY, item[0])
+                        putInSharedPref(Constants.CUISINE_KEY, item[0])
                     }
                     Navigation.findNavController(it)
                         .navigate(R.id.action_cuisineScreenFragment_to_cuisineDetailsFragment)

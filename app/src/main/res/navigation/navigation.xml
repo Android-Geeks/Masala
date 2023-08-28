@@ -28,7 +28,11 @@
 
         <action
             android:id="@+id/action_homeFragment_to_detailsFragment"
-            app:destination="@id/detailsFragment" />
+            app:destination="@id/detailsFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
         <action
             android:id="@+id/action_homeFragment_to_underFiveIngredientFragment"
             app:destination="@id/underFiveIngredientFragment" />
@@ -86,15 +90,27 @@
         android:name="com.example.masala_food_recipes.ui.fragment.UnderFiveIngredientFragment"
         android:label="UnderFiveIngredientFragment"
         tools:layout="@layout/sub_category_fragment"
-        />
+        >
+        <action
+            android:id="@+id/action_underFiveIngredientFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/underTwentyMinFragment"
         android:name="com.example.masala_food_recipes.ui.fragment.UnderTwentyMinFragment"
         android:label="UnderTwentyMinFragment"
-        tools:layout="@layout/sub_category_fragment"/>
+        tools:layout="@layout/sub_category_fragment">
+        <action
+            android:id="@+id/action_underTwentyMinFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/forYouFragment"
         android:name="com.example.masala_food_recipes.ui.fragment.ForYouFragment"
         android:label="ForYouFragment"
-        tools:layout="@layout/sub_category_fragment"/>
+        tools:layout="@layout/sub_category_fragment">
+        <action
+            android:id="@+id/action_forYouFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
 </navigation>

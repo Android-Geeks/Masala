@@ -14,11 +14,11 @@ class CuisineDetailsFragment  :
     override fun onCreateView() {
 
         val cuisineFromHome = PreferencesUtil.getFromSharedPref(Constants.CUISINE_KEY)
-        val cuisineFromViewAll =  PreferencesUtil.getFromSharedPref(Constants.CUISINE_SCREEN_KEY)
 
-        if (cuisineFromHome != null)   buildingFragmentContent(cuisineFromHome)
+        if (cuisineFromHome != null) {
+            buildingFragmentContent(cuisineFromHome)
+        }
 
-        if (cuisineFromViewAll != null)   buildingFragmentContent(cuisineFromViewAll)
 
     }
     private fun buildingFragmentContent(cuisineName : String){
@@ -31,8 +31,9 @@ class CuisineDetailsFragment  :
                         override fun onClick(position: Int) {
                             TODO("Not yet implemented")
                         }
-                    })
+                    }, recipes)
                 cuisineRecyclerFragment.addItemDecoration(CuisineDetailsItemPadding(16))
+
                 cuisineType.setOnClickListener {
                     Navigation.findNavController(it).popBackStack()
                 }

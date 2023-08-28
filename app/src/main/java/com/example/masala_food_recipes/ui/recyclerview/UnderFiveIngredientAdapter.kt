@@ -7,7 +7,7 @@ import android.view.View
 import androidx.navigation.Navigation
 import com.bumptech.glide.Glide
 import com.example.masala_food_recipes.R
-import com.example.masala_food_recipes.data.DataManager
+import com.example.masala_food_recipes.data.entities.Recipe
 import com.example.masala_food_recipes.data.interactors.Details
 import com.example.masala_food_recipes.databinding.Under20MinBinding
 import com.example.masala_food_recipes.ui.fragment.HomeFragmentDirections
@@ -18,7 +18,8 @@ interface UnderFiveIngredientListener : BaseInteractionListener
 class UnderFiveIngredientAdapter(
         items : List<List<String>> ,
         listener : UnderFiveIngredientListener ,
-        private val sharedPref : SharedPreferences
+        private val sharedPref : SharedPreferences,
+        private val recipeList: List<Recipe>
 ) : BaseRecyclerAdapter<List<String> , BaseRecyclerAdapter.BaseViewHolder<List<String>>>(
         items , listener) {
     override val layoutId = R.layout.under_20_min
@@ -30,7 +31,6 @@ class UnderFiveIngredientAdapter(
     inner class UnderFiveViewHolder(itemView : View) : BaseViewHolder<List<String>>(itemView) {
         private val binding = Under20MinBinding.bind(itemView)
         private val context : Context = itemView.context
-        val allRecipe = DataManager(context).getAllRecipesData()
 
 
         @SuppressLint("SetTextI18n")
@@ -49,8 +49,10 @@ class UnderFiveIngredientAdapter(
                     isChecked=favouriteSet?.contains(item[0]) == true
                 }
                 image.setOnClickListener {
-
-                    Navigation.findNavController(it).navigate(R.id.action_homeFragment_to_detailsFragment)
+                    val action = HomeFragmentDirections.actionHomeFragmentToDetailsFragment(
+                        Details(recipeList).findRecipe(item[0])!!
+                    )
+                    Navigation.findNavController(it).navigate(action)
                 }
             }
         }

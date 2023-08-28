@@ -4,7 +4,6 @@ package com.example.masala_food_recipes
 import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -13,10 +12,6 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.masala_food_recipes.data.DataManager
 import com.example.masala_food_recipes.databinding.ActivityMainBinding
-import com.example.masala_food_recipes.ui.fragment.FavouriteFragment
-import com.example.masala_food_recipes.ui.fragment.HomeFragment
-import com.example.masala_food_recipes.ui.fragment.SearchFragment
-import com.example.masala_food_recipes.ui.fragment.SettingFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -58,50 +53,4 @@ class MainActivity : AppCompatActivity() {
         } else navController.popBackStack()
 
     }
-
-//    private fun init(savedInstanceState: Bundle?) {
-//        if (savedInstanceState == null) {
-//            initFragment()
-//        }
-
-//        binding.bottomNavigation.setOnItemSelectedListener { item ->
-//            when (item.itemId) {
-//                R.id.home_icon -> replaceFragment(homeScreen)
-//                R.id.search_icon -> replaceFragment(searchScreen)
-//                R.id.favourite_icon -> replaceFragment(favouriteScreen)
-////                R.id.favourite_icon -> replaceFragment(cuisineDetail)
-//                R.id.setting_icon -> replaceFragment(settingScreen)
-//                else -> false
-//            }
-//        }
-//    }
-//
-//    private fun initFragment() {
-//        inTransaction {
-//            add(
-//                R.id.fragment_container_view, homeScreen
-//            )
-//        }
-////        binding.bottomNavigation.selectedItemId = R.id.home_icon
-//    }
-//
-//    private fun replaceFragment(fragment: Fragment): Boolean {
-//        inTransaction {
-//            replace(
-//                R.id.fragment_container_view, fragment
-//            )
-//        }
-//        return true
-//    }
-//
-//    private fun inTransaction(func: FragmentTransaction.() -> FragmentTransaction) {
-//        supportFragmentManager.beginTransaction().func().commit()
-//    }
-//
-//    private fun backPressed() {
-//        val navController = findNavController(R.id.fragment_container_view)
-//        navController.popBackStack()
-//    }
-////
-//    fun backPressed(view: View) = (view as Toolbar).setNavigationOnClickListener { backPressed() }
 }

@@ -13,7 +13,7 @@ class Cuisines(private val recipes : List<Recipe>) {
                 }
                 .shuffled()
 
-    fun getCuisineDetails(cuisine :String)/*: List<List<String>>*/ =
+    fun getCuisineDetails(cuisine :String) =
         recipes
             .filter { it.cuisine == cuisine }
             .map { recipe ->

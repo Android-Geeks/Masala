@@ -6,7 +6,6 @@ import android.view.View
 import androidx.navigation.Navigation
 import com.bumptech.glide.Glide
 import com.example.masala_food_recipes.R
-import com.example.masala_food_recipes.data.DataManager
 import com.example.masala_food_recipes.data.entities.Recipe
 import com.example.masala_food_recipes.data.interactors.Details
 import com.example.masala_food_recipes.databinding.RecipeCardBinding
@@ -16,7 +15,8 @@ interface ForYouRecipeListener : BaseInteractionListener
 class ForYouRecipeAdapter(
         items : List<List<String>> ,
         listener : ForYouRecipeListener ,
-        val sharedPref : SharedPreferences
+        val sharedPref : SharedPreferences,
+        val recipeList : List<Recipe>
 ) : BaseRecyclerAdapter<List<String> , BaseRecyclerAdapter.BaseViewHolder<List<String>>>(
         items , listener) {
     override val layoutId = R.layout.recipe_card
@@ -29,6 +29,7 @@ class ForYouRecipeAdapter(
 
         private val binding = RecipeCardBinding.bind(itemView)
         private val context : Context = itemView.context
+
 
         override fun bind(item : List<String>) {
             binding.apply {
@@ -44,8 +45,10 @@ class ForYouRecipeAdapter(
                     isChecked=favouriteSet?.contains(item[0]) == true
                 }
                 recipeImage.setOnClickListener {
-
-                    Navigation.findNavController(it).navigate(R.id.action_homeFragment_to_detailsFragment)
+                    val action = HomeFragmentDirections.actionHomeFragmentToDetailsFragment(
+                        Details(recipeList).findRecipe(item[0])!!
+                    )
+                    Navigation.findNavController(it).navigate(action)
                 }
             }
 
