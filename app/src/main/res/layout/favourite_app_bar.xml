@@ -7,6 +7,5 @@
         android:layout_width="match_parent"
         android:layout_height="64dp"
         app:layout_scrollFlags="scroll|enterAlways|snap"
-        app:navigationIcon="@drawable/arrow_back"
-        app:title="Favourite"
+        app:title="Favourites"
         app:titleTextAppearance="@style/TextAppearance.AppCompat" />
