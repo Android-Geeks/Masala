@@ -9,7 +9,6 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.navigation.findNavController
-import androidx.navigation.ui.setupWithNavController
 import com.example.masala_food_recipes.data.DataManager
 import com.example.masala_food_recipes.databinding.ActivityMainBinding
 
@@ -33,13 +32,34 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         val viewModel: GlobalViewModel by viewModels()
         viewModel.recipes = DataManager(this).getAllRecipesData()
+
     }
 
 
     @SuppressLint("SuspiciousIndentation")
     override fun onResume() {
         super.onResume()
-        binding.bottomNavigation.setupWithNavController(navController)
+        binding.bottomNavigation.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.homeFragment -> {
+                    navController.navigate(R.id.homeFragment)
+                    true
+                }
+                R.id.searchFragment -> {
+                    navController.navigate(R.id.searchFragment)
+                    true
+                }
+                R.id.favouriteFragment -> {
+                    navController.navigate(R.id.favouriteFragment)
+                    true
+                }
+                R.id.settingFragment -> {
+                    navController.navigate(R.id.settingFragment)
+                    true
+                }
+                else -> false
+            }
+        }
     }
 
 
