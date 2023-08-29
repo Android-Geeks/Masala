@@ -19,6 +19,9 @@ class MainActivity : AppCompatActivity() {
         ActivityMainBinding.inflate(layoutInflater)
     }
 
+    private val navController by lazy {
+        findNavController(R.id.fragment_container_view)
+    }
 
     @SuppressLint("SourceLockedOrientationActivity")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,20 +39,18 @@ class MainActivity : AppCompatActivity() {
     @SuppressLint("SuspiciousIndentation")
     override fun onResume() {
         super.onResume()
-        val navController = findNavController(R.id.fragment_container_view)
         binding.bottomNavigation.setupWithNavController(navController)
     }
 
 
     @Deprecated("Deprecated in Java")
     override fun onBackPressed() {
-        val navController = findNavController(R.id.fragment_container_view)
         val currentFragmentId = navController.currentDestination?.id
         if (currentFragmentId == R.id.homeFragment) {
             val builder = AlertDialog.Builder(this)
             builder.setMessage("Are you sure you want to exit?").setCancelable(false)
-                .setPositiveButton("Yes") { _ , _ -> finish() }
-                .setNegativeButton("No") { dialog , _ -> dialog.cancel() }
+                .setPositiveButton("Yes") { _, _ -> finish() }
+                .setNegativeButton("No") { dialog, _ -> dialog.cancel() }
             val alert = builder.create()
             alert.show()
         } else navController.popBackStack()

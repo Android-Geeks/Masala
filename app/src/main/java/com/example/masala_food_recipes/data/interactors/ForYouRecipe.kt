@@ -9,7 +9,7 @@ class ForYouRecipe(private val recipes: List<Recipe>) {
             .map { recipe ->
                 listOf(
                     recipe.translatedRecipeName,
-                    recipe.cuisine,
+                    recipe.totalTimeInMins,
                     recipe.imageUrl
                 )
             }
