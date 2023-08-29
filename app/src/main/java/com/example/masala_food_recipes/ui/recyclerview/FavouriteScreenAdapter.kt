@@ -22,6 +22,7 @@ class FavouriteScreenAdapter: RecyclerView.Adapter<FavouriteScreenAdapter.ViewHo
         return ViewHolder(view)
     }
 
+    @RequiresApi(Build.VERSION_CODES.P)
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(differ.currentList[position])
         holder.setIsRecyclable(false)
@@ -73,7 +74,7 @@ class FavouriteScreenAdapter: RecyclerView.Adapter<FavouriteScreenAdapter.ViewHo
 
         @SuppressLint("DiffUtilEquals")
         override fun areContentsTheSame(oldItem: List<String>, newItem: List<String>): Boolean {
-            return false
+            return oldItem == newItem
         }
 
     }
