@@ -11,7 +11,8 @@ class FavouriteFragment :
     private val adapter by lazy { FavouriteScreenAdapter() }
     override fun onCreateView() {
 
-        val favList = Favourite.getFavouriteList()
+        var favList= Favourite.getFavouriteList()
+
 
         if (favList.isNotEmpty()) {
             adapter.differ.submitList(favList)

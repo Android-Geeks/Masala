@@ -25,7 +25,6 @@ class FavouriteScreenAdapter: RecyclerView.Adapter<FavouriteScreenAdapter.ViewHo
     @RequiresApi(Build.VERSION_CODES.P)
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(differ.currentList[position])
-        holder.setIsRecyclable(false)
 
     }
 
@@ -51,8 +50,7 @@ class FavouriteScreenAdapter: RecyclerView.Adapter<FavouriteScreenAdapter.ViewHo
                 drawableFavorite.setOnClickListener {
                     val position = absoluteAdapterPosition
                     if (position != RecyclerView.NO_POSITION) {
-                        val itemToDelete = differ.currentList[position]
-                        removeItem(itemToDelete)
+                        removeItem(position)
                     }
 
                 }
@@ -80,9 +78,9 @@ class FavouriteScreenAdapter: RecyclerView.Adapter<FavouriteScreenAdapter.ViewHo
     }
 
     val differ = AsyncListDiffer(this, differCallback)
-    private fun removeItem(item: List<String>) {
+    private fun removeItem(index : Int) {
         val newList = ArrayList(differ.currentList)
-        newList.remove(item)
+        newList.removeAt(index)
         differ.submitList(newList)
     }
 
