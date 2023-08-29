@@ -4,39 +4,24 @@ package com.example.masala_food_recipes
 import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
-import android.view.View
+import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.appcompat.widget.Toolbar
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
+import androidx.navigation.findNavController
+import androidx.navigation.ui.setupWithNavController
 import com.example.masala_food_recipes.data.DataManager
-import com.example.masala_food_recipes.data.interactors.Cuisines
-import com.example.masala_food_recipes.data.interactors.ForYouRecipe
-import com.example.masala_food_recipes.data.interactors.UnderFiveIngredient
-import com.example.masala_food_recipes.data.interactors.UnderTwentyMinRecipe
 import com.example.masala_food_recipes.databinding.ActivityMainBinding
-import com.example.masala_food_recipes.ui.fragment.FavouriteFragment
-import com.example.masala_food_recipes.ui.fragment.HomeFragment
-import com.example.masala_food_recipes.ui.fragment.SearchFragment
-import com.example.masala_food_recipes.ui.fragment.SettingFragment
 
 class MainActivity : AppCompatActivity() {
 
     private val binding by lazy {
         ActivityMainBinding.inflate(layoutInflater)
     }
-    private val homeScreen = HomeFragment()
-    private val favouriteScreen = FavouriteFragment()
-    private val searchScreen = SearchFragment()
-    private val settingScreen = SettingFragment()
 
-    private val allRecipes by lazy { DataManager(this).getAllRecipesData() }
-    private val under20MinList by lazy { UnderTwentyMinRecipe(allRecipes).execute() }
-    private val under5IngredientList by lazy { UnderFiveIngredient(allRecipes).execute() }
-    private val cuisineList by lazy { Cuisines(allRecipes).getCuisineCards() }
-    private val forYouList by lazy { ForYouRecipe(allRecipes).execute() }
+    private val navController by lazy {
+        findNavController(R.id.fragment_container_view)
+    }
 
     @SuppressLint("SourceLockedOrientationActivity")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,68 +31,28 @@ class MainActivity : AppCompatActivity() {
         }
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        init(savedInstanceState)
+        val viewModel: GlobalViewModel by viewModels()
+        viewModel.recipes = DataManager(this).getAllRecipesData()
     }
+
+
+    @SuppressLint("SuspiciousIndentation")
+    override fun onResume() {
+        super.onResume()
+        binding.bottomNavigation.setupWithNavController(navController)
+    }
+
 
     @Deprecated("Deprecated in Java")
     override fun onBackPressed() {
-        if (supportFragmentManager.fragments.last() != homeScreen) backPressed()
-        else {
+        val currentFragmentId = navController.currentDestination?.id
+        if (currentFragmentId == R.id.homeFragment) {
             val builder = AlertDialog.Builder(this)
             builder.setMessage("Are you sure you want to exit?").setCancelable(false)
                 .setPositiveButton("Yes") { _, _ -> finish() }
                 .setNegativeButton("No") { dialog, _ -> dialog.cancel() }
             val alert = builder.create()
             alert.show()
-        }
+        } else navController.popBackStack()
     }
-
-    private fun init(savedInstanceState: Bundle?) {
-        if (savedInstanceState == null) {
-            initFragment()
-        }
-        homeScreen.onPass(
-            cuisineList.take(20),
-            forYouList.take(20),
-            under20MinList.take(20),
-            under5IngredientList.take(20)
-        )
-        binding.bottomNavigation.setOnItemSelectedListener { item ->
-            when (item.itemId) {
-                R.id.home_icon -> replaceFragment(homeScreen)
-                R.id.search_icon -> replaceFragment(searchScreen)
-                R.id.favourite_icon -> replaceFragment(favouriteScreen)
-                R.id.setting_icon -> replaceFragment(settingScreen)
-                else -> false
-            }
-        }
-    }
-
-    private fun initFragment() {
-        inTransaction {
-            add(
-                R.id.fragment_container_view, homeScreen
-            )
-        }
-        binding.bottomNavigation.selectedItemId = R.id.home_icon
-    }
-
-    private fun replaceFragment(fragment: Fragment): Boolean {
-        inTransaction {
-            replace(
-                R.id.fragment_container_view, fragment
-            )
-        }
-        return true
-    }
-
-    private fun inTransaction(func: FragmentTransaction.() -> FragmentTransaction) {
-        supportFragmentManager.beginTransaction().func().commit()
-    }
-
-    private fun backPressed() {
-        initFragment()
-    }
-
-    fun backPressed(view: View) = (view as Toolbar).setNavigationOnClickListener { backPressed() }
 }

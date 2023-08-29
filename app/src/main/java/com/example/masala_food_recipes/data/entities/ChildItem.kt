@@ -4,5 +4,7 @@ data class ChildItem(
         val type : String ,
         val view_all : String ,
         val adapterType : String ,
-        val list : List<List<String>>
+        val list : List<List<String>>,
+        val navToID : Int
+
 )

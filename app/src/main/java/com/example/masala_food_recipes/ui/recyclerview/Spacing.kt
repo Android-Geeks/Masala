@@ -20,3 +20,18 @@ class FirstItemPaddingDecoration(
         }
     }
 }
+
+class CuisineDetailsItemPadding(
+    private val padding : Int
+) : RecyclerView.ItemDecoration() {
+    override fun getItemOffsets(
+        outRect : Rect , view : View , parent : RecyclerView , state : RecyclerView.State
+    ) {
+        super.getItemOffsets(outRect , view , parent , state)
+        val position = parent.getChildAdapterPosition(view)
+            outRect.left = padding + 16
+            outRect.right = padding + 16
+            outRect.bottom = padding + 16
+
+    }
+}

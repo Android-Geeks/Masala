@@ -4,20 +4,25 @@ import androidx.navigation.Navigation
 import com.example.masala_food_recipes.databinding.SubCategoryFragmentBinding
 import com.example.masala_food_recipes.ui.recyclerview.SubCategoryAdapter
 
-class UnderFiveIngredientFragment :
+
+class ForYouFragment :
     BaseFragment<SubCategoryFragmentBinding>(SubCategoryFragmentBinding::inflate) {
 
-    private lateinit var under5IngredientList : List<List<String>>
+    private lateinit var forYouList: List<List<String>>
 
     override fun onCreateView() {
 
-        under5IngredientList = viewModel.under5IngredientList
+        forYouList = viewModel.forYouList
 
         binding.subCategoryRecycler.adapter = SubCategoryAdapter(
-                under5IngredientList)
+            forYouList, true
+        )
+
 
         binding.upBar.toolBar.setNavigationOnClickListener {
             Navigation.findNavController(it).popBackStack()
         }
     }
+
+
 }
