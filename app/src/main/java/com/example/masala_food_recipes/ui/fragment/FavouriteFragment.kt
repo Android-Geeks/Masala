@@ -1,25 +1,21 @@
 package com.example.masala_food_recipes.ui.fragment
 
-import androidx.navigation.Navigation
 import android.view.View
+import androidx.navigation.Navigation
 import com.example.masala_food_recipes.data.interactors.Favourite
 import com.example.masala_food_recipes.databinding.FragmentFavouriteBinding
 import com.example.masala_food_recipes.ui.recyclerview.FavouriteScreenAdapter
 
 class FavouriteFragment :
     BaseFragment<FragmentFavouriteBinding>(FragmentFavouriteBinding::inflate) {
-    private val adapter by lazy { FavouriteScreenAdapter() }
+    private val adapter by lazy { FavouriteScreenAdapter }
     override fun onCreateView() {
 
-        var favList= Favourite.getFavouriteList()
-
-
-        if (favList.isNotEmpty()) {
-            adapter.differ.submitList(favList)
+        if (Favourite.getFavouriteList().isNotEmpty()) {
+            adapter.differ.submitList(Favourite.getFavouriteList())
 
             binding.apply {
                 recyclerView.adapter = adapter
-                emptyFav.visibility = View.GONE
             }
         } else {
             binding.apply {
@@ -30,6 +26,7 @@ class FavouriteFragment :
                 emptyFav.visibility = View.VISIBLE
             }
         }
+
 
         binding.apply {
             this.include2.toolBar.setNavigationOnClickListener {

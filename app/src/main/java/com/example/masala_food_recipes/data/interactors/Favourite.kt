@@ -5,7 +5,8 @@ import com.example.masala_food_recipes.data.util.FavouritePreferences
 
 object Favourite {
 
-    private val favList = FavouritePreferences.getFromSharedPref()
+    private val favList
+        get() = FavouritePreferences.getFromSharedPref()?.toMutableSet()
     val recipes = GlobalViewModel.recipes
 
     fun getFavouriteList() = recipes.filter { favList?.contains(it.translatedRecipeName) !! }.map {
