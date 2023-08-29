@@ -5,7 +5,7 @@
         android:id="@+id/tool_bar"
         style="@style/navigationColor"
         android:layout_width="match_parent"
-        android:layout_height="64dp"
+        android:layout_height="48dp"
         app:layout_scrollFlags="scroll|enterAlways|snap"
         app:title="Favourites"
         app:titleTextAppearance="@style/TextAppearance.AppCompat" />
