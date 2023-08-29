@@ -1,6 +1,7 @@
 package com.example.masala_food_recipes.ui.fragment
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.net.Uri
 import com.bumptech.glide.Glide
 import com.example.masala_food_recipes.R
@@ -16,6 +17,9 @@ import com.google.android.material.tabs.TabLayoutMediator
 class DetailsScreen :
     BaseFragment<FragmentDetailsScreenBinding>(FragmentDetailsScreenBinding::inflate) {
     override fun onCreateView() {
+         lateinit var sharedPref: SharedPreferences
+
+        val favouriteSet = sharedPref.getStringSet("Favourite" , emptySet())?.toMutableSet()
 
         val fakeRecipe by lazy { DataManager(requireContext()).getAllRecipesData()[0] }
 
@@ -30,7 +34,9 @@ class DetailsScreen :
         binding.ingredientsCount.text = fakeRecipe.ingredientCount
 
         binding.topAppBar.setNavigationOnClickListener {  //TODO
+
         }
+
 
         var previous = true
         binding.topAppBar.setOnMenuItemClickListener { menuItem ->
@@ -38,8 +44,12 @@ class DetailsScreen :
                 R.id.action_favorite -> {
                     if (previous) {
                         menuItem.setIcon(filled_heart)
+                        favouriteSet?.add(fakeRecipe.translatedRecipeName)
+                        sharedPref.edit().putStringSet("Favourite",favouriteSet).apply()
                     } else {
                         menuItem.setIcon(baseline_favorite_border_24)
+                        favouriteSet?.remove(fakeRecipe.translatedRecipeName)
+                        sharedPref.edit().putStringSet("Favourite",favouriteSet).apply()
                     }
                     previous = !previous
                     true

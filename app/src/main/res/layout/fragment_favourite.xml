@@ -9,6 +9,15 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <androidx.fragment.app.FragmentContainerView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:id="@+id/empty_fav"
+        android:name="com.example.masala_food_recipes.ui.fragment.EmptyFavoritesFragment"
+        app:layout_constraintTop_toBottomOf="@id/include2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
     <include
         android:id="@+id/include2"
         layout="@layout/favourite_app_bar"

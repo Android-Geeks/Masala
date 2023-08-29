@@ -2,9 +2,11 @@ package com.example.masala_food_recipes.ui.recyclerview
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -34,7 +36,9 @@ class FavouriteScreenAdapter: RecyclerView.Adapter<FavouriteScreenAdapter.ViewHo
         private val binding = CardViewFavouriteBinding.bind(itemView)
         private val context: Context = itemView.context
 
+        @RequiresApi(Build.VERSION_CODES.P)
         fun bind(item: List<String>) {
+            if (item.isNotEmpty()){
             binding.apply {
                 recipeText.text = item[0]
                 minutesText.text = item[1].plus(" Min")
@@ -53,6 +57,12 @@ class FavouriteScreenAdapter: RecyclerView.Adapter<FavouriteScreenAdapter.ViewHo
                 }
 
             }
+        }
+//            else binding.apply {
+//                val emptyFavScreen = itemView.requireViewById<View>(R.id.empty_fav)
+//                emptyFavScreen.visibility = View.VISIBLE
+//                emptyFavScreen.layoutParams = RecyclerView.LayoutParams(0, 0)
+//            }
         }
     }
 
