@@ -34,7 +34,7 @@ class CuisineAdapter(items : List<List<String>>) :
                 Glide.with(context).load(item[2]).centerCrop().placeholder(R.drawable.loading)
                         .into(foodImage)
 
-                foodImage.setOnClickListener {
+                cardViewCuisine.setOnClickListener {
                     PreferencesUtil.apply {
                         init(context)
                         putInSharedPref(Constants.CUISINE_KEY , item[0])
