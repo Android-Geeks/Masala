@@ -12,9 +12,12 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.masala_food_recipes.R
+import com.example.masala_food_recipes.data.util.FavouritePreferences
 import com.example.masala_food_recipes.databinding.CardViewFavouriteBinding
+import com.example.masala_food_recipes.ui.FavouritesInteractionListener
 
-class FavouriteScreenAdapter: RecyclerView.Adapter<FavouriteScreenAdapter.ViewHolder>() {
+class FavouriteScreenAdapter(private val interactionListener: FavouritesInteractionListener) :
+    RecyclerView.Adapter<FavouriteScreenAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -25,8 +28,6 @@ class FavouriteScreenAdapter: RecyclerView.Adapter<FavouriteScreenAdapter.ViewHo
     @RequiresApi(Build.VERSION_CODES.P)
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(differ.currentList[position])
-        holder.setIsRecyclable(false)
-
     }
 
     override fun getItemCount(): Int {
@@ -39,14 +40,15 @@ class FavouriteScreenAdapter: RecyclerView.Adapter<FavouriteScreenAdapter.ViewHo
 
         @RequiresApi(Build.VERSION_CODES.P)
         fun bind(item: List<String>) {
-            if (item.isNotEmpty()){
+
+            binding.root.setOnClickListener {
+                interactionListener.onRecipeClicked(item)
+            }
+
             binding.apply {
                 recipeText.text = item[0]
-                minutesText.text = item[1].plus(" Min")
-                Glide.with(context)
-                    .load(item[2])
-                    .placeholder(R.drawable.loading)
-                    .centerCrop()
+                minutesText.text = item[1].plus(" min")
+                Glide.with(context).load(item[2]).placeholder(R.drawable.loading).centerCrop()
                     .into(binding.itemImage)
                 drawableFavorite.setOnClickListener {
                     val position = absoluteAdapterPosition
@@ -54,16 +56,8 @@ class FavouriteScreenAdapter: RecyclerView.Adapter<FavouriteScreenAdapter.ViewHo
                         val itemToDelete = differ.currentList[position]
                         removeItem(itemToDelete)
                     }
-
                 }
-
             }
-        }
-//            else binding.apply {
-//                val emptyFavScreen = itemView.requireViewById<View>(R.id.empty_fav)
-//                emptyFavScreen.visibility = View.VISIBLE
-//                emptyFavScreen.layoutParams = RecyclerView.LayoutParams(0, 0)
-//            }
         }
     }
 
@@ -76,14 +70,20 @@ class FavouriteScreenAdapter: RecyclerView.Adapter<FavouriteScreenAdapter.ViewHo
         override fun areContentsTheSame(oldItem: List<String>, newItem: List<String>): Boolean {
             return oldItem == newItem
         }
-
     }
 
     val differ = AsyncListDiffer(this, differCallback)
+
     private fun removeItem(item: List<String>) {
         val newList = ArrayList(differ.currentList)
         newList.remove(item)
         differ.submitList(newList)
+        val favList = FavouritePreferences.getFromSharedPref()
+        favList?.remove(item[0])
+        FavouritePreferences.putInSharedPref(favList!!)
+        if(favList.isEmpty()){
+            interactionListener.onEmptyFavourite()
+        }
     }
 
 

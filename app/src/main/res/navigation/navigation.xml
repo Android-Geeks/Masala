@@ -21,7 +21,8 @@
             app:destination="@id/settingFragment" />
         <action
             android:id="@+id/action_homeFragment_to_cuisineDetailsFragment"
-            app:destination="@id/cuisineDetailsFragment" />
+            app:destination="@id/cuisineDetailsFragment"
+            />
         <action
             android:id="@+id/action_homeFragment_to_cuisineScreenFragment"
             app:destination="@id/cuisineScreenFragment" />
@@ -30,9 +31,9 @@
             android:id="@+id/action_homeFragment_to_detailsFragment"
             app:destination="@id/detailsFragment"
             app:enterAnim="@android:anim/fade_in"
-            app:exitAnim="@android:anim/fade_out"
+            app:exitAnim="@android:anim/fade_in"
             app:popEnterAnim="@android:anim/fade_in"
-            app:popExitAnim="@android:anim/fade_out" />
+            app:popExitAnim="@android:anim/slide_out_right" />
         <action
             android:id="@+id/action_homeFragment_to_underFiveIngredientFragment"
             app:destination="@id/underFiveIngredientFragment" />
@@ -47,7 +48,15 @@
         android:id="@+id/favouriteFragment"
         android:name="com.example.masala_food_recipes.ui.fragment.FavouriteFragment"
         android:label="fragment_favourite"
-        tools:layout="@layout/fragment_favourite" />
+        tools:layout="@layout/fragment_favourite" >
+        <action
+            android:id="@+id/action_favouriteFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
     <fragment
         android:id="@+id/searchFragment"
         android:name="com.example.masala_food_recipes.ui.fragment.SearchFragment"
@@ -55,7 +64,11 @@
         tools:layout="@layout/fragment_search" >
         <action
             android:id="@+id/action_searchFragment_to_detailsFragment2"
-            app:destination="@id/detailsFragment" />
+            app:destination="@id/detailsFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_in"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/settingFragment"
@@ -69,7 +82,11 @@
         tools:layout="@layout/fragment_cuisine_details">
         <action
             android:id="@+id/action_cuisineDetailsFragment_to_detailsFragment"
-            app:destination="@id/detailsFragment" />
+            app:destination="@id/detailsFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out"/>
     </fragment>
     <fragment
         android:id="@+id/cuisineScreenFragment"
@@ -97,7 +114,11 @@
         >
         <action
             android:id="@+id/action_underFiveIngredientFragment_to_detailsFragment"
-            app:destination="@id/detailsFragment" />
+            app:destination="@id/detailsFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_in"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/underTwentyMinFragment"
@@ -106,7 +127,11 @@
         tools:layout="@layout/sub_category_fragment">
         <action
             android:id="@+id/action_underTwentyMinFragment_to_detailsFragment"
-            app:destination="@id/detailsFragment" />
+            app:destination="@id/detailsFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_in"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/forYouFragment"
@@ -115,7 +140,11 @@
         tools:layout="@layout/sub_category_fragment">
         <action
             android:id="@+id/action_forYouFragment_to_detailsFragment"
-            app:destination="@id/detailsFragment" />
+            app:destination="@id/detailsFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_in"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/slide_out_right"/>
         <argument
             android:name="recipe"
             app:argType="com.example.masala_food_recipes.data.entities.Recipe" />
