@@ -37,7 +37,7 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding>(FragmentDetailsBind
             when (menuItem.itemId) {
                 R.id.action_favorite -> {
                     if (previous) {
-                        menuItem.setIcon(R.drawable.filled_heart)
+                        menuItem.setIcon(R.drawable.favorite_icon)
                         favouriteSet?.add(fakeRecipe.translatedRecipeName)
                         sharedPref.edit().putStringSet("Favourite", favouriteSet).apply()
                     } else {

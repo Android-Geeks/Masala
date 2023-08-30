@@ -19,7 +19,7 @@ class UnderFiveIngredientFragment :
         binding.subCategoryRecycler.adapter = SubCategoryAdapter(
                 under5IngredientList, "UnderFive" ,recipeList)
 
-        binding.upBar.toolBar.setNavigationOnClickListener {
+        binding.topAppBar.setNavigationOnClickListener {
             Navigation.findNavController(it).popBackStack()
         }
     }

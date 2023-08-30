@@ -20,7 +20,7 @@ class UnderTwentyMinFragment :
         binding.subCategoryRecycler.adapter = SubCategoryAdapter(
             under20MinList, "UnderTwenty" ,recipeList)
 
-        binding.upBar.toolBar.setNavigationOnClickListener {
+        binding.topAppBar.setNavigationOnClickListener {
             Navigation.findNavController(it).popBackStack()
         }
     }
