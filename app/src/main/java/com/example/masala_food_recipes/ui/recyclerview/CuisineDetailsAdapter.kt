@@ -12,7 +12,6 @@ import com.example.masala_food_recipes.data.util.FavouritePreferences
 import com.example.masala_food_recipes.databinding.Under20MinBinding
 import com.example.masala_food_recipes.ui.fragment.CuisineDetailsFragmentDirections
 
-
 class CuisineDetailsAdapter(items : List<List<String>> , val recipeList : List<Recipe>) :
     BaseRecyclerAdapter<List<String> , BaseRecyclerAdapter.BaseViewHolder<List<String>>>(
             items) {
