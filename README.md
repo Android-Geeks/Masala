@@ -81,7 +81,7 @@ Made with love by:
 - [Ali Alashwall](https://github.com/AliAlashwall)
 - [Menna Alaa](https://github.com/Menna120)
 - [Zeinab Ahmed](https://github.com/Zeinab979)
-- [Nour Ibrahim](https://github.com/3105731) 
+- [Nourhan Ibrahim](https://github.com/3105731) 
 
 <a name="contribute"></a>
 ## Contribute 🤝
