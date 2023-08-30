@@ -39,12 +39,11 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding>(FragmentDetailsBind
                     if (previous) {
                         menuItem.setIcon(R.drawable.favorite_icon)
                         favouriteSet?.add(fakeRecipe.translatedRecipeName)
-                        sharedPref.edit().putStringSet("Favourite", favouriteSet).apply()
                     } else {
                         menuItem.setIcon(R.drawable.baseline_favorite_border_24)
                         favouriteSet?.remove(fakeRecipe.translatedRecipeName)
-                        sharedPref.edit().putStringSet("Favourite", favouriteSet).apply()
                     }
+                    sharedPref.edit().putStringSet("Favourite", favouriteSet).apply()
                     previous = !previous
                     true
                 }

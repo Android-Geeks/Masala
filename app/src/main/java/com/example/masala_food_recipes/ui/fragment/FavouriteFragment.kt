@@ -21,7 +21,7 @@ class FavouriteFragment :
         }
 
         binding.apply {
-            this.include2.toolBar.setNavigationOnClickListener {
+            this.topAppBar.setNavigationOnClickListener {
                 Navigation.findNavController(it).popBackStack()
             }
         }
