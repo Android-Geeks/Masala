@@ -10,6 +10,25 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/topAppBar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:nestedScrollingEnabled="true"
+                app:navigationIcon="@drawable/baseline_arrow_back_24"
+                app:popupTheme="@style/ThemeOverlay.MaterialComponents.Light"
+                app:title="@string/favourite" />
+
+
+        </com.google.android.material.appbar.AppBarLayout>
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/empty_fav"
@@ -19,14 +38,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/include2" />
+            app:layout_constraintTop_toBottomOf="@id/app_bar" />
 
-        <include
-            android:id="@+id/include2"
-            layout="@layout/favourite_app_bar"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.recyclerview.widget.RecyclerView
             style="@style/background"
@@ -42,7 +55,7 @@
             app:layout_constraintHorizontal_weight="1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/include2"
+            app:layout_constraintTop_toBottomOf="@id/app_bar"
             tools:listitem="@layout/card_view_favourite" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

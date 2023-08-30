@@ -22,7 +22,7 @@ class ForYouFragment :
         )
 
 
-        binding.upBar.toolBar.setNavigationOnClickListener {
+        binding.topAppBar.setNavigationOnClickListener {
             Navigation.findNavController(it).popBackStack()
         }
     }

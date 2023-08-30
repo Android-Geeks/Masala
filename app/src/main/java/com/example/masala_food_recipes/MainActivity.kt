@@ -45,18 +45,22 @@ class MainActivity : AppCompatActivity() {
                     navController.navigate(R.id.homeFragment)
                     true
                 }
+
                 R.id.searchFragment -> {
                     navController.navigate(R.id.searchFragment)
                     true
                 }
+
                 R.id.favouriteFragment -> {
                     navController.navigate(R.id.favouriteFragment)
                     true
                 }
+
                 R.id.settingFragment -> {
                     navController.navigate(R.id.settingFragment)
                     true
                 }
+
                 else -> false
             }
         }
@@ -66,13 +70,21 @@ class MainActivity : AppCompatActivity() {
     @Deprecated("Deprecated in Java")
     override fun onBackPressed() {
         val currentFragmentId = navController.currentDestination?.id
-        if (currentFragmentId == R.id.homeFragment) {
+
+        if (currentFragmentId in listOf(
+                R.id.homeFragment,
+                R.id.settingFragment,
+                R.id.searchFragment,
+                R.id.favouriteFragment
+            )
+        ) {
             val builder = AlertDialog.Builder(this)
             builder.setMessage("Are you sure you want to exit?").setCancelable(false)
                 .setPositiveButton("Yes") { _, _ -> finish() }
                 .setNegativeButton("No") { dialog, _ -> dialog.cancel() }
             val alert = builder.create()
             alert.show()
-        } else navController.popBackStack()
+        }
     }
+
 }

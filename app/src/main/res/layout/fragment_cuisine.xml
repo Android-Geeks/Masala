@@ -6,29 +6,51 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/tool_bar"
-        style="@style/navigationColor"
+<!--    <TextView
+        android:id="@+id/cuisine_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="18dp"
+        android:drawablePadding="16dp"
+        android:fontFamily="@font/roboto_medium"
+        android:text="@string/cuisines"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:drawableStartCompat="@drawable/arrow_back_24px"
+        app:layout_constraintBottom_toTopOf="@id/cuisine_recycler_fragment"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />-->
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar"
         android:layout_width="match_parent"
         android:layout_height="64dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_scrollFlags="scroll|enterAlways|snap"
-        app:navigationIcon="@drawable/arrow_back"
-        app:title="Cuisines" />
+        app:layout_constraintTop_toTopOf="parent">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/topAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:nestedScrollingEnabled="true"
+        app:navigationIcon="@drawable/baseline_arrow_back_24"
+        app:popupTheme="@style/ThemeOverlay.MaterialComponents.Light"
+        app:title="@string/cuisines" />
+    </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/cuisine_recycler_fragment"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginBottom="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:paddingBottom="60dp"
+        android:layout_marginEnd="16dp"
+        style="@style/background"
         app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tool_bar"
+        app:layout_constraintTop_toBottomOf="@id/app_bar"
         app:spanCount="2"
         tool:listitem="@layout/card_view_cuisines" />
 

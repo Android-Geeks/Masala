@@ -4,10 +4,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/left_layout_2"
-    android:layout_width="156dp"
+    android:layout_width="match_parent"
     android:layout_height="200dp"
-    android:layout_marginEnd="8dp"
-    android:background="@color/off_white"
+    android:layout_marginBottom="16dp"
+    android:layout_marginStart="16dp"
+    android:background="@color/white"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent">
 
@@ -30,9 +31,9 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:src="@drawable/image" />
+            tools:src="@drawable/image1" />
 
-        <ImageButton
+        <CheckBox
             android:id="@+id/drawable_favorite"
             android:layout_width="30dp"
             android:layout_height="30dp"
@@ -40,7 +41,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:background="@drawable/white_background"
-            android:src="@drawable/favorite_icon"
+            android:button="@drawable/unfilled_heart"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
