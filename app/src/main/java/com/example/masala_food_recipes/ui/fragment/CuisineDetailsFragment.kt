@@ -6,7 +6,7 @@ import com.example.masala_food_recipes.data.util.Constants
 import com.example.masala_food_recipes.data.util.PreferencesUtil
 import com.example.masala_food_recipes.databinding.FragmentCuisineDetailsBinding
 import com.example.masala_food_recipes.ui.recyclerview.CuisineDetailsAdapter
-import com.example.masala_food_recipes.ui.recyclerview.CuisineDetailsItemPadding
+import com.example.masala_food_recipes.ui.recyclerview.SubCategoryItemPadding
 
 class CuisineDetailsFragment :
     BaseFragment<FragmentCuisineDetailsBinding>(FragmentCuisineDetailsBinding::inflate) {
@@ -16,7 +16,9 @@ class CuisineDetailsFragment :
 
         if (cuisineFromHome != null) {
             buildingFragmentContent(cuisineFromHome)
+
         }
+        binding.cuisineRecyclerFragment.addItemDecoration(SubCategoryItemPadding(16))
     }
 
     private fun buildingFragmentContent(cuisineName: String) {

@@ -17,16 +17,14 @@
         android:id="@+id/sub_category_recycler"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
         android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:spanCount="2"
         style="@style/background"
-        tools:listitem="@layout/under_20_min"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/up_bar"
+        tools:listitem="@layout/under_20_min"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,6 +4,7 @@ import androidx.navigation.Navigation
 import com.example.masala_food_recipes.data.entities.Recipe
 import com.example.masala_food_recipes.databinding.SubCategoryFragmentBinding
 import com.example.masala_food_recipes.ui.recyclerview.SubCategoryAdapter
+import com.example.masala_food_recipes.ui.recyclerview.SubCategoryItemPadding
 
 
 class ForYouFragment :
@@ -20,6 +21,7 @@ class ForYouFragment :
         binding.subCategoryRecycler.adapter = SubCategoryAdapter(
             forYouList, "ForYou" ,recipeList
         )
+        binding.subCategoryRecycler.addItemDecoration(SubCategoryItemPadding(16))
 
 
         binding.upBar.toolBar.setNavigationOnClickListener {

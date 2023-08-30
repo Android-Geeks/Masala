@@ -29,10 +29,10 @@ class CuisineScreenAdapter(items : List<List<String>>) :
                 cuisineTextview.text = item[0]
                 itemsCount.text = "${item[1]} item"
 
-
                 Glide.with(context).load(item[2]).centerCrop().placeholder(R.drawable.loading)
                         .into(foodImage)
-
+                cardViewCuisine.layoutParams.width = 500
+                cardViewCuisine.layoutParams.height = 500
                 cardViewCuisine.setOnClickListener {
                     PreferencesUtil.apply {
                         init(context)

@@ -12,6 +12,7 @@ import androidx.navigation.findNavController
 import com.example.masala_food_recipes.data.DataManager
 import com.example.masala_food_recipes.databinding.ActivityMainBinding
 
+@Suppress("UNUSED_EXPRESSION")
 class MainActivity : AppCompatActivity() {
 
     private val binding by lazy {
@@ -60,6 +61,12 @@ class MainActivity : AppCompatActivity() {
                 else -> false
             }
         }
+        binding.bottomNavigation.setOnItemReselectedListener {
+            // Handle reselection of the item
+            null
+            // do nothing
+        }
+
     }
 
 
