@@ -8,8 +8,8 @@ import com.example.masala_food_recipes.ui.recyclerview.SubCategoryAdapter
 class UnderTwentyMinFragment :
     BaseFragment<SubCategoryFragmentBinding>(SubCategoryFragmentBinding::inflate) {
 
-    private lateinit var under20MinList : List<List<String>>
-    private lateinit var recipeList : List<Recipe>
+    private lateinit var under20MinList: List<List<String>>
+    private lateinit var recipeList: List<Recipe>
 
     override fun onCreateView() {
 
@@ -18,7 +18,8 @@ class UnderTwentyMinFragment :
         recipeList = viewModel.recipes
 
         binding.subCategoryRecycler.adapter = SubCategoryAdapter(
-            under20MinList, "UnderTwenty" ,recipeList)
+            under20MinList, "UnderTwenty", recipeList
+        )
 
         binding.topAppBar.setNavigationOnClickListener {
             Navigation.findNavController(it).popBackStack()

@@ -45,18 +45,22 @@ class MainActivity : AppCompatActivity() {
                     navController.navigate(R.id.homeFragment)
                     true
                 }
+
                 R.id.searchFragment -> {
                     navController.navigate(R.id.searchFragment)
                     true
                 }
+
                 R.id.favouriteFragment -> {
                     navController.navigate(R.id.favouriteFragment)
                     true
                 }
+
                 R.id.settingFragment -> {
                     navController.navigate(R.id.settingFragment)
                     true
                 }
+
                 else -> false
             }
         }

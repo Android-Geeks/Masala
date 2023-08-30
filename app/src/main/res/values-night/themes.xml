@@ -47,4 +47,14 @@
     <style name="background">
         <item name="android:background">#1F1F1F</item>
     </style>
+
+    <style name="your_favourite">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="explore_food">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">#d1d1d1</item>
+    </style>
 </resources>
