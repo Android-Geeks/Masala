@@ -28,7 +28,7 @@ class CuisineDetailsFragment :
         binding.apply {
             topAppBar.title = cuisineName
             subCategoryRecycler.adapter = CuisineDetailsAdapter(cuisinesList, recipes)
-            root.setOnClickListener {
+            topAppBar.setNavigationOnClickListener {
                 Navigation.findNavController(it).popBackStack()
             }
         }
