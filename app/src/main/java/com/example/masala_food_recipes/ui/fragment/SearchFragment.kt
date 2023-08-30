@@ -31,11 +31,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(FragmentSearchBinding
                 val newList = searchList.filter {
                     it[0].contains(name , ignoreCase = true)
                 }
-                var subNewList = newList
-                if (newList.size > 5) {
-                    subNewList = newList.take(5)
-                }
-                recyclerVisibility(subNewList , name)
+                recyclerVisibility(newList , name)
             }
 
             override fun beforeTextChanged(
