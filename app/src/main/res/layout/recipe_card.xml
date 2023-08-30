@@ -59,7 +59,7 @@
             android:drawableStart="@drawable/food"
             android:drawablePadding="8dp"
             android:textSize="14sp"
-            android:textColor="@color/brown"
+            style="@style/timerStyle"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/recipe_name"
             tools:text="cuisine" />
