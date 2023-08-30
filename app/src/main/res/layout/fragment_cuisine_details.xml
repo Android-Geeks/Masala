@@ -26,6 +26,7 @@
         android:id="@+id/cuisine_recycler_fragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:foregroundGravity="center_horizontal"
         android:orientation="vertical"
         android:paddingTop="26dp"
         android:paddingBottom="40dp"

@@ -3,6 +3,7 @@ package com.example.masala_food_recipes.ui.recyclerview
 import android.annotation.SuppressLint
 import android.content.Context
 import android.view.View
+import androidx.core.view.marginEnd
 import androidx.navigation.Navigation
 import com.bumptech.glide.Glide
 import com.example.masala_food_recipes.R
@@ -29,7 +30,8 @@ class CuisineDetailsAdapter(items : List<List<String>> , val recipeList : List<R
             binding.apply {
                 cuisineTextview.text = item[0]
                 itemsCount.text = "${item[1]} min"
-
+                cardViewCuisine.layoutParams.width = 475
+                cardViewCuisine.layoutParams.height = 500
                 Glide.with(context).load(item[2]).centerCrop().placeholder(R.drawable.loading)
                         .into(foodImage)
                 cardViewCuisine.setOnClickListener {

@@ -2,8 +2,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cuisine_card"
-    android:layout_width="125dp"
-    android:layout_height="150dp"
+    android:layout_width="175dp"
+    android:layout_height="185dp"
     app:cardCornerRadius="12dp"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent">

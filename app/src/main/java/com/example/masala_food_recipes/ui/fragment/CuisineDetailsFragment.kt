@@ -19,15 +19,14 @@ class CuisineDetailsFragment :
         }
     }
 
-    private fun buildingFragmentContent(cuisineName : String) {
+    private fun buildingFragmentContent(cuisineName: String) {
 
         val recipes = viewModel.recipes
         val cuisinesList by lazy { Cuisines(recipes).getCuisineDetails(cuisineName) }
 
         binding.apply {
             cuisineType.text = cuisineName
-            cuisineRecyclerFragment.adapter = CuisineDetailsAdapter(cuisinesList , recipes)
-            cuisineRecyclerFragment.addItemDecoration(CuisineDetailsItemPadding(16))
+            cuisineRecyclerFragment.adapter = CuisineDetailsAdapter(cuisinesList, recipes)
             cuisineType.setOnClickListener {
                 Navigation.findNavController(it).popBackStack()
             }
