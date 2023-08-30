@@ -5,11 +5,12 @@ import com.example.masala_food_recipes.data.interactors.Cuisines
 import com.example.masala_food_recipes.data.util.Constants
 import com.example.masala_food_recipes.data.util.PreferencesUtil
 import com.example.masala_food_recipes.databinding.FragmentCuisineDetailsBinding
+import com.example.masala_food_recipes.databinding.SubCategoryFragmentBinding
 import com.example.masala_food_recipes.ui.recyclerview.CuisineDetailsAdapter
 import com.example.masala_food_recipes.ui.recyclerview.CuisineDetailsItemPadding
 
 class CuisineDetailsFragment :
-    BaseFragment<FragmentCuisineDetailsBinding>(FragmentCuisineDetailsBinding::inflate) {
+    BaseFragment<SubCategoryFragmentBinding>(SubCategoryFragmentBinding::inflate) {
     override fun onCreateView() {
 
         val cuisineFromHome = PreferencesUtil.getFromSharedPref(Constants.CUISINE_KEY)
@@ -25,9 +26,9 @@ class CuisineDetailsFragment :
         val cuisinesList by lazy { Cuisines(recipes).getCuisineDetails(cuisineName) }
 
         binding.apply {
-            cuisineType.text = cuisineName
-            cuisineRecyclerFragment.adapter = CuisineDetailsAdapter(cuisinesList, recipes)
-            cuisineType.setOnClickListener {
+            topAppBar.title = cuisineName
+            subCategoryRecycler.adapter = CuisineDetailsAdapter(cuisinesList, recipes)
+            root.setOnClickListener {
                 Navigation.findNavController(it).popBackStack()
             }
         }
