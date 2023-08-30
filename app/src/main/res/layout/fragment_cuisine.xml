@@ -6,39 +6,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-<!--    <TextView
-        android:id="@+id/cuisine_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="18dp"
-        android:drawablePadding="16dp"
-        android:fontFamily="@font/roboto_medium"
-        android:text="@string/cuisines"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        app:drawableStartCompat="@drawable/arrow_back_24px"
-        app:layout_constraintBottom_toTopOf="@id/cuisine_recycler_fragment"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />-->
-    <include
-        android:id="@+id/up_bar"
-        layout="@layout/cuisine_bar"
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/tool_bar"
+        style="@style/navigationColor"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_scrollFlags="scroll|enterAlways|snap"
+        app:navigationIcon="@drawable/arrow_back"
+        app:title="Cuisines" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/cuisine_recycler_fragment"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
         android:orientation="vertical"
-        android:paddingTop="26dp"
-        android:paddingBottom="60dp"
         app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/up_bar"
+        app:layout_constraintTop_toBottomOf="@id/tool_bar"
         app:spanCount="2"
         tool:listitem="@layout/card_view_cuisines" />
 

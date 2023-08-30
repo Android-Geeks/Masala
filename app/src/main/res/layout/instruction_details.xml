@@ -5,14 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="top|start"
-    android:layout_marginBottom="8dp"
-    android:background="@color/off_white">
+    android:layout_marginBottom="8dp">
 
     <TextView
         android:id="@+id/number"
+        style="@style/viewPagerText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/brown"
         android:textSize="16sp"
         android:textStyle="normal"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,10 +20,10 @@
 
     <TextView
         android:id="@+id/item_text"
+        style="@style/viewPagerText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="top"
-        android:textColor="@color/brown"
         android:textSize="16sp"
         android:textStyle="normal"
         app:layout_constraintEnd_toEndOf="parent"

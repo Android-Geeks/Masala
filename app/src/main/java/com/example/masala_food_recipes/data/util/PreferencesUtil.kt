@@ -4,7 +4,7 @@ import android.content.Context
 import android.content.SharedPreferences
 
 object PreferencesUtil {
-    lateinit var sharedPref : SharedPreferences
+    private lateinit var sharedPref : SharedPreferences
     private const val Shared_Preferences = "MySharedPreferences"
 
     fun init(context: Context){

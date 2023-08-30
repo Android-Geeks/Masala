@@ -1,22 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.appbar.AppBarLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<com.google.android.material.appbar.MaterialToolbar xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/appBarLayout"
-    style="@style/appBarBackground"
+    android:id="@+id/tool_bar"
+    style="@style/navigationColor"
     android:layout_width="match_parent"
     android:layout_height="64dp"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent">
-
-    <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/tool_bar"
-        style="@style/navigationColor"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_scrollFlags="scroll|enterAlways|snap"
-        app:navigationIcon="@drawable/arrow_back"
-        app:title="Sub Category"
-        app:titleTextAppearance="@style/TextAppearance.AppCompat" />
-
-</com.google.android.material.appbar.AppBarLayout>
+    app:layout_scrollFlags="scroll|enterAlways|snap"
+    app:navigationIcon="@drawable/arrow_back"
+    app:title="Sub Category" />

@@ -5,6 +5,7 @@
         <item name="android:statusBarColor">@color/white</item>
         <item name="android:windowLightStatusBar">true</item>
     </style>
+
     <style name="Theme.Masalafoodrecipes" parent="Base.Theme.Masalafoodrecipes" />
 
     <style name="masalaty">
@@ -40,15 +41,19 @@
     <style name="Indicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
         <item name="android:color">@color/orange</item>
     </style>
+
     <style name="Widget.App.CheckBox" parent="Widget.Material3.CompoundButton.CheckBox">
         <item name="buttonTint">@color/orange</item>
     </style>
-    <style name="bottomNavigationBackground">
-        <item name="backgroundTint">@color/off_white</item>
+
+    <style name="card_and_bottomNavigationBackground">
+        <item name="android:background">@color/off_white</item>
     </style>
 
-    <style name="cardBackground">
-        <item name="android:background">@color/off_white</item>
+    <style name="tabLayout">
+        <item name="tabTextColor">@color/gray_30</item>
+        <item name="android:backgroundTint">@color/light_orange</item>
+        <item name="tabSelectedTextColor">@color/black</item>
     </style>
 
     <style name="vectorColor">
@@ -76,14 +81,31 @@
         <item name="backgroundTint">@color/light_orange</item>
     </style>
 
-    <style name="appBarBackground">
-        <item name="android:background">@color/white</item>
+    <style name="number">
+        <item name="android:background">@drawable/number</item>
+        <item name="android:textColor">@color/black</item>
     </style>
+
     <style name="background">
         <item name="android:background">@color/white</item>
     </style>
+
     <style name="roundedImage">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">12dp</item>
+    </style>
+
+    <style name="details">
+        <item name="android:background">@drawable/card_icon</item>
+        <item name="android:drawableTint">@color/light_black</item>
+        <item name="android:textColor">@color/brown</item>
+    </style>
+
+    <style name="viewPagerText">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="backgroundTint">
+        <item name="android:backgroundTint">@color/off_white</item>
     </style>
 </resources>

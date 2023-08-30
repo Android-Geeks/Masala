@@ -10,7 +10,7 @@ class CuisineScreenFragment :
         val cuisinesList = viewModel.cuisineList
         binding.cuisineRecyclerFragment.adapter = CuisineScreenAdapter(cuisinesList)
 
-        binding.upBar.toolBar.setNavigationOnClickListener {
+        binding.toolBar.setNavigationOnClickListener {
             Navigation.findNavController(it).popBackStack()
         }
     }

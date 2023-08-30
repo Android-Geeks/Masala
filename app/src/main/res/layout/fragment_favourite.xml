@@ -29,6 +29,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.recyclerview.widget.RecyclerView
+            style="@style/background"
             android:id="@+id/recycler_view"
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -36,7 +37,6 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="@dimen/margin_start_end"
             android:layout_marginBottom="8dp"
-            android:background="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintHorizontal_weight="1"

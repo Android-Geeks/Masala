@@ -10,7 +10,7 @@
     app:cardCornerRadius="12dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        style="@style/cardBackground"
+        style="@style/card_and_bottomNavigationBackground"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
