@@ -32,15 +32,15 @@ class CsvParser(private val buffer: BufferedReader) {
 
     private fun getRecipeFromStringList(mappedStrings: List<String>) =
         Recipe(
-            translatedRecipeName = mappedStrings[Constants.ColumnIndex.TRANSLATED_RECIPE_NAME],
-            translatedIngredients = getTranslatedIngredientsFromString(mappedStrings[Constants.ColumnIndex.TRANSLATED_INGREDIENTS]),
-            totalTimeInMins = mappedStrings[Constants.ColumnIndex.TOTAL_TIME_IN_MINS],
-            cuisine = mappedStrings[Constants.ColumnIndex.CUISINE],
-            translatedInstructions = getInstructionsFromString(mappedStrings[Constants.ColumnIndex.TRANSLATED_INSTRUCTIONS]),
-            url = mappedStrings[Constants.ColumnIndex.URL],
-            cleanedIngredients = getCleanIngredientsFromString(mappedStrings[Constants.ColumnIndex.CLEANED_INGREDIENTS]),
-            imageUrl = mappedStrings[Constants.ColumnIndex.IMAGE_URL],
-            ingredientCount = mappedStrings[Constants.ColumnIndex.INGREDIENT_COUNT]
+                translatedRecipeName = mappedStrings[Constants.ColumnIndex.TRANSLATED_RECIPE_NAME] ,
+                translatedIngredients = getTranslatedIngredientsFromString(mappedStrings[Constants.ColumnIndex.TRANSLATED_INGREDIENTS]) ,
+                totalTimeInMins = mappedStrings[Constants.ColumnIndex.TOTAL_TIME_IN_MINS] ,
+                cuisine = mappedStrings[Constants.ColumnIndex.CUISINE] ,
+                translatedInstructions = getInstructionsFromString(mappedStrings[Constants.ColumnIndex.TRANSLATED_INSTRUCTIONS]) ,
+                url = mappedStrings[Constants.ColumnIndex.URL] ,
+                cleanedIngredients = getCleanIngredientsFromString(mappedStrings[Constants.ColumnIndex.CLEANED_INGREDIENTS]) ,
+                imageUrl = mappedStrings[Constants.ColumnIndex.IMAGE_URL] ,
+                ingredientCount = mappedStrings[Constants.ColumnIndex.INGREDIENT_COUNT]
         )
 
     private fun getTranslatedIngredientsFromString(ingredients: String) =

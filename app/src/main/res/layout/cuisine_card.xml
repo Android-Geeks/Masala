@@ -2,9 +2,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cuisine_card"
-    android:layout_width="125dp"
-    android:layout_height="150dp"
+    android:layout_width="175dp"
+    android:layout_height="185dp"
     app:cardCornerRadius="12dp"
+    android:layout_marginEnd="8dp"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent">
 
@@ -16,8 +17,8 @@
             android:id="@+id/cuisine_image"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:background="@drawable/img"
-            android:src="@drawable/gradient"
+            tools:background=""
+            android:foreground="@drawable/gradient"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

@@ -2,8 +2,10 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="163dp"
+    android:id="@+id/card_view_cuisine"
+    android:layout_width="match_parent"
     android:layout_height="160dp"
+    android:layout_marginStart="16dp"
     android:layout_marginBottom="16dp"
     app:cardCornerRadius="12dp">
 
@@ -14,11 +16,11 @@
         <ImageView
             android:id="@+id/food_image"
             android:layout_width="match_parent"
-            android:layout_height="160dp"
+            android:layout_height="match_parent"
             android:contentDescription="@string/food_image"
             android:foreground="@drawable/gradient_card"
+            android:scaleType="centerCrop"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:src="@drawable/image" />
@@ -30,12 +32,11 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="8dp"
             android:ellipsize="end"
-            android:maxLines="1"
+            android:maxLines="2"
             android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="normal"
             app:layout_constraintBottom_toTopOf="@id/items_count"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             tools:text="Indian" />
 

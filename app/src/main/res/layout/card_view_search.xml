@@ -2,9 +2,12 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/search_card"
     android:layout_width="match_parent"
     android:layout_height="80dp"
+    android:layout_marginBottom="16dp"
     android:background="@color/off_white"
+    app:cardElevation="0dp"
     app:cardCornerRadius="12dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -80,10 +83,10 @@
 
                 <ImageView
                     android:id="@+id/drawable_recipe"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
                     android:layout_marginStart="8dp"
-                    android:background="@drawable/food"
+                    android:background="@drawable/cooking_time"
                     android:contentDescription="@string/dish_image"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/minutes_text"
@@ -97,12 +100,13 @@
             android:layout_width="36dp"
             android:layout_height="36dp"
             android:layout_marginEnd="16dp"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="@color/off_white"
+            android:src="@drawable/heart_icon"
             android:contentDescription="@string/heart_icon"
-            android:src="@drawable/round_favorite_border_24"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/constraint_layout"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

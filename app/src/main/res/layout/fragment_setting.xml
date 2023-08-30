@@ -1,15 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    style="@style/background"
     tools:context=".ui.fragment.SettingFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="Setting Fragment" />
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/dark_mode"
+            style="@style/vectorColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:drawableStart="@drawable/pallete"
+            android:drawablePadding="16dp"
+            android:padding="16dp"
+            android:text="@string/dark_mode"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.materialswitch.MaterialSwitch
+            android:id="@+id/dark_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/dark_mode"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/dark_mode"
+            app:thumbTint="@color/thumb"
+            app:trackTint="@color/tracker" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/language"
+            style="@style/vectorColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:drawableStart="@drawable/earth"
+            android:drawablePadding="16dp"
+            android:padding="16dp"
+            android:text="@string/language"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dark_mode" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/english"
+            style="@style/vectorColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="16dp"
+            android:padding="16dp"
+            android:text="@string/english"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="@+id/dark_switch"
+            app:layout_constraintTop_toTopOf="@+id/language" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/what_is_new"
+            style="@style/vectorColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:drawableStart="@drawable/dialog"
+            android:drawablePadding="16dp"
+            android:padding="16dp"
+            android:text="@string/what_s_new"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/language" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/faq"
+            style="@style/vectorColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:drawableStart="@drawable/users_group_rounded"
+            android:drawablePadding="16dp"
+            android:padding="16dp"
+            android:text="@string/faq"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/what_is_new" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/terms_of_service"
+            style="@style/vectorColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:drawableStart="@drawable/checklist_minimalistic"
+            android:drawablePadding="16dp"
+            android:padding="16dp"
+            android:text="@string/terms_of_service"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/faq" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/history_of_india"
+            style="@style/vectorColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:drawableStart="@drawable/bill"
+            android:drawablePadding="16dp"
+            android:padding="16dp"
+            android:text="@string/history_of_indian_food"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/terms_of_service" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </FrameLayout>

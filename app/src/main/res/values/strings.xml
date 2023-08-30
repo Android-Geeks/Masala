@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">masala-food-recipes</string>
+    <string name="app_name">Masalaty</string>
     <string name="title"> Masalaty</string>
     <string name="cuisines">Cuisines</string>
     <string name="view_all">View All</string>
@@ -20,6 +20,23 @@
     <string name="heart_icon">Heart Icon</string>
     <string name="recipe_image">Recipe Image</string>
     <string name="dish_image">Dish Image</string>
-    <string name="cuisine_image">Cuisine Image</string>
+
+    <string name="your_favorites">Your Favorites List is Empty</string>
+    <string name="explore_food">Explore food dishes and add them to favorite to show them here.</string>
+    <string name="hinted_search_text">Hinted search text</string>
+    <string name="your_search">Your Search List is Empty</string>
+    <string name="explore_food_2">Explore food dishes and add them to Search to show them here.</string>
+    <string name="what_s_new">What\'s new?</string>
+    <string name="english">English</string>
+    <string name="language">Language</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="history_of_indian_food">History of indian food</string>
+    <string name="terms_of_service">Terms of service</string>
+    <string name="faq">FAQ</string>
+    <string name="home">Home</string>
+    <string name="search">Search</string>
+    <string name="favourites">Favourites</string>
+    <string name="settings">Settings</string>
+    <string name="selected_cuisine">Selected cuisine</string>
 
 </resources>

@@ -1,57 +1,82 @@
 package com.example.masala_food_recipes
 
 
+import android.annotation.SuppressLint
+import android.content.Context
 import android.os.Bundle
+import androidx.activity.viewModels
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.navigation.findNavController
+import com.example.masala_food_recipes.data.DataManager
 import com.example.masala_food_recipes.databinding.ActivityMainBinding
-import com.example.masala_food_recipes.ui.fragment.FavouriteFragment
-import com.example.masala_food_recipes.ui.fragment.HomeFragment
-import com.example.masala_food_recipes.ui.fragment.SearchFragment
-import com.example.masala_food_recipes.ui.fragment.SettingFragment
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMainBinding
-    private val homeScreen = HomeFragment()
-    private val favouriteScreen = FavouriteFragment()
-    private val searchScreen = SearchFragment()
-    private val settingScreen = SettingFragment()
-    override fun onCreate(savedInstanceState: Bundle?) {
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        super.onCreate(savedInstanceState)
-        setContentView(binding.root)
-        init()
+    private val binding by lazy {
+        ActivityMainBinding.inflate(layoutInflater)
     }
 
-    private fun init() {
-        initFragment()
+    private val navController by lazy {
+        findNavController(R.id.fragment_container_view)
+    }
+
+    @SuppressLint("SourceLockedOrientationActivity")
+    override fun onCreate(savedInstanceState: Bundle?) {
+        val sharedPref = this.getSharedPreferences("MY_PREFS", Context.MODE_PRIVATE)
+        if (sharedPref.getBoolean("current_state", false)) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        }
+        super.onCreate(savedInstanceState)
+        setContentView(binding.root)
+        val viewModel: GlobalViewModel by viewModels()
+        viewModel.recipes = DataManager(this).getAllRecipesData()
+
+    }
+
+
+    @SuppressLint("SuspiciousIndentation")
+    override fun onResume() {
+        super.onResume()
         binding.bottomNavigation.setOnItemSelectedListener { item ->
             when (item.itemId) {
-                R.id.home_icon -> replaceFragment(homeScreen)
-                R.id.search_icon -> replaceFragment(searchScreen)
-                R.id.favourite_icon -> replaceFragment(favouriteScreen)
-                R.id.setting_icon -> replaceFragment(settingScreen)
+                R.id.homeFragment -> {
+                    navController.navigate(R.id.homeFragment)
+                    true
+                }
+
+                R.id.searchFragment -> {
+                    navController.navigate(R.id.searchFragment)
+                    true
+                }
+
+                R.id.favouriteFragment -> {
+                    navController.navigate(R.id.favouriteFragment)
+                    true
+                }
+
+                R.id.settingFragment -> {
+                    navController.navigate(R.id.settingFragment)
+                    true
+                }
+
                 else -> false
             }
         }
     }
 
-    private fun initFragment() {
-        inTransaction { add(R.id.fragment_container_view, homeScreen) }
-    }
 
-    private fun replaceFragment(fragment: Fragment): Boolean {
-        inTransaction { replace(R.id.fragment_container_view, fragment) }
-        return true
+    @Deprecated("Deprecated in Java")
+    override fun onBackPressed() {
+        val currentFragmentId = navController.currentDestination?.id
+        if (currentFragmentId == R.id.homeFragment) {
+            val builder = AlertDialog.Builder(this)
+            builder.setMessage("Are you sure you want to exit?").setCancelable(false)
+                .setPositiveButton("Yes") { _, _ -> finish() }
+                .setNegativeButton("No") { dialog, _ -> dialog.cancel() }
+            val alert = builder.create()
+            alert.show()
+        } else navController.popBackStack()
     }
-
-    private fun inTransaction(func: FragmentTransaction.() -> FragmentTransaction) {
-        supportFragmentManager
-            .beginTransaction()
-            .func()
-            .commit()
-    }
-
 }

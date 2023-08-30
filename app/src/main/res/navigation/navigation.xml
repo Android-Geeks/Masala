@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.masala_food_recipes.ui.fragment.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_favouriteFragment"
+            app:destination="@id/favouriteFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_settingFragment"
+            app:destination="@id/settingFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_cuisineDetailsFragment"
+            app:destination="@id/cuisineDetailsFragment"
+            />
+        <action
+            android:id="@+id/action_homeFragment_to_cuisineScreenFragment"
+            app:destination="@id/cuisineScreenFragment" />
+
+        <action
+            android:id="@+id/action_homeFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_in"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/slide_out_right" />
+        <action
+            android:id="@+id/action_homeFragment_to_underFiveIngredientFragment"
+            app:destination="@id/underFiveIngredientFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_underTwentyMinFragment"
+            app:destination="@id/underTwentyMinFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_forYouFragment"
+            app:destination="@id/forYouFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/favouriteFragment"
+        android:name="com.example.masala_food_recipes.ui.fragment.FavouriteFragment"
+        android:label="fragment_favourite"
+        tools:layout="@layout/fragment_favourite" >
+        <action
+            android:id="@+id/action_favouriteFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.example.masala_food_recipes.ui.fragment.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_searchFragment_to_detailsFragment2"
+            app:destination="@id/detailsFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_in"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.example.masala_food_recipes.ui.fragment.SettingFragment"
+        android:label="fragment_setting"
+        tools:layout="@layout/fragment_setting" />
+    <fragment
+        android:id="@+id/cuisineDetailsFragment"
+        android:name="com.example.masala_food_recipes.ui.fragment.CuisineDetailsFragment"
+        android:label="CuisineDetailsFragment"
+        tools:layout="@layout/fragment_cuisine_details">
+        <action
+            android:id="@+id/action_cuisineDetailsFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out"/>
+    </fragment>
+    <fragment
+        android:id="@+id/cuisineScreenFragment"
+        android:name="com.example.masala_food_recipes.ui.fragment.CuisineScreenFragment"
+        android:label="CuisineScreenFragment"
+        tools:layout="@layout/fragment_cuisine">
+        <action
+            android:id="@+id/action_cuisineScreenFragment_to_cuisineDetailsFragment"
+            app:destination="@id/cuisineDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.example.masala_food_recipes.ui.fragment.DetailsFragment"
+        android:label="DetailsFragment"
+        tools:layout="@layout/fragment_details">
+        <argument
+            android:name="recipe"
+            app:argType="com.example.masala_food_recipes.data.entities.Recipe" />
+    </fragment>
+    <fragment
+        android:id="@+id/underFiveIngredientFragment"
+        android:name="com.example.masala_food_recipes.ui.fragment.UnderFiveIngredientFragment"
+        android:label="UnderFiveIngredientFragment"
+        tools:layout="@layout/sub_category_fragment"
+        >
+        <action
+            android:id="@+id/action_underFiveIngredientFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_in"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/underTwentyMinFragment"
+        android:name="com.example.masala_food_recipes.ui.fragment.UnderTwentyMinFragment"
+        android:label="UnderTwentyMinFragment"
+        tools:layout="@layout/sub_category_fragment">
+        <action
+            android:id="@+id/action_underTwentyMinFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_in"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/forYouFragment"
+        android:name="com.example.masala_food_recipes.ui.fragment.ForYouFragment"
+        android:label="ForYouFragment"
+        tools:layout="@layout/sub_category_fragment">
+        <action
+            android:id="@+id/action_forYouFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_in"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/slide_out_right"/>
+        <argument
+            android:name="recipe"
+            app:argType="com.example.masala_food_recipes.data.entities.Recipe" />
+    </fragment>
+</navigation>
