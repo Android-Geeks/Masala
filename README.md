@@ -70,7 +70,7 @@ To enjoy the flavors of Masalaty, follow these steps:
 <a name="download-apk"></a>
 ## Download APK 📦
 
-Get started by downloading the latest app version using the [APK file](/path/to/masalaty-app.apk).
+Get started by downloading the latest app version using the [APK file](/readmeData/masala.apk).
 
 <a name="contributors"></a>
 ## Contributors 👩‍💻👨‍💻
