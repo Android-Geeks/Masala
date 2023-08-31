@@ -79,7 +79,7 @@ Made with love by:
 
 - [Zeyad Abdullah](https://github.com/ZeyadAbdullah679)
 - [Ali Alashwall](https://github.com/AliAlashwall)
-- [Menna Alaa](https://github.com/Menna120)
+- [Menna Ibrahim](https://github.com/Menna120)
 - [Zeinab Ahmed](https://github.com/Zeinab979)
 - [Nourhan Ibrahim](https://github.com/3105731) 
 
